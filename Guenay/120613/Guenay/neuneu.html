@@ -1,0 +1,63 @@
+
+<html>
+<head>
+<div align="center">
+<h1>Raumvisualisierung  <img src="logoRavi1.jpg" align="left"align="top"> </h1>
+  <br><br>
+<hr>
+</div>
+</head>
+<body>
+
+
+	<div id="nav">
+		
+		<form name="raviform" onsubmit="return Change()" >
+			<br>
+			<select name="auswahl" >
+			  <option >--bitte auswaehlen--</option>
+			  <option value="gem">Haus 1</option>
+			  <option value="wahl">Haus 2</option>
+			  <option value="auto">Haus 6a</option>
+			  <option value="ravi">Haus 6b</option>
+			</select>
+			<br><br>
+			<select name="auswahl" >
+			  <option >--bitte auswaehlen--</option>
+			  <option value="gem">Etage 1</option>
+			  <option value="wahl">Etage 2</option>
+			  <option value="auto">Etage 3</option>
+			  <option value="ravi">Etage 4</option>
+			  <option value="ravi">Etage 5</option>
+			</select>
+			<br><br>
+			<!-- datepicker -->				
+					<meta charset="utf-8" />
+					<title>jQuery UI Datepicker - Default functionality</title>
+					<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+					<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+					<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+					<link rel="stylesheet" href="/resources/demos/style.css" />
+					<script>
+					$(function() {
+					$( "#datepicker" ).datepicker();
+					});
+					</script>
+					<p>Date: <input type="text" id="datepicker" /></p>
+			<!-- datepicker ende -->
+
+			<!-- Diagrammtyp-->		
+			<form action="input_radio.htm">
+			  <p>Diagrammtyp:</p>
+			  <p>
+			    <input type="radio" name="Zahlmethode" value="Dounut">  <img src="logo2.gif">  Dounutdiagramm <br><br>
+			    <input type="radio" name="Zahlmethode" value="Balkendiagramm"> <img src="logo1.gif">  Balkendiagramm<br><br>
+			    <input type="radio" name="Zahlmethode" value="Kreisdiagramm"> <img src="logo.gif">  Kreisdiagramm<br>
+			  </p>
+			</form>
+			<!-- Diagrammtyp Ende-->
+			<input type="button" value="senden" onclick="return Change()"/>
+		</form>
+	</div>
+</body>
+</html>
