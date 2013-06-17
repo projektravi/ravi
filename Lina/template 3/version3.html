@@ -1,0 +1,157 @@
+
+<html>
+	<head> 
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+			<style>
+				.infobox
+				{
+				display: none;
+				position:absolute;
+				background-color: #d92425;
+				color: white;
+				}
+			</style>
+		<script>
+			$(function() {
+			$('.hover').hover(function(){
+			$('.infobox',this).toggle()
+			})
+			})
+		</script> 
+		<div align="center">
+			<h1>Raumvisualisierung  <img src="logoRavi1.jpg" align="left" align="top"> </h1>
+			<br>
+			<br>
+			<hr>
+		</div>
+	</head>
+
+	<body>
+		<div id="nav">
+			<form name="raviform" onsubmit="return Change()" >
+				<br>
+				<select name="auswahl" >
+				  <option >--Haus--</option>
+				  <option value="gem">Haus 1</option>
+				  <option value="wahl">Haus 2</option>
+				  <option value="auto">Haus 6a</option>
+				  <option value="ravi">Haus 6b</option>
+				</select>
+				
+				<br>
+				<br>
+				
+				<select name="auswahl" >
+				  <option >--Etage--</option>
+				  <option value="gem">Etage 1</option>
+				  <option value="wahl">Etage 2</option>
+				  <option value="auto">Etage 3</option>
+				  <option value="ravi">Etage 4</option>
+				  <option value="ravi">Etage 5</option>
+				</select>
+				
+				<br>
+				<br>
+				
+				<select name="auswahl" >
+				  <option >--Raum--</option>
+				  <option value="gem">Raum 1</option>
+				  <option value="wahl">Raum 2</option>
+				  <option value="auto">Raum 3</option>
+				  <option value="ravi">Raum 4</option>
+				  <option value="ravi">Raum 5</option>
+				</select>
+					
+				
+				
+	<!-- datepicker1 -->
+		
+				<meta charset="utf-8" />
+				<title>jQuery UI Datepicker - Default functionality</title>
+					<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+						<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+						<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+					<link rel="stylesheet" href="/resources/demos/style.css" />
+				<script>
+					$(function() {
+					$( "#datepicker1" ).datepicker();
+					});
+				</script>
+
+
+				<p>Zeitraum von:<br> <input type="text" id="datepicker1" /></p>
+
+	<!-- datepicker ende -->
+
+	<!-- datepicker2 -->
+			
+				<meta charset="utf-8" />
+				<title>jQuery UI Datepicker - Default functionality</title>
+					<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+						<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+						<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+					<link rel="stylesheet" href="/resources/demos/style.css" />
+				<script>
+					$(function() {
+					$( "#datepicker2" ).datepicker();
+					});
+				</script>
+
+
+				<p>Zeitraum bis:<br>  <input type="text" id="datepicker2" /></p>
+
+	<!-- datepicker ende -->
+
+	<!-- Diagrammtyp-->
+
+
+				<p>Diagrammtyp:</p>  
+
+				<table>
+					<tr>
+						<td>	
+							<span class="hover"><img src="logodounut.jpg" ><span class="infobox">&nbsp;Dounutdiagramm&nbsp; </span></span>
+						</td>
+						<td>	
+							<span class="hover"><img src="logobalken.jpg"><span class="infobox">&nbsp;Balkendiagramm&nbsp;</span></span>
+						</td>
+						<td>	
+							<span class="hover"><img src="logokreis.jpg"><span class="infobox">&nbsp;Kreisdiagramm&nbsp;</span></span>
+						</td>
+						<td>	
+							<span class="hover"><img src="logolinie.jpg"><span class="infobox"> &nbsp;Liniendiagramm&nbsp;</span></span>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align:center">
+							<input  type="radio" name="Diagrammtyp" value="Dounut" > 
+						</td>
+						<td style="text-align:center">
+							<input type="radio" name="Diagrammtyp" value="Balkendiagramm">  
+						</td>
+						<td style="text-align:center">
+							 <input type="radio" name="Diagrammtyp" value="Kreisdiagramm"> 
+						</td>
+						<td style="text-align:center">
+							<input  type="radio" name="Diagrammtyp" value="Linie" > 
+						</td>
+					</tr>
+				</table>
+				</p>
+
+	<!-- Diagrammtyp Ende-->
+
+	<!-- x-Achse-->
+				<p> x-Achse:</p>
+				<p>
+					<input type="radio" name="xAchse" value="Wochentage"> Wochentage<br>
+					<input type="radio" name="xAchse" value="Monate"> Monate<br>
+					<input type="radio" name="xAchse" value="Semester"> Semester <br>
+					<input type="radio" name="xAchse" value="Jahre"> Jahre <br>
+				</p>
+
+				<input type="button" value="senden" onclick="return Change()"/>
+			</form>
+		</div>
+	</body>
+</html>
