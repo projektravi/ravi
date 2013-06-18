@@ -1,15 +1,18 @@
 <?php
 include("dbconnect.php");
 
-$ergebnis = mysql_query("SELECT StandortID, Bezeichnung FROM standort");
+$id = $_POST["GebaeudeID"];
+
+$ergebnis = mysql_query("SELECT RaumID, Raumnr FROM raum WHERE GebäudeID = " . $id);
 if (!$ergebnis) {
     echo 'Konnte Abfrage nicht ausführen: ' . mysql_error();
     exit;
 }
+$arr = array();
 while($row = mysql_fetch_object($ergebnis)) {
 	$t_arr = array();
-	$t_arr["StandortID"] = $row->StandortID;	
-	$t_arr["Bezeichnung"] = utf8_encode($row->Bezeichnung);	
+	$t_arr["RaumID"] = $row->RaumID;	
+	$t_arr["Raumnr"] = utf8_encode($row->Raumnr);	
 	$arr[] = $t_arr;
 }
 

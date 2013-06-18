@@ -1,5 +1,3 @@
-var raum = new Array(new Array("126","127"), new Array("ABC","CDE"));
-
 // Einstiegspunkt ins Menu - Anfrage an den Server um die Standorte auszulesen
 function frage_standorte_ab() {
 	// Daten an Server senden
@@ -30,17 +28,23 @@ function lade_standorte_in_menu(data) {
 // Anfrage an den Server um die Häuser zu einem ausgewähltem Standort zu erhalten
 function frage_haeuser_ab(f) {
 	var id = f.standort.value;
-	if (id == "")
+	if (id == "") {
+		f.haus.options.length = 0;
+		f.haus.options[0] = new Option("Standort auswählen","");
+		f.haus.disabled = true;
+		frage_raeume_ab(f);
 		return;		
-	f.haus.options[0] = new Option("Bitte warten");
+	}
+	f.haus.options.length = 0;
+	f.haus.options[0] = new Option("Bitte warten","");
 	f.haus.disabled = true;
 	// Daten an Server senden
 	$.ajax({
 		// pfad zur PHP Datei (ab HTML Datei)
 		url: "PHP/frage_haeuser_ab.php",
 		// Daten, die an Server gesendet werden soll in JSON Notation
-			data: {StandortID: id},
-			datatype: "json",
+		data: {StandortID: id},
+		datatype: "json",
 		// Methode POST oder GET
 		type: "POST",
 		// Callback-Funktion, die nach der Antwort des Servers ausgefuehrt wird
@@ -53,7 +57,9 @@ function lade_haeuser_in_menu(data) {
 	var f = document.menu;
 	var response = $.parseJSON(data);	
 	if (response.length == 0) {
-		f.haus.options[0] = new Option("Keine Häuser hinterlegt");
+		f.haus.options.length = 0;
+		f.haus.options[0] = new Option("Keine Häuser hinterlegt","");
+		frage_raeume_ab(f);
 		return;
 	}
 	f.haus.options.length = 0;
@@ -62,21 +68,49 @@ function lade_haeuser_in_menu(data) {
 	for (var i = 0; i < response.length; i++) {
 		f.haus.options[i+1] = new Option(response[i].Bezeichnung,response[i].GebaeudeID);
 	}
+	frage_raeume_ab(f);
 }
 
-function lade_raeume(f) {
+// Anfrage an den Server um die Räume zu einem ausgewähltem Haus zu erhalten
+function frage_raeume_ab(f) {
+	var id = f.haus.value;
+	if (id == "") {
+		f.raum.options.length = 0;
+		f.raum.options[0] = new Option("Haus auswählen","");
+		f.raum.disabled = true;
+		return;		
+	}
+	f.raum.options.length = 0;
+	f.raum.options[0] = new Option("Bitte warten","");
+	f.raum.disabled = true;
+	// Daten an Server senden
+	$.ajax({
+		// pfad zur PHP Datei (ab HTML Datei)
+		url: "PHP/frage_raeume_ab.php",
+		// Daten, die an Server gesendet werden soll in JSON Notation
+		data: {GebaeudeID: id},
+		datatype: "json",
+		// Methode POST oder GET
+		type: "POST",
+		// Callback-Funktion, die nach der Antwort des Servers ausgefuehrt wird
+        success: function(data) { lade_raeume_in_menu(data); }
+	});
+}
+
+// Räume laden - Callback-Funktion von frage_raeume_ab()
+function lade_raeume_in_menu(data) {
+	var f = document.menu;
+	var response = $.parseJSON(data);	
+	if (response.length == 0) {
+		f.raum.options.length = 0;
+		f.raum.options[0] = new Option("Keine Räume hinterlegt","");
+		return;
+	}
 	f.raum.options.length = 0;
 	f.raum.disabled = false;
-	f.raum.options[0] = new Option("Bitte auswählen");
-	var indexHaus = f.haus.selectedIndex;
-	if (indexHaus == 0)
-		return false;
-	var raumA = raum[indexHaus-1];
-	if (raumA == null)
-		return false;
-	for (var i=0; i < raumA.length; i++) {
-		f.raum.options[i+1] = new Option(raumA[i],"");
-	}
+	f.raum.options[0] = new Option("Bitte auswählen","");	
+	for (var i = 0; i < response.length; i++) {
+		f.raum.options[i+1] = new Option(response[i].Raumnr,response[i].RaumID);
+	}	
 }
 
-frage_standorte_ab()
