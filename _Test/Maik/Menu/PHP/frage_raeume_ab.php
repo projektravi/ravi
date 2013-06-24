@@ -3,7 +3,7 @@ include("dbconnect.php");
 
 $id = $_POST["GebaeudeID"];
 
-$ergebnis = mysql_query("SELECT RaumID, Raumnr FROM raum WHERE GebäudeID = " . $id);
+$ergebnis = mysql_query("SELECT RaumID, Raumnr FROM raum WHERE GebaeudeID = " . $id);
 if (!$ergebnis) {
     echo 'Konnte Abfrage nicht ausführen: ' . mysql_error();
     exit;
