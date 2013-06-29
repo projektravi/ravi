@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript">
+  window.onload = function () {
+    datenarray = [
+    	{ x: 1, y: 71,label: "18.06.2013"},
+    	{ x: 2, y: 55,label: "19.06.2013"},
+    	{ x: 3, y: 50,label: "20.06.2013"},
+    	{ x: 4, y: 65,label: "21.06.2013"},
+    	{ x: 5, y: 95,label: "22.06.2013"},
+    	];
+    zeichneDiagramm("Linie","Beispieltitel","X-Achsenbeschriftung","Y-Achsenbeschriftung",datenarray);
+	chart.render();
+  }
+  </script>
+ <script type="text/javascript" src="canvasjs.js"></script></head>
+ <script type="text/javascript" src="draw_funktionen.js"></script></head>
+<body>
+  <div id="grafik" style="height: 300px; width: 100%;">
+  </div>
+</body>
+</html>
