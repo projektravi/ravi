@@ -3,7 +3,7 @@ function rmrFrageStandorteAb() {
 	// Daten an Server senden
 	$.ajax({
 		// pfad zur PHP Datei (ab HTML Datei)
-		url: "PHP/frage_standorte_ab.php",		
+		url: "PHP/menuFrageStandorteAb.php",		
 		// Methode POST oder GET
 		type: "POST",
 		// Callback-Funktion, die nach der Antwort des Servers ausgefuehrt wird
@@ -22,7 +22,7 @@ function rmrLadeStandorteInMenu(data) {
 	f.standort.options[0] = new Option("Bitte auswählen","");
 	for (var i = 0; i < response.length; i++) {
 		f.standort.options[i+1] = new Option(rhDecodeUtf8(response[i].Bezeichnung),response[i].StandortID);
-	}
+	}	
 }
 
 // Anfrage an den Server um die Häuser zu einem ausgewähltem Standort zu erhalten
@@ -41,7 +41,7 @@ function rmrFrageHaeuserAb(f) {
 	// Daten an Server senden
 	$.ajax({
 		// pfad zur PHP Datei (ab HTML Datei)
-		url: "PHP/frage_haeuser_ab.php",
+		url: "PHP/menuFrageHaeuserAb.php",
 		// Daten, die an Server gesendet werden soll in JSON Notation
 		data: {StandortID: id},
 		datatype: "json",
@@ -86,7 +86,7 @@ function rmrFrageRaeumeAb(f) {
 	// Daten an Server senden
 	$.ajax({
 		// pfad zur PHP Datei (ab HTML Datei)
-		url: "PHP/frage_raeume_ab.php",
+		url: "PHP/menuFrageRaeumeAb.php",
 		// Daten, die an Server gesendet werden soll in JSON Notation
 		data: {GebaeudeID: id},
 		datatype: "json",
@@ -113,4 +113,6 @@ function rmrLadeRaeumeInMenu(data) {
 		f.raum.options[i+1] = new Option(response[i].Raumnr,response[i].RaumID);
 	}	
 }
+
+rmrFrageStandorteAb();
 

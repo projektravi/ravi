@@ -7,12 +7,12 @@
 	<!-- Inkludierte Javascript-Dateien -->
 <?php include "js/_includes" ?>
 </head>
-<body onLoad="rmrFrageStandorteAb()">
+<body> <!-- onLoad="rmrFrageStandorteAb()"><!--rmrFrageStandorteAb() -->
 	<div id="header"></div>
 	<div id="noheader">
 		<div id="navigation">
 			<!-- Start: Eingabeformular -->
-			<form name="menu" onsubmit="return anzeigen()">   
+			<form name="menu">   
 				<!-- Start: Standort-, Haus-, Raum-Auswahl -->
 				<table border="0">
 					<tr>
@@ -152,7 +152,7 @@
 				</p>
 				<!-- Ende: Diagrammtyp -->
 				
-				<button type="submit">anzeigen</button>
+				<input type="button" onClick="rd1FrageDatenAb()" value="anzeigen"/>
 			</form>
 		</div>				
 		<div id="main">
@@ -160,7 +160,7 @@
 				<div id="pfad"><b>HWR-Campus-Lichtenberg > Haus 6A > Raum 123</b></div>
 				<div id="titel"><b><center>Raumbelegung</center></b></div>
 			</div>
-			<div id="grafik"> grafik </div>
+			<div id="grafik" style="height: 300px; width: 100%;">  </div>
 			<div id="impressum"><center>&copy; Team-RaVi / Impressum</center></div>
 		</div>
 	</div>
