@@ -1,0 +1,20 @@
+<?php
+// Array mit den Pfadangaben zu den Scripten
+$scripte = array();
+
+
+// Includierte Scripte
+// extern
+// Style für Datepicker
+$scripte[] = "css/ext/jquery-ui-themes-1.10.3/themes/smoothness/jquery-ui.min.css";
+
+// intern
+// RaVi-Styles
+$scripte[] = "css/style.css";
+
+
+// Includes in HTML-Notation ausgeben
+foreach ($scripte as $value) {
+    echo "\t<link rel='stylesheet' type='text/css' href='$value'/>\n";
+}
+?>
