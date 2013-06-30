@@ -1,0 +1,28 @@
+<?php
+// Array mit den Pfadangaben zu den Scripten
+$scripte = array();
+
+
+// Includierte Scripte
+// extern
+// jQuery 
+$scripte[] = "js/ext/jquery-1.10.1.min.js";
+// jQuery UI 
+$scripte[] = "js/ext/jquery-ui.1.10.3.min.js";
+
+// intern
+// Errorhandler
+$scripte[] = "js/ravi.errorhandler.js";
+// Hilfsfunktionen
+$scripte[] = "js/ravi.helper.js";
+// Menu - Raumauswahl
+$scripte[] = "js/ravi.menu.raumauswahl.js";
+// Menu - Datumsauswahl
+$scripte[] = "js/ravi.menu.datumsauswahl.js";
+
+
+// Includes in HTML-Notation ausgeben
+foreach ($scripte as $value) {
+    echo "\t<script language='javascript' src='$value'></script>\n";
+}
+?>
