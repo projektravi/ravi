@@ -1,0 +1,1 @@
+copy "php\dbconnect_lokal.php" "php\dbconnect.php"
