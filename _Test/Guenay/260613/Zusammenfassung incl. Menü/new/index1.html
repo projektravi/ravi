@@ -1,0 +1,233 @@
+<html>
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>RaVi - Die Raumvisualisierung Projekt 1 - VI 2013 - 2014 - HWR-Berlin</title>
+		<link rel="stylesheet"	type="text/css"	href="css/style.css"/>	 
+		<script src="js/jquery-1.10.1.min.js"></script>
+		<script src="js/errorhandler.js"/></script>
+		<script src="js/menu.js"/></script>
+		<script>
+			$(function() {
+			$('.hover').hover(function(){
+			$('.infobox',this).toggle()
+			})
+			})
+			function anzeigen(){
+				var standort = $("#standort option:selected").text();
+				var haus = $("#haus option:selected").text();
+				var raum = $("#raum option:selected").text();
+				//var node = document.getElementById('pfad');
+				//var standortHeader = document.createTextNode(standort);
+				//node.parentNode.insertBefore(standortHeader, node );			
+				alert(standort+" "+haus+raum);
+				
+			} 
+			
+		</script> 
+</head>
+<body onLoad="frage_standorte_ab()">
+			<div id="header"></div >
+			<div id="noheader">
+				<div id="navigation">
+					<form name="menu" onsubmit="return anzeigen()">   
+					<!-- Standort-, Haus-, Raum-Auswahl -->
+					<table border="0">
+						<tr>
+							<td>Standort</td>
+							<td><select id="standort" name="standort" style="width:225px;" size="1" onChange="frage_haeuser_ab(this.form)" disabled>
+									<option>Bitte warten</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>Haus</td>
+							<td>
+								<select id="haus"name="haus" style="width:225px" size="1" onChange="frage_raeume_ab(this.form)" disabled>
+									<option>Standort auswählen</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>Raum</td>
+							<td>
+								<select id="raum" name="raum" style="width:225px" size="1" disabled>
+									<option>Haus auswählen</option>
+								</select>
+							</td>
+						</tr>
+					</table>
+					<!-- Standort-, Haus-, Raum-Auswahl -->
+									<!-- datepicker1 -->
+				<p>Datum:&nbsp;&nbsp;&nbsp; 
+				<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />				
+				<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+					
+				<!-- Tag auswählen -->
+				<select id="Day">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="13">13</option>
+					<option value="14">14</option>
+					<option value="15">15</option>
+					<option value="16">16</option>
+					<option value="17">17</option>
+					<option value="18">18</option>
+					<option value="19">19</option>
+					<option value="20">20</option>
+					<option value="21">21</option>
+					<option value="22">22</option>
+					<option value="23">23</option>
+					<option value="24">24</option>
+					<option value="25">25</option>
+					<option value="26">26</option>
+					<option value="27">27</option>
+					<option value="28">28</option>
+					<option value="29">29</option>
+					<option value="30">30</option>
+					<option value="31">31</option>								
+				</select>
+				 
+				<!-- Monat auswählen -->
+				<select id="Month">
+					<option value="1">Januar</option>
+					<option value="2">Februar</option>
+					<option value="3">März</option>
+					<option value="4">April</option>
+					<option value="5">Mai</option>
+					<option value="6">Juni</option>
+					<option value="7">Juli</option>
+					<option value="8">August</option>
+					<option value="9">September</option>
+					<option value="10">Oktober</option>
+					<option value="11">November</option>
+					<option value="12">Dezember</option>
+				</select>
+
+				<!-- Jahr auswählen -->
+				<select id= "Year">
+					<option value="2008">2008</option>
+					<option value="2009">2009</option>
+					<option value="2010">2010</option>
+					<option value="2011">2011</option>
+					<option value="2012">2012</option>
+					<option value="2013">2013</option>
+				</select>
+				<input type="hidden" id="datepicker"  /></p>
+				<!-- <input type="date" /> -->
+				<script>
+					<!--Jquery Datepicker-->
+					$(function() {
+						$( "#datepicker" ).datepicker({
+							//zeigt Kalender-Bild als Button
+							showOn: "button",	
+							buttonImage: "./Bilder/calendar1.png",
+							buttonImageOnly: true,
+							
+							onSelect: function(dateText, inst) {
+								var startDate = new Date(dateText); 
+								//ausgewähltes Datum aus Datepicker einlesen
+								var selDay = startDate.getDate(); 	
+								var selmonth=startDate.getMonth()+1; 
+								var selyear=startDate.getFullYear(); 
+								//einzelne DropDown-Menüs mit eingelesenem Wert ändern
+								$("#Day").val(selDay); 					
+								$("#Month").val(selmonth); 				
+								$("#Year").val(selyear); 				
+							}
+						});
+					});
+					//deutsche Initialisierung des Datepickers
+					jQuery(function($){
+						$.datepicker.regional['de'] = {
+							 closeText: 'schließen',
+							 prevText: '&#x3c;zurück',
+							 nextText: 'Vor&#x3e;',
+							 currentText: 'heute',
+							 monthNames: ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'],
+							 monthNamesShort: ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'],
+							 dayNames: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'],
+							 dayNamesShort: ['So','Mo','Di','Mi','Do','Fr','Sa'],
+							 dayNamesMin: ['So','Mo','Di','Mi','Do','Fr','Sa'],
+							 firstDay: 1, //erster Tag = Montag
+							 isRTL: false,
+							 showMonthAfterYear: false,
+							 yearSuffix: ''
+						 };
+						$.datepicker.setDefaults($.datepicker.regional['de']);
+					});
+				</script>  
+				
+				<!-- Datum ENDE -->
+				<!-- Zeitraum-->
+				<p> Zeitraum:</p>
+				<p>
+					<input type="radio" name="zeitraum" value="woche"> Woche<br>
+					<input type="radio" name="zeitraum" value="monat"> Monat<br>
+					<input type="radio" name="zeitraum" value="semester"> 6 Monate<br>
+					<input type="radio" name="zeitraum" value="jahr"> 1 Jahr<br>
+				</p>
+				<!-- Zeitraum ENDE-->				
+
+
+				<!-- Diagrammtyp-->
+				<p>Diagrammtyp:</p>  
+				<table>
+					<tr>
+						<td>	
+							<span class="hover"><label for ="Dounut"><img src="./Bilder/logodounut.jpg" ><span class="infobox">&nbsp;Dounutdiagramm&nbsp; </span></span>
+						</td>
+						<td>	
+							<span class="hover"><label for ="Balken"><img src="./Bilder/logobalken.jpg"><span class="infobox">&nbsp;Balkendiagramm&nbsp;</span></span>
+						</td>
+						<td>	
+							<span class="hover"><label for ="Kreis"><img src="./Bilder/logokreis.jpg"><span class="infobox">&nbsp;Kreisdiagramm&nbsp;</span></span>
+						</td>
+						<td>	
+							<span class="hover"><label for ="Linie"><img src="./Bilder/logolinie.jpg"><span class="infobox">&nbsp;Liniendiagramm&nbsp;</span></span>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align:center">
+							<input  type="radio" id="Dounut"  name="Diagrammtyp" value="Dounut" > 
+						</td>
+						<td style="text-align:center">
+							<input type="radio" id="Balken" name="Diagrammtyp" value="Balkendiagramm">  
+						</td>
+						<td style="text-align:center">
+							 <input type="radio" id="Kreis" name="Diagrammtyp" value="Kreisdiagramm"> 
+						</td>
+						<td style="text-align:center">
+							<input  type="radio" id="Linie" name="Diagrammtyp" value="Linie" > 
+						</td>
+					</tr>
+				</table>
+				</p>
+				<!-- Diagrammtyp Ende-->
+				
+				
+
+				<button type="submit">anzeigen</button>
+					</form>
+				</div>
+				
+				<div id="main">
+					<div id="top">
+						<div id="pfad"><b>HWR-Campus-Lichtenberg > Haus 6A > Raum 123</b></div>
+						<div id="titel"><center>Raumbelegung</center></b></div>
+					</div>
+					<div id="grafik"> grafik </div>
+					<div id="impressum"><center>&copy; Team-RaVi / Impressum</center></div>
+				</div>
+			</div>
+</body>
+</html> 
