@@ -38,18 +38,17 @@
   $.fn.vectorMap = function (options) {
 
     var defaultParams = {
-      map: 'world_en',
-      backgroundColor: '#a5bfdd',
-      color: '#f4f3f0',
-      hoverColor: '#c9dfaf',
+      backgroundColor: null,
+      color: '#dddddd',
+      hoverColor: '#d92425',
       selectedColor: '#c9dfaf',
       scaleColors: ['#b6d6ff', '#005ace'],
       normalizeFunction: 'linear',
       enableZoom: true,
       showTooltip: true,
-      borderColor: '#818181',
-      borderWidth: 1,
-      borderOpacity: 0.25,
+      borderColor: '#000000',
+      borderWidth: 10,
+      borderOpacity: null,
       selectedRegions: null,
       multiSelectRegion: false
     }, map = this.data('mapObject');
