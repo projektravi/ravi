@@ -161,7 +161,7 @@
 				<div id="titel"><b><center>Raumbelegung</center></b></div>
 			</div>
 			<div id="grafik" style="height: 300px; width: 100%;">  </div>
-			<div id="impressum"><center>&copy; Team-RaVi / Impressum</center></div>
+			<div id="impressum"> <a href="javascript:changeDivContent()" ><center>  &copy; Team-RaVi / Impressum </center></div>
 		</div>
 	</div>
 </body>

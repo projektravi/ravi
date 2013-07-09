@@ -51,7 +51,10 @@ function rd1InitialisiereDiagram(data) {
 	for (var i = 0; i < response.length; i++) {
 		datenarray.push({x: i+1, y: response[i].ProzBelegung, label: response[i].Buchung_fuer});		
 	}
-
+function changeDivContent(){
+	document.getElementById("grafik").innerHTML = "";
+}
 	// Das eigentliche rendern des Diagrammes
+	changeDivContent()
 	rd1ZeichneDiagramm("Beispieltitel", "7 Tage", "Auslastung in %",datenarray);	
 }
