@@ -46,10 +46,10 @@ function rd1InitialisiereDiagram(data) {
 	if (response.length == 0)
 		return;
 	var datenarray =  new Array();
-	print response[1].ProzBelegung;
 	for (var i = 0; i < response.length; i++) {
-		datenarray.push({x: i+1, y: response[i].ProzBelegung, label: response[i].KW});		
+		datenarray.push({x: i+1, y: response[i].ProzBelegung, label: response[i].Buchung_fuer});		
 	}
+
 	// Das eigentliche rendern des Diagrammes
-	//rd1ZeichneDiagramm("Linie", "Beispieltitel", "7 Tage", "Auslastung in %",datenarray);	
+	rd1ZeichneDiagramm("Linie", "Beispieltitel", "7 Tage", "Auslastung in %",datenarray);	
 }
