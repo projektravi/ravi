@@ -38,10 +38,10 @@
   $.fn.vectorMap = function (options) {
 
     var defaultParams = {
-      backgroundColor: null,
+      backgroundColor: '#ffffff',
       color: '#dddddd',
       hoverColor: '#d92425',
-      selectedColor: '#c9dfaf',
+      selectedColor: '#d92425',
       scaleColors: ['#b6d6ff', '#005ace'],
       normalizeFunction: 'linear',
       enableZoom: true,
@@ -395,7 +395,7 @@
     this.rootGroup = this.canvas.createGroup(true);
 
     this.index = WorldMap.mapIndex;
-    this.label = jQuery('<div/>').addClass('jqvmap-label').appendTo(jQuery('body')).hide();
+    this.label = jQuery('<div/>').addClass('jqvmap-label').appendTo(jQuery('body'));
 
     if (params.enableZoom) {
       jQuery('<div/>').addClass('jqvmap-zoomin').text('+').appendTo(params.container);
@@ -463,12 +463,11 @@
       var code = e.target.id.split('_').pop();
 
       jQuery(params.container).trigger('regionClick.jqvmap', [code, mapData.pathes[code].name]);
-      if (!regionClickEvent.isDefaultPrevented()) {
-        if (map.selectedRegions.indexOf(code) !== -1) {
-          map.deselect(code, path);
-        } else {
-          map.select(code, path);
-        }
+
+      if (map.selectedRegions.indexOf(code) !== -1) {
+        map.deselect(code, path);
+      } else {
+        map.select(code, path);
       }
 
       //console.log(selectedRegions);
@@ -478,17 +477,9 @@
     if (params.showTooltip) {
       params.container.mousemove(function (e) {
         if (map.label.is(':visible')) {
-            var left = e.pageX - 15 - map.labelWidth;
-            var top = e.pageY - 15 - map.labelHeight;
-            
-            if(left < 0)
-               left = e.pageX + 15;
-            if(top < 0)
-                top = e.pageY + 15;
-            
-            map.label.css({
-                left: left,
-                top: top
+          map.label.css({
+            left: e.pageX - 15 - map.labelWidth,
+            top: e.pageY - 15 - map.labelHeight
           });
         }
       });
@@ -518,18 +509,6 @@
     }
 
     this.bindZoomButtons();
-    
-    if(params.pins) {
-      /*if(params.pinMode) {
-          if(params.pinMode != "id" && params.pinMode != "content") {
-              params.pinMode = "content";
-          }
-      } else {
-          params.pinMode = "content";
-      }*/
-      this.pinHandlers = false;
-      this.placePins(params.pins, params.pinMode);
-    }
 
     WorldMap.mapIndex++;
   };
@@ -754,8 +733,6 @@
           if (self.isMovingTimeout) {
             clearTimeout(self.isMovingTimeout);
           }
-
-          self.container.trigger('drag');
         }
 
         return false;
@@ -783,52 +760,37 @@
 
     bindZoomButtons: function () {
       var map = this;
-      this.container.find('.jqvmap-zoomin').click(function(){
-        map.zoomIn();
-      });
-      this.container.find('.jqvmap-zoomout').click(function(){
-        map.zoomOut();
-      });
-    },
-    
-    zoomIn: function () {
-      var map = this;
       var sliderDelta = (jQuery('#zoom').innerHeight() - 6 * 2 - 15 * 2 - 3 * 2 - 7 - 6) / (this.zoomMaxStep - this.zoomCurStep);
 
-      if (map.zoomCurStep < map.zoomMaxStep) {
-        var curTransX = map.transX;
-        var curTransY = map.transY;
-        var curScale = map.scale;
+      this.container.find('.jqvmap-zoomin').click(function () {
+        if (map.zoomCurStep < map.zoomMaxStep) {
+          var curTransX = map.transX;
+          var curTransY = map.transY;
+          var curScale = map.scale;
 
-        map.transX -= (map.width / map.scale - map.width / (map.scale * map.zoomStep)) / 2;
-        map.transY -= (map.height / map.scale - map.height / (map.scale * map.zoomStep)) / 2;
-        map.setScale(map.scale * map.zoomStep);
-        map.zoomCurStep++;
+          map.transX -= (map.width / map.scale - map.width / (map.scale * map.zoomStep)) / 2;
+          map.transY -= (map.height / map.scale - map.height / (map.scale * map.zoomStep)) / 2;
+          map.setScale(map.scale * map.zoomStep);
+          map.zoomCurStep++;
 
-        jQuery('#zoomSlider').css('top', parseInt(jQuery('#zoomSlider').css('top'), 10) - sliderDelta);
-        
-        map.container.trigger("zoomIn");
-      }
-    },
-    
-    zoomOut: function () {
-      var map = this;
-      var sliderDelta = (jQuery('#zoom').innerHeight() - 6 * 2 - 15 * 2 - 3 * 2 - 7 - 6) / (this.zoomMaxStep - this.zoomCurStep);
+          jQuery('#zoomSlider').css('top', parseInt(jQuery('#zoomSlider').css('top'), 10) - sliderDelta);
+        }
+      });
 
-      if (map.zoomCurStep > 1) {
-        var curTransX = map.transX;
-        var curTransY = map.transY;
-        var curScale = map.scale;
+      this.container.find('.jqvmap-zoomout').click(function () {
+        if (map.zoomCurStep > 1) {
+          var curTransX = map.transX;
+          var curTransY = map.transY;
+          var curScale = map.scale;
 
-        map.transX += (map.width / (map.scale / map.zoomStep) - map.width / map.scale) / 2;
-        map.transY += (map.height / (map.scale / map.zoomStep) - map.height / map.scale) / 2;
-        map.setScale(map.scale / map.zoomStep);
-        map.zoomCurStep--;
+          map.transX += (map.width / (map.scale / map.zoomStep) - map.width / map.scale) / 2;
+          map.transY += (map.height / (map.scale / map.zoomStep) - map.height / map.scale) / 2;
+          map.setScale(map.scale / map.zoomStep);
+          map.zoomCurStep--;
 
-        jQuery('#zoomSlider').css('top', parseInt(jQuery('#zoomSlider').css('top'), 10) + sliderDelta);
-        
-        map.container.trigger("zoomOut");
-      }
+          jQuery('#zoomSlider').css('top', parseInt(jQuery('#zoomSlider').css('top'), 10) + sliderDelta);
+        }
+      });
     },
 
     setScale: function (scale) {
@@ -838,101 +800,7 @@
 
     getCountryId: function (cc) {
       return 'jqvmap' + this.index + '_' + cc;
-    },
-
-    getPinId: function (cc) {
-      return this.getCountryId(cc)+'_pin';
-    },
-    
-    placePins: function(pins, pinMode){
-      var map = this;
-
-      if(!pinMode || (pinMode != "content" && pinMode != "id")) {
-        pinMode = "content";
-      }
-
-      if(pinMode == "content") {//treat pin as content
-        jQuery.each(pins, function(index, pin){
-          if(jQuery('#'+map.getCountryId(index)).length == 0){
-              return;
-          }
-          //mapData.pathes[code].name
-          var pinIndex = map.getPinId(index);
-          if(jQuery('#'+pinIndex).length > 0){
-            jQuery('#'+pinIndex).remove();
-          }
-          map.container.append('<div id="' + pinIndex + '" for="'+index+'" class="jqvmap_pin" style="position:absolute">' + pin + '</div>');
-        });
-      } else { //treat pin as id of an html content
-        jQuery.each(pins, function(index, pin){
-          if(jQuery('#'+map.getCountryId(index)).length == 0){
-              return;
-          }
-          var pinIndex = map.getPinId(index);
-          if(jQuery('#'+pinIndex).length > 0){
-            jQuery('#'+pinIndex).remove();
-          }
-          map.container.append('<div id="' + pinIndex + '" for="'+index+'" class="jqvmap_pin" style="position:absolute"></div>');
-          jQuery('#'+pinIndex).append(jQuery('#'+pin));
-        });
-      }
-
-      this.positionPins();
-      if(!this.pinHandlers){
-        this.pinHandlers = true;//do only once
-        var positionFix = function(){
-          map.positionPins();
-        };
-        this.container.bind('zoomIn', positionFix)
-        .bind('zoomOut', positionFix)
-        .bind('drag', positionFix);
-      }
-    },
-
-    positionPins: function(){
-      var map = this;
-      var pins = this.container.find('.jqvmap_pin');
-      jQuery.each(pins, function(index, pinObj){
-        pinObj = jQuery(pinObj);
-        var countryId = map.getCountryId(pinObj.attr('for'));
-        var countryObj = jQuery('#' + countryId);
-
-        var bbox = document.getElementById(countryId).getBBox();
-        var position = countryObj.position();
-
-        var scale = map.scale;
-
-        var left = position.left + (bbox.width / 2) * scale - pinObj.width() / 2,
-        top = position.top + (bbox.height / 2) * scale - pinObj.height() / 2;
-
-        pinObj.css('left',left).css('top',top);
-      });
-     },
-
-     getPin: function(cc){
-       var pinObj = jQuery('#'+this.getPinId(cc));
-       return pinObj.html();
-     },
-
-     getPins: function(){
-       var pins = this.container.find('.jqvmap_pin');
-       var ret = new Object();
-       jQuery.each(pins, function(index, pinObj){
-         pinObj = jQuery(pinObj);
-         var cc = pinObj.attr('for');
-         var pinContent = pinObj.html();
-         eval("ret." + cc + "=pinContent");
-       });
-       return JSON.stringify(ret);
-     },
-
-     removePin: function(cc) {
-       jQuery('#'+this.getPinId(cc)).remove();
-     },
-
-     removePins: function(){
-       this.container.find('.jqvmap_pin').remove();
-     }
+    }
   };
 
   WorldMap.xlink = "http://www.w3.org/1999/xlink";

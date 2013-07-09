@@ -136,16 +136,16 @@
 					</tr>
 					<tr>
 						<td style="text-align:center">
-							<input  type="radio" id="Dounut"  name="Diagrammtyp" value="Dounut" > 
+							<input class="Diagrammtyp" type="radio" name="Diagrammtyp" value="doughnut" > 
 						</td>
 						<td style="text-align:center">
-							<input type="radio" id="Balken" name="Diagrammtyp" value="Balkendiagramm">  
+							<input class="Diagrammtyp" type="radio" name="Diagrammtyp" value="column">  
 						</td>
 						<td style="text-align:center">
-							 <input type="radio" id="Kreis" name="Diagrammtyp" value="Kreisdiagramm"> 
+							<input class="Diagrammtyp" type="radio" name="Diagrammtyp" value="pie"> 
 						</td>
 						<td style="text-align:center">
-							<input  type="radio" id="Linie" name="Diagrammtyp" value="Linie" > 
+							<input class="Diagrammtyp" type="radio" name="Diagrammtyp" value="line" > 
 						</td>
 					</tr>
 				</table>
@@ -161,7 +161,7 @@
 				<div id="titel"><b><center>Raumbelegung</center></b></div>
 			</div>
 			<div id="grafik" style="height: 300px; width: 100%;">  </div>
-			<div id="impressum"><center>&copy; Team-RaVi / Impressum</center></div>
+			<div id="impressum"> <a href="javascript:changeDivContent()" ><center>  &copy; Team-RaVi / Impressum </center></div>
 		</div>
 	</div>
 </body>

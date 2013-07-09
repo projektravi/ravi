@@ -1,20 +1,27 @@
 <?php
 include("dbconnect.php");
 
-$id = 1;//$_POST["StandortID"];
-$date_begin = "2012-09-30";
+// Übergebene Daten zwischenspeichern
+$raumid = $_POST["RaumID"];
+$tag = $_POST["Tag"];
+$monat = $_POST["Monat"];
+$jahr = $_POST["Jahr"];
+// An benötigtes Format anpassen
+if (strlen($tag) == 1)
+	$tag = "0".$tag;
+if (strlen($monat) == 1)
+	$monat = "0".$monat;
+// Datum in SQL-Notation
+$date_begin = $jahr."-".$monat."-".$tag;
 // 6 Tage dazu addieren ergibt 7 Tage insgesamt
 $date_ende = date('Y-m-d', strtotime('+6 days', strtotime($date_begin)));
-
 $ergebnis = mysql_query("SELECT Buchung_fuer, TIME_TO_SEC(TIMEDIFF(Ende,Beginn)) as DauerInSek 
 							FROM belegung 
-							WHERE RaumID = ".$id." AND Buchung_fuer BETWEEN '".$date_begin."' AND '".$date_ende."' ORDER BY Buchung_fuer");
-
+							WHERE RaumID = ".$raumid." AND Buchung_fuer BETWEEN '".$date_begin."' AND '".$date_ende."' ORDER BY Buchung_fuer");
 if (!$ergebnis) {
     echo 'Konnte Abfrage nicht ausführen: ' . mysql_error();
     exit;
-}
-
+} 
 $arr = array();
 $t_arr = array();
 $buchung_fuer = "";
