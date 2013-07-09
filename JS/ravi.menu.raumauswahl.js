@@ -97,7 +97,7 @@ function rmrFrageRaeumeAb(f) {
 	});
 }
 
-// Räume laden - Callback-Funktion von rmrFrageRaeumeAb()
+//  Räume laden - Callback-Funktion von rmrFrageRaeumeAb()
 function rmrLadeRaeumeInMenu(data) {
 	var f = document.menu;
 	var response = $.parseJSON(data);	
