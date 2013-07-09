@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Standort-Buttons</title>
+<script type="text/javascript">
+Normal1 = new Image();
+Normal1.src = "lichtenberggrau.jpg";     /* erste Standard-Grafik */
+Highlight1 = new Image();
+Highlight1.src = "lichtenbergrot.jpg"; /* erste Highlight-Grafik */
+
+Normal2 = new Image();
+Normal2.src = "schoeneberggrau.jpg";     /* zweite Standard-Grafik */
+Highlight2 = new Image();
+Highlight2.src = "schoenebergrot.jpg"; /* zweite Highlight-Grafik */
+
+Normal3 = new Image();
+Normal3.src = "bitterfelderstrgrau.jpg";     /* dritte Standard-Grafik */
+Highlight3 = new Image();
+Highlight3.src = "bitterfelderstrrot.jpg"; /* dritte Highlight-Grafik */
+
+/* usw. fuer alle weiteren zu benutzenden Grafiken */
+
+function Bildwechsel (Bildnr, Bildobjekt) {
+  window.document.images[Bildnr].src = Bildobjekt.src;
+}
+</script>
+<script type="text/javascript">
+var ol_textfont = "Verdana";
+var ol_fgcolor = "#dddddd";
+</script>
+<script type="text/javascript" src="overlib.js"><!-- overLIB (c) Erik Bosrup --></script>
+<style type="text/css">
+</style>
+</head>
+<body>
+  
+<a href="../seite1.htm"
+   onmouseover="Bildwechsel(0, Highlight1); return overlib('Campus Lichtenberg');"
+   onmouseout="Bildwechsel(0, Normal1); return nd();"><img src="lichtenberggrau.jpg"
+   width="200" height="200" border="0" alt="Home"></a>
+<br><br>
+<a href="../seite2.htm"
+   onmouseover="Bildwechsel(1, Highlight2); return overlib('Campus Schöneberg');"
+   onmouseout="Bildwechsel(1, Normal2); return nd();"><img src="schoeneberggrau.jpg"
+   width="200" height="200" border="0" alt="Helferlein"></a>
+<br><br>
+<a href="../seite3.htm"
+   onmouseover="Bildwechsel(2, Highlight3); return overlib('Bitterfelder Str.');"
+   onmouseout="Bildwechsel(2, Normal3); return nd();"><img src="bitterfelderstrgrau.jpg"
+   width="200" height="200" border="0" alt="Layouts"></a>
+ <br>
+
+</body>
+</html>
