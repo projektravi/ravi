@@ -2,6 +2,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>RaVi - Die Raumvisualisierung Projekt 1 - VI 2013 - 2014 - HWR-Berlin</title>
+	<link rel="stylesheet"	type="text/css"	href="style.css"/>	
+	<script type='text/javascript' src="jquery-1.9.1.js"></script>
 	<!-- Inkludierte Stylesheet-Dateien -->
 <?php include "css/_includes" ?>	
 	<!-- Inkludierte Javascript-Dateien -->
@@ -10,7 +12,7 @@
 <body> <!-- onLoad="rmrFrageStandorteAb()"><!--rmrFrageStandorteAb() -->
 	<div id="header"></div>
 	<div class="grau_div1"></div>
-	<div id="noheader">
+	<div id="noheader"></div>
 		<div id="navigation">
 			<div class="menue_div1">Navigation</div>
 			<div class="menue_div2">
@@ -165,9 +167,8 @@
 			</div>
 			<!--<div id="grafik" style="height: 300px; width: 100%;">  </div>-->
 			<div id="grafik"><div class="grafik_div1">Grafik</div></div>
-		</div>
+		<!</div>
 	</div>
-	<div id="bottom"></div>
 	<div id="impressum"> <a href="javascript:changeDivContent()" >Team-RaVi / Impressum</a></div>
 </body>
 </html> 
