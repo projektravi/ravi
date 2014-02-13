@@ -2,20 +2,20 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>RaVi - Die Raumvisualisierung Projekt 1 - VI 2013 - 2014 - HWR-Berlin</title>
-	<link rel="stylesheet"	type="text/css"	href="style.css"/>	
-	<script type='text/javascript' src="jquery-1.9.1.js"></script>
 	<!-- Inkludierte Stylesheet-Dateien -->
 <?php include "css/_includes" ?>	
 	<!-- Inkludierte Javascript-Dateien -->
 <?php include "js/_includes" ?>
 </head>
 <body> <!-- onLoad="rmrFrageStandorteAb()"><!--rmrFrageStandorteAb() -->
-	<div id="header"></div>
-	<div class="grau_div1"></div>
-	<div id="noheader"></div>
+	<div id="header">
+			<div id="hread"></div>
+			<div id="grau_div1"></div>
+	</div>
+	<div id="content">
 		<div id="navigation">
-			<div class="menue_div1">Navigation</div>
-			<div class="menue_div2">
+			<div id="menue_div1"><a class="upperHead">Navigation<a></div>
+			<div id="menue_div2">
 				<!-- Start: Eingabeformular -->
 				<form name="menu">   
 					<!-- Start: Standort-, Haus-, Raum-Auswahl -->
@@ -162,12 +162,29 @@
 		</div>				
 		<div id="main">
 			<div id="top">
-				<div id="pfad"><div class="pfad_div1">HWR-Campus-Lichtenberg > Haus 6A > Raum 123</div></div>
-				<div id="titel"><div class="Titel_div1">Raumbelegung</div></div>
+				<div id="pfad"><a id="standorte" class="upperHead routeMap">Standorte</a></div>
+				<div id="titel"><a class="upperHead">Titel</a></div>
 			</div>
-			<!--<div id="grafik" style="height: 300px; width: 100%;">  </div>-->
-			<div id="grafik"><div class="grafik_div1">Grafik</div></div>
-		<!</div>
+			<div id="grafik">
+				    <div id="vmap" class="map" style="width: 100%; height: 600px;"></div>
+					<div id="vmap2" class="map" style="width: 100%; height: 600px;"></div>
+					<div id="vmap3" class="map" style="width: 100%; height: 600px;"></div>
+					<div id="vmap4" class="map" style="width: 100%; height: 600px;"></div>
+					<div id="vmap5" class="map" style="width: 100%; height: 600px;"></div>
+					<div id="vmap6" class="map" style="width: 100%; height: 600px;"></div>
+					<div id="vmap7" class="map" style="width: 100%; height: 600px;"></div>
+					<div id="vmap8" class="map" style="width: 100%; height: 600px;"></div>
+					<div id="vmap9" class="map" style="width: 100%; height: 600px;"></div>
+					<div id="vmap10" class="map" style="width: 100%; height: 600px;"></div>
+					<div id="vmap11" class="map" style="width: 100%; height: 600px;"></div>
+					<div id="vmap12" class="map" style="width: 100%; height: 600px;"></div>
+					<div id="vmap13" class="map" style="width: 100%; height: 600px;"></div>
+					<div id="vmap14" class="map" style="width: 100%; height: 600px;"></div>
+					<div id="vmap15" class="map" style="width: 100%; height: 600px;"></div>
+					<div id="vmap16" class="map" style="width: 100%; height: 600px;"></div>
+					<div id="vmap17" class="map" style="width: 100%; height: 600px;"></div>
+			</div>
+		</div>
 	</div>
 	<div id="impressum"> <a href="javascript:changeDivContent()" >Team-RaVi / Impressum</a></div>
 </body>

@@ -1,45 +1,63 @@
 body {
-margin-top: 0;
-margin-left:5%;
-margin-right:5%;
+margin: 0;
 padding: 0;
-background: #ffffff;
+
 }
 
 *{
 font-family:Verdana, sans-serif;
 font-size:12;
-font-weight: bold; 
-text-indent:1%;
+font-weight: bold;
 }
 
 #header{
+	display: block;
+	max-width: 1300px;
+	min-width: 990px;
+	margin: auto;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+#content{
+	display: block;
+	max-width: 1300px;
+	min-width: 990px;
+	margin: auto;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+#hread{
+display: block;
 width:100%;
-height:20%;
+height:100px;
 font-weight: bold;
 background: #d92425; 
 color:#ffffff;
-background:url(../Bilder/RaViLogok.jpg) #d92425;	
+background-image:url(../Bilder/RaViLogok.jpg);	
 background-position:left;
-background-repeat:no-repeat; 
+background-repeat:no-repeat;
 }
-.grau_div1{
+#grau_div1{
+display: block;
 width: 100%;
-height:5%;
-background:#CCCCCC;
+height:30px;
+background:rgb(186, 186, 186);
 float:left;
 color:#ffffff;
-margin-bottom:5%;
-
-border-bottom-left-radius:10px; /* CSS3 */
-border-bottom-right-radius:10px; /* CSS3 */
--moz-border-radius-bottomleft:10px; /* Firefox */
--moz-border-radius-bottomright:10px; /* Firefox */
--webkit-border-bottom-right-radius:10px; /* Safari, Chrome */
--webkit-border-bottom-left-radius:10px; /* Safari, Chrome */
--khtml-border-bottom-right-radius: 10px; /* Linux-Browser */
--khtml-border-bottom-left-radius: 10px; /* Linux-Browser */
--ms-filter:10px;}
+display: block;
+border-bottom-left-radius:4px; /* CSS3 */
+border-bottom-right-radius:4px; /* CSS3 */
+-moz-border-radius-bottomleft:4px; /* Firefox */
+-moz-border-radius-bottomright:4px; /* Firefox */
+-webkit-border-bottom-right-radius:4px; /* Safari, Chrome */
+-webkit-border-bottom-left-radius:4px; /* Safari, Chrome */
+-khtml-border-bottom-right-radius:4px; /* Linux-Browser */
+-khtml-border-bottom-left-radius:4px; /* Linux-Browser */
+-ms-filter:4px;
+margin-bottom: 38px;
+}
 
 
 #noheader{ 
@@ -54,66 +72,64 @@ float:left;
 clear:both;
 width:33%;
 height:auto;
-background-color:#CCCCCC;
-color: #000000;  
-min-height:400px;
-
-border: 8px solid #CCCCCC;
--moz-border-radius: 10px; /* Firefox */
--webkit-border-radius: 10px; /* Safari, Chrome */
--khtml-border-radius: 10px; /* Linux-Browser */
-border-radius: 10px; /* CSS3 */
+background-color:rgb(221, 221, 221);
+color: #000000;
+border: 12px solid rgb(221, 221, 221);
+-moz-border-radius: 8px; /* Firefox */
+-webkit-border-radius: 8px; /* Safari, Chrome */
+-khtml-border-radius: 8px; /* Linux-Browser */
+border-radius: 8px; /* CSS3 */
 }
 
 
 
-.menue_div1{
+#menue_div1{
 width:100%;
-height:5%;
+height:25px;
 background:#d92425;
 float:left;
 color:#ffffff;
 
-border-top-left-radius:10px; /* CSS3 */
-border-top-right-radius:10px; /* CSS3 */
--moz-border-radius-topleft:10px; /* Firefox */
--moz-border-radius-topright:10px; /* Firefox */
--webkit-border-top-right-radius:10px; /* Safari, Chrome */
--webkit-border-top-left-radius:10px; /* Safari, Chrome */
--khtml-border-top-left-radius: 10px; /* Linux-Browser */
--khtml-border-top-right-radius:10px; /* Linux-Browser */
+border-top-left-radius:4px; /* CSS3 */
+border-top-right-radius:4px; /* CSS3 */
+-moz-border-radius-topleft:4px; /* Firefox */
+-moz-border-radius-topright:4px; /* Firefox */
+-webkit-border-top-right-radius:4px; /* Safari, Chrome */
+-webkit-border-top-left-radius:4px; /* Safari, Chrome */
+-khtml-border-top-left-radius: 4px; /* Linux-Browser */
+-khtml-border-top-right-radius:4px; /* Linux-Browser */
 }
-.menue_div2{
+#menue_div2{
 width:100%;
-height:95%;
+height:auto;
 background-color:#ffffff;
 color: #000000;  
 float:left;
-min-height:400px;
+min-height:100px;
 background:#ffffff;
 text-overflow:hidden;
 overflow:hidden;
  
-border-bottom-left-radius:10px; /* CSS3 */
-border-bottom-right-radius:10px; /* CSS3 */
--moz-border-radius-bottomleft:10px; /* Firefox */
--moz-border-radius-bottomright:10px; /* Firefox */
--webkit-border-bottom-left-radius:10px; /* Safari, Chrome */
--webkit-border-bottom-right-radius:10px; /* Safari, Chrome */
--khtml-border-bottom-right-radius: 10px; /* Linux-Browser */
--khtml-border-bottom-left-radius: 10px; /* Linux-Browser */
+border-bottom-left-radius:4px; /* CSS3 */
+border-bottom-right-radius:4px; /* CSS3 */
+-moz-border-radius-bottomleft:4px; /* Firefox */
+-moz-border-radius-bottomright:4px; /* Firefox */
+-webkit-border-bottom-left-radius:4px; /* Safari, Chrome */
+-webkit-border-bottom-right-radius:4px; /* Safari, Chrome */
+-khtml-border-bottom-right-radius: 4px; /* Linux-Browser */
+-khtml-border-bottom-left-radius: 4px; /* Linux-Browser */
 }
 
 #main{
 float:right;
 width:60%;
-background:#CCCCCC; 
+background:rgb(221, 221, 221); 
 
-border: 8px solid #CCCCCC; 
+border: 12px solid rgb(221, 221, 221); 
 -moz-border-radius: 40px; /* Firefox */
 -webkit-border-radius: 40px; /* Safari, Chrome */
 -khtml-border-radius: 40px; /* Linux-Browser */
-border-radius: 10px; /* CSS3 */
+border-radius: 8px; /* CSS3 */
 
 }
 
@@ -123,89 +139,56 @@ border-radius: 10px; /* CSS3 */
 
 #pfad {
 float:left;
-clear:left;
-width: 49%;
-height:5%;
-background:#CCCCCC;  
-border-bottom:7px solid #CCCCCC;
+width: 49.5%;
+height:25px;
 color:#ffffff;
-position: relative; /* IE 6 und IE7 für overflow: hidden */
-}
-.pfad_div1{
-float:left;
-width:100%;
-height:100%;
+border-top-left-radius:4px; /* CSS3 */
+-moz-border-radius-topleft: 4px; /* Firefox */
+-webkit-border-top-left-radius: 4px; /* Safari, Chrome */
+-khtml-border-top-left-radius: 4px; /* Linux-Browser */
+border-top-right-radius:4px; /* CSS3 */
+-moz-border-radius-topright: 4px; /* Firefox */
+-webkit-border-top-right-radius: 4px; /* Safari, Chrome */
+-khtml-border-top-right-radius: 4px; /* Linux-Browser */
 background:#d92425;
-color:#ffffff;
-text-overflow:hidden;
-overflow:hidden;
-
-border-radius:10px; /* CSS3 */
--moz-border-radius: 10px; /* Firefox */
--webkit-border-radius: 10px; /* Safari, Chrome */
--khtml-border-radius: 10px; /* Linux-Browser */
 }
+
 
 #titel {
 float:right;
-clear:right;
-width: 50%;
-height:5%;
-background:#CCCCCC;
-color:#ffffff;
-border-bottom:7px solid #CCCCCC;
-position: relative; /* IE 6 und IE7 für overflow: hidden */
-}
-
-.titel_div1{
-width:100%;
-height:100%;
+width: 49.5%;
+height: 25px;
 background:#d92425;
 color:#ffffff;
-text-overflow:hidden;
-overflow:hidden;
-
-border-radius:10px; /* CSS3 */
--moz-border-radius: 10px; /* Firefox */
--webkit-border-radius: 10px; /* Safari, Chrome */
--khtml-border-radius: 10px; /* Linux-Browser */
-
+border-top-left-radius:4px; /* CSS3 */
+-moz-border-radius-topleft: 4px; /* Firefox */
+-webkit-border-top-left-radius: 4px; /* Safari, Chrome */
+-khtml-border-top-left-radius: 4px; /* Linux-Browser */
+border-top-right-radius:4px; /* CSS3 */
+-moz-border-radius-topright: 4px; /* Firefox */
+-webkit-border-top-right-radius: 4px; /* Safari, Chrome */
+-khtml-border-top-right-radius: 4px; /* Linux-Browser */
 }
 
 #grafik {
 float:left;
-background:#CCCCCC; 
-min-height:100%;
+background:white; 
+min-height:100px;
 height:auto;
 width:100%;
-margin-top:0;
-margin-left: auto;
-margin-right: auto;
+margin: auto;
+border-bottom-left-radius:4px; /* CSS3 */
+-moz-border-radius-bottomleft: 4px; /* Firefox */
+-webkit-border-bottom-left-radius: 4px; /* Safari, Chrome */
+-khtml-border-bottom-left-radius: 4px; /* Linux-Browser */
+border-bottom-right-radius:4px; /* CSS3 */
+-moz-border-radius-bottomright: 4px; /* Firefox */
+-webkit-border-bottom-right-radius: 4px; /* Safari, Chrome */
+-khtml-border-bottom-right-radius: 4px; /* Linux-Browser */
 } 
-*html#grafik{height:600px;} /* Feste Größe für Internet Explorer 6*/
-*+html #grafik {height: 600px;} /* Feste Größe für Internet Explorer 7*/
-#grafik {height:600px\0/;} /* Feste Größe für Internet Explorer 8*/
-#grafik {height/**/: 600px;} /* Feste Größe für Internet Explorer < 6*/
-
-.grafik_div1{
-background:#ffffff; 
-height:100%;
-width:100%;
-margin-left: auto;
-margin-right: auto;
-color:000000;
-
-border-radius:10px; /* CSS3 */
--moz-border-radius: 10px; /* Firefox */
--webkit-border-radius: 10px; /* Safari, Chrome */
--khtml-border-radius: 10px; /* Linux-Browser */
-}
-
 
 #impressum {
-height:10%;
 width:100%;
-text-indent:60%;
 float:left;
 background-color:#ffffff; 
 color:#666666;
@@ -220,4 +203,13 @@ display: none;
 position:absolute;
 background-color: #d92425;
 color: white;
+}
+
+.upperHead, .routeMap {
+line-height: 25px;
+padding-left: 5px;
+}
+
+.routeMap{
+cursor: pointer;
 }

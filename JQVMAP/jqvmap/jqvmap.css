@@ -56,24 +56,13 @@
   height: 500px;
 }
 
-.map1{
+#vmap{
 position: absolute;
-z-index: 4;
+z-index: 5;
+margin-top: 0;
 }
 
-.map2{
-position: absolute;
-z-index: 3;
-margin-top: -600px;
-}
-
-.map3{
-position: absolute;
-z-index: 2;
-margin-top: -600px;
-}
-
-.map4{
+.map{
 position: absolute;
 z-index: 1;
 margin-top: -600px;

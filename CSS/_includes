@@ -12,6 +12,8 @@ $scripte[] = "css/ext/jquery-ui-themes-1.10.3/themes/smoothness/jquery-ui.min.cs
 // RaVi-Styles
 $scripte[] = "css/style.css";
 
+//jqvmap
+$scripte[] = "JQVMAP/jqvmap/jqvmap.css";
 
 // Includes in HTML-Notation ausgeben
 foreach ($scripte as $value) {

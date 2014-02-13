@@ -3,7 +3,9 @@ function oe(meldung, url, zeile){
    txt += "Meldung: " + meldung + "\n";
    txt += "URL: " + url + "\n";
    txt += "Zeile: " + zeile;
-   alert(txt);
+   if(txt.search("exit is not defined") == -1){
+	alert(txt);
+   }
    
    return true;
 }

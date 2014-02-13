@@ -26,6 +26,31 @@ $scripte[] = "js/ravi.diagramme.1raum.js";
 // Impressum
 $scripte[] = "js/ravi.impressum.js";
 
+//JQVMAP
+$scripte[] = "js/ravi.pfad.navigation.js";
+$scripte[] = "JQVMAP/jqvmap/jquery.vmap.js";
+$scripte[] = "JQVMAP/ravimap/maps/ravi.vmap.standorte.js";
+$scripte[] = "JQVMAP/ravimap/maps/ravi.vmap.lichtenberg.js";
+$scripte[] = "JQVMAP/ravimap/maps/ravi.vmap.schoeneberg.js";
+$scripte[] = "JQVMAP/ravimap/maps/ravi.vmap.bitterfelder.js";
+$scripte[] = "JQVMAP/ravimap/maps/ravi.vmap.6b_stockwerke.js";
+$scripte[] = "JQVMAP/ravimap/maps/ravi.vmap.6b_eg.js";
+$scripte[] = "JQVMAP/ravimap/maps/ravi.vmap.6b_4og.js";
+$scripte[] = "JQVMAP/ravimap/maps/ravi.vmap.6b_3og.js";
+$scripte[] = "JQVMAP/ravimap/maps/ravi.vmap.6b_2og.js";
+$scripte[] = "JQVMAP/ravimap/maps/ravi.vmap.6b_1og.js";
+$scripte[] = "JQVMAP/ravimap/maps/ravi.vmap.6a_stockwerke.js";
+$scripte[] = "JQVMAP/ravimap/maps/ravi.vmap.6a_3og.js";
+$scripte[] = "JQVMAP/ravimap/maps/ravi.vmap.6a_1og.js";
+$scripte[] = "JQVMAP/ravimap/maps/ravi.vmap.5_stockwerke.js";
+$scripte[] = "JQVMAP/ravimap/maps/ravi.vmap.5_eg.js";
+$scripte[] = "JQVMAP/ravimap/maps/ravi.vmap.1_stockwerke.js";
+$scripte[] = "JQVMAP/ravimap/maps/ravi.vmap.1_2og.js";
+$scripte[] = "JQVMAP/ravimap/handle/ravi.vmap.handle.js";
+
+
+
+
 // Includes in HTML-Notation ausgeben
 foreach ($scripte as $value) {
     echo "\t<script language='javascript' src='$value'></script>\n";
