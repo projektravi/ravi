@@ -187,15 +187,13 @@ border-bottom-right-radius:4px; /* CSS3 */
 -khtml-border-bottom-right-radius: 4px; /* Linux-Browser */
 } 
 
-#impressum {
-width:100%;
-float:left;
-background-color:#ffffff; 
-color:#666666;
-bottom: 0;
-margin-top:3%;
-margin-right:auto;
-margin-left:auto;
+#impressum a{
+margin: auto;
+margin-top:25px;
+display: block;
+width: 180px;
+color: black;
+text-decoration: none;
 }
 
 .infobox{
