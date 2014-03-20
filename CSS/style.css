@@ -35,10 +35,22 @@ height:100px;
 font-weight: bold;
 background: #d92425; 
 color:#ffffff;
-background-image:url(../Bilder/RaViLogok.jpg);	
-background-position:left;
-background-repeat:no-repeat;
 }
+
+#logo_ravi{
+float:left;
+height:100px;
+width:auto;
+}
+
+#logo_hwr{
+float: right;
+height: 50px;
+width: auto;
+margin-top: 25px;
+margin-right: 20px;
+}
+
 #grau_div1{
 display: block;
 width: 100%;

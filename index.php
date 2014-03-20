@@ -9,7 +9,10 @@
 </head>
 <body> <!-- onLoad="rmrFrageStandorteAb()"><!--rmrFrageStandorteAb() -->
 	<div id="header">
-			<div id="hread"></div>
+			<div id="hread">
+				<img id="logo_ravi" src="Bilder/RaViLogok.jpg" />
+				<img id="logo_hwr" src="Bilder/hwr-logo.png" />
+			</div>
 			<div id="grau_div1"></div>
 	</div>
 	<div id="content">
