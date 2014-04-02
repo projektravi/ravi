@@ -10,8 +10,8 @@
 <body> <!-- onLoad="rmrFrageStandorteAb()"><!--rmrFrageStandorteAb() -->
 	<div id="header">
 			<div id="hread">
-				<img id="logo_ravi" src="Bilder/RaViLogok.jpg" />
-				<img id="logo_hwr" src="Bilder/hwr-logo.png" />
+				<a href="/"><img id="logo_ravi" src="Bilder/RaViLogok.jpg" /></a>
+				<a href="http://www.hwr-berlin.de" target="_blank"><img id="logo_hwr" src="Bilder/hwr-logo.png" /></a>
 			</div>
 			<div id="grau_div1"><ul><li><a href="index.php">Startseite</a></li><li>Kontakt</li><li><a href="javascript:changeDivContent()" >Impressum / Team</a></li></ul></div>
 	</div>
