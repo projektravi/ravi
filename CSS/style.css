@@ -7,7 +7,7 @@ padding: 0;
 *{
 font-family:Verdana, sans-serif;
 font-size:12;
-font-weight: bold;
+/*font-weight: bold;*/
 }
 
 #header{
@@ -69,7 +69,28 @@ border-bottom-right-radius:4px; /* CSS3 */
 -khtml-border-bottom-left-radius:4px; /* Linux-Browser */
 -ms-filter:4px;
 margin-bottom: 38px;
+
 }
+
+#grau_div1 ul li {
+    list-style: none;
+    margin: 0em;
+    padding: 0em;
+    margin: 5em 0em 0em 1em;
+    /*font-size: 0.98em;*/
+ 	font-size: 1em;
+    height: 1em;
+    display:inline;
+    color: black;
+
+}
+#grau_div1 a {
+	text-decoration: none;
+}	
+
+
+
+
 
 
 #noheader{ 
@@ -82,7 +103,7 @@ background-color:#ffffff;
 #navigation {
 float:left;
 clear:both;
-width:33%;
+width:21%;
 height:auto;
 background-color:rgb(221, 221, 221);
 color: #000000;
@@ -134,7 +155,7 @@ border-bottom-right-radius:4px; /* CSS3 */
 
 #main{
 float:right;
-width:60%;
+width:71%;
 background:rgb(221, 221, 221); 
 
 border: 12px solid rgb(221, 221, 221); 

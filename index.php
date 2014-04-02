@@ -13,7 +13,7 @@
 				<img id="logo_ravi" src="Bilder/RaViLogok.jpg" />
 				<img id="logo_hwr" src="Bilder/hwr-logo.png" />
 			</div>
-			<div id="grau_div1"></div>
+			<div id="grau_div1"><ul><li><a href="index.php">Startseite</a></li><li>Kontakt</li><li><a href="javascript:changeDivContent()" >Impressum / Team</a></li></ul></div>
 	</div>
 	<div id="content">
 		<div id="navigation">
@@ -25,7 +25,8 @@
 					<table border="0">
 						<tr>
 							<td>Standort</td>
-							<td><select id="standort" name="standort" style="width:225px;" size="1" onChange="rmrFrageHaeuserAb(this.form)" disabled>
+							<td><select id="standort" name="standort" style="width:135px;" size="1" onChange="rmrFrageHaeuserAb(this.form)" disabled>
+									
 									<option>Bitte warten</option>
 								</select>
 							</td>
@@ -33,7 +34,7 @@
 						<tr>
 							<td>Haus</td>
 							<td>
-								<select id="haus"name="haus" style="width:225px" size="1" onChange="rmrFrageRaeumeAb(this.form)" disabled>
+								<select id="haus"name="haus" style="width:135px" size="1" onChange="rmrFrageRaeumeAb(this.form)" disabled>
 									<option>Standort auswählen</option>
 								</select>
 							</td>
@@ -41,7 +42,7 @@
 						<tr>
 							<td>Raum</td>
 							<td>
-								<select id="raum" name="raum" style="width:225px" size="1" disabled>
+								<select id="raum" name="raum" style="width:135px" size="1" disabled>
 									<option>Haus auswählen</option>
 								</select>
 							</td>
@@ -49,9 +50,9 @@
 					</table>
 					<!-- Ende: Standort-, Haus-, Raum-Auswahl -->
 					<!-- Start: Datumsauswahl -->
-					<p>Datum:&nbsp;&nbsp;&nbsp;			
+					<p>Datum:&nbsp;&nbsp;&nbsp;	<input type="hidden" id="datepicker"/><br/>		
 						<!-- Tag auswählen -->
-						<select id="Day">
+						<select id="Day "style="width:37px" >
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
@@ -86,7 +87,7 @@
 						</select>
 			 
 						<!-- Monat auswählen -->
-						<select id="Month">
+						<select id="Month" "style="width:85px" >
 							<option value="1">Januar</option>
 							<option value="2">Februar</option>
 							<option value="3">März</option>
@@ -110,7 +111,7 @@
 							<option value="2012">2012</option>
 							<option value="2013">2013</option>
 						</select>
-						<input type="hidden" id="datepicker"/>
+						
 					</p>		
 					<!-- Ende: Datumsauswahl -->
 					
