@@ -6,15 +6,37 @@
 <?php include "css/_includes" ?>	
 	<!-- Inkludierte Javascript-Dateien -->
 <?php include "js/_includes" ?>
+<style type="text/css">
+ a:link    {color:black;}
+ a:visited {color:black;}
+ a:hover   {color:black;}
+ a:active  {color:black;}
+</style>
+
 </head>
 <body> <!-- onLoad="rmrFrageStandorteAb()"><!--rmrFrageStandorteAb() -->
+
 	<div id="header">
 			<div id="hread">
 				<a href="/"><img id="logo_ravi" src="Bilder/RaViLogok.jpg" /></a>
 				<a href="http://www.hwr-berlin.de" target="_blank"><img id="logo_hwr" src="Bilder/hwr-logo.png" /></a>
 			</div>
-			<div id="grau_div1"><ul><li><a href="index.php">Startseite</a></li><li>Kontakt</li><li><a href="javascript:changeDivContent()" >Impressum / Team</a></li></ul></div>
-	</div>
+			<div   id="grau_div1">
+				<table border="0" cellpadding="7">
+				<colgroup>
+					<col width="90">
+					<col width="77">
+					<col width="200">
+				</colgroup>
+					<tr>
+						<td><a href="index.php">Startseite</td>
+						<td>Kontakt</td>
+						<td><a href="javascript:changeDivContent()">Impressum/Team</td>
+						
+					</tr>
+				</table>			
+			</div>
+			
 	<div id="content">
 		<div id="navigation">
 			<div id="menue_div1"><a class="upperHead">Navigation<a></div>
