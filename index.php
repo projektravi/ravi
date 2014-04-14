@@ -36,7 +36,7 @@
 		<div id="navigation">
 			<div id="menue_div1"><a class="upperHead">Navigation<a></div>
 			<div id="menue_div2">
-				<!-- Start: Eingabeformular -->
+				<!-- Start: Eingabeformular  -->
 				<form name="menu">   
 					<!-- Start: Standort-, Haus-, Raum-Auswahl -->
 					<table border="0">
