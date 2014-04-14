@@ -69,7 +69,7 @@
 					<!-- Start: Datumsauswahl -->
 					<p>Datum:&nbsp;&nbsp;&nbsp;	<input type="hidden" id="datepicker"/><br/>		
 						<!-- Tag auswählen -->
-						<select id="Day "style="width:37px" >
+						<select id="Day" style="width:40px" >
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
