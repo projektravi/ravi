@@ -13,7 +13,7 @@
 		a:active  {color:black;}
 	</style>
 </head>
-<body> <!-- onLoad="rmrFrageStandorteAb()"><!--rmrFrageStandorteAb() -->
+<body> <!-- onLoad="rmrFrageStandorteAb()"><!--rmrFrageStandorteAb()  -->
 
 	<div id="header">
 			<div id="hread">
