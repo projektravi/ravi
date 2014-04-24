@@ -140,7 +140,7 @@
 						<input type="radio" name="zeitraum" value="semester"> 6 Monate (1 Semester)<br>
 						<input type="radio" name="zeitraum" value="jahr"> 12 Monate<br>
 					
-					<br>
+					<br></p>
 					<!-- Ende: Zeitraum -->	
 					
 					<!-- Start: Diagrammtyp-->
