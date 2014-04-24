@@ -17,7 +17,7 @@
 
 	<div id="header">
 			<div id="hread">
-				<a href="/"><img id="logo_ravi" src="Bilder/RaViLogok.jpg" /></a>
+				<a href=""><img id="logo_ravi" src="Bilder/RaViLogok.jpg" /></a>
 				<a href="http://www.hwr-berlin.de" target="_blank"><img id="logo_hwr" src="Bilder/hwr-logo.png" /></a>
 			</div>
 			
