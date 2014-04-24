@@ -9,6 +9,8 @@ foreach ($datei AS $ausgabe) {
 	if ($zerlegen[0] == "time_update")
 		continue;
 	//myLog("$zerlegen[0];$zerlegen[1];$zerlegen[2];$zerlegen[3];$zerlegen[4];$zerlegen[5];$zerlegen[6];$zerlegen[7];$zerlegen[8];$zerlegen[9]");
+	if (existiertRaumID($zerlegen[9]) == false)
+		continue;
 	// BelegungsID ermitteln
 	$belegung_id = getBelegungID();
 	if ($belegung_id == -1)
@@ -35,6 +37,21 @@ foreach ($datei AS $ausgabe) {
 }
 
 // globale Funktionen
+function existiertRaumID($raum_id) {
+	myLog("Prüfe Existenz von RaumID: $raum_id");
+	$ergebnis = mysql_query("SELECT RaumID FROM raum where RaumID = $raum_id");
+	if (!$ergebnis) {
+		myError("Konnte Abfrage nicht ausführen: " . mysql_error());
+		return false;
+	}	
+	while($row = mysql_fetch_object($ergebnis))	{
+		myLog("RaumID existiert!");
+		return true;
+	}	
+	myLog("RaumID existiert NICHT!");
+	return false;
+}
+
 function getBelegungID() {
 	myLog("Hole nächste BelegungID");
 	$ergebnis = mysql_query("SELECT max(BelegungID) as maximum FROM belegung");
@@ -67,6 +84,10 @@ function getBuchungFuer($tag, $woche, $jahr) {
 		myError("Fehlende Angaben");
 		return -1;
 	}*/
+	if ($jahr < 2011) {
+		myLog("Buchungsjahr vor 2011!");
+		return -1;
+	}
 	$datum_formatiert = week_start_date($woche, $jahr, $tag + 1, "Y-m-d");		
 	myLog("Buchungstag: $datum_formatiert");
 	return $datum_formatiert;

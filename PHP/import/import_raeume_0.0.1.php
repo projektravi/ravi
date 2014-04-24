@@ -9,8 +9,12 @@ foreach ($datei AS $ausgabe) {
 	if ($zerlegen[0] == "raum_id")
 		continue;
 	//myLog("$zerlegen[0];$zerlegen[1];$zerlegen[2];$zerlegen[3];$zerlegen[4];$zerlegen[5];$zerlegen[6];$zerlegen[7];$zerlegen[8]");
+	// Standort manipulieren
+	$standort_name = manipuliereStandort($zerlegen[7]);
+	if ($standort_name == "")
+		continue;
 	// Standort hinzufügen
-	$standort_id = addStandort($zerlegen[7]);
+	$standort_id = addStandort($standort_name);
 	if ($standort_id == -1)
 		break;
 	// Gebäude hinzufügen
@@ -27,6 +31,16 @@ foreach ($datei AS $ausgabe) {
 }
 
 // globale Funktionen
+function manipuliereStandort($standort_name) {
+	myLog("Manipuliere Standort: $standort_name");
+	if ($standort_name == "Campus der FHVR")
+		$standort_name = "Campus Lichtenberg";
+	if ($standort_name != "Campus Lichtenberg")
+		$standort_name = "";
+	myLog("Manipulierter Standort: $standort_name");	
+	return $standort_name;
+}
+
 function addStandort($standort_name) {
 	myLog("Prüfe Standort: $standort_name");
 	$ergebnis = mysql_query("SELECT StandortID FROM standort WHERE Bezeichnung = '$standort_name'");
