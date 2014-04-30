@@ -332,7 +332,137 @@ jQuery(document).ready(function() {
 	});
 		
 	jQuery('#vmap9').vectorMap('set', 'colors', {EG: '#bababa'});
-
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG2: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG3: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG4: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG5: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG6: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG7: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG8: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG9: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG10: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG11: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG12: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG13: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG14: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG15: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG16: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG17: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG18: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG19: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG20: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG21: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG22: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG23: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG24: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG25: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG26: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG27: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG28: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG29: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG30: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG31: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG32: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG33: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG34: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG35: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG36: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG37: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG38: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG39: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG40: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG41: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG42: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG43: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG44: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG45: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG46: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG47: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG48: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG49: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG50: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG51: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG52: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG53: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG54: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG55: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG56: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG57: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG58: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG59: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG60: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG61: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG62: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG63: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG64: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG65: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG66: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG67: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG68: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG69: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG70: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG71: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG72: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG73: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG74: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG75: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG76: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG77: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG78: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG79: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG80: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG81: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG82: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG83: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG84: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG85: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG86: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG87: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG88: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG89: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG90: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG91: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG92: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG93: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG94: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG95: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG96: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG97: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG98: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG99: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG100: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG101: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG102: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG103: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG104: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG105: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG106: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG107: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG108: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG109: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG110: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG111: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG112: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG113: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG114: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG115: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG116: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG117: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG118: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG119: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG120: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG121: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG122: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG123: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG124: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG125: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG126: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG127: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG128: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG129: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG130: '#bababa'});
+	jQuery('#vmap9').vectorMap('set', 'colors', {EG131: '#bababa'});
+	
 	jQuery('#vmap10').vectorMap({
 		map: '5_eg',
 		    
@@ -353,6 +483,17 @@ jQuery(document).ready(function() {
 	});
 		
 	jQuery('#vmap10').vectorMap('set', 'colors', {EG: '#bababa'});
+	jQuery('#vmap10').vectorMap('set', 'colors', {EG2: '#bababa'});
+	jQuery('#vmap10').vectorMap('set', 'colors', {EG3: '#bababa'});
+	jQuery('#vmap10').vectorMap('set', 'colors', {EG4: '#bababa'});
+	jQuery('#vmap10').vectorMap('set', 'colors', {EG5: '#bababa'});
+	jQuery('#vmap10').vectorMap('set', 'colors', {EG6: '#bababa'});
+	jQuery('#vmap10').vectorMap('set', 'colors', {EG7: '#bababa'});
+	jQuery('#vmap10').vectorMap('set', 'colors', {EG8: '#bababa'});
+	jQuery('#vmap10').vectorMap('set', 'colors', {EG9: '#bababa'});
+	jQuery('#vmap10').vectorMap('set', 'colors', {EG10: '#bababa'});
+	jQuery('#vmap10').vectorMap('set', 'colors', {EG11: '#bababa'});
+	jQuery('#vmap10').vectorMap('set', 'colors', {EG12: '#bababa'});
 	
 	jQuery('#vmap11').vectorMap({
 		map: '6a_1og',
@@ -374,6 +515,28 @@ jQuery(document).ready(function() {
 	});
 		
 	jQuery('#vmap11').vectorMap('set', 'colors', {EG: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG2: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG3: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG4: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG5: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG6: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG7: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG8: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG9: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG10: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG11: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG12: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG13: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG14: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG15: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG16: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG17: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG18: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG19: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG20: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG21: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG22: '#bababa'});
+	jQuery('#vmap11').vectorMap('set', 'colors', {EG23: '#bababa'});
 	
 	jQuery('#vmap12').vectorMap({
 		map: '6a_3og',
@@ -395,6 +558,27 @@ jQuery(document).ready(function() {
 	});
 		
 	jQuery('#vmap12').vectorMap('set', 'colors', {EG: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG2: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG3: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG4: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG5: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG6: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG7: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG8: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG9: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG10: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG11: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG12: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG13: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG14: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG15: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG16: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG17: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG18: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG19: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG20: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG21: '#bababa'});
+	jQuery('#vmap12').vectorMap('set', 'colors', {EG22: '#bababa'});
 	
 	jQuery('#vmap13').vectorMap({
 		map: '6b_eg',
@@ -416,6 +600,30 @@ jQuery(document).ready(function() {
 	});
 		
 	jQuery('#vmap13').vectorMap('set', 'colors', {EG: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG2: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG3: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG4: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG5: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG6: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG7: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG8: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG9: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG10: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG11: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG12: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG13: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG14: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG15: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG16: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG17: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG18: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG19: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG20: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG21: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG22: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG23: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG24: '#bababa'});
+	jQuery('#vmap13').vectorMap('set', 'colors', {EG25: '#bababa'});
 	
 	jQuery('#vmap14').vectorMap({
 		map: '6b_1og',
@@ -437,6 +645,46 @@ jQuery(document).ready(function() {
 	});
 		
 	jQuery('#vmap14').vectorMap('set', 'colors', {EG: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG2: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG3: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG4: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG5: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG6: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG7: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG8: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG9: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG10: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG11: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG12: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG13: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG14: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG15: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG16: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG17: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG18: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG19: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG20: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG21: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG22: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG23: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG24: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG25: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG26: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG27: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG28: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG29: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG30: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG31: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG32: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG33: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG34: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG35: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG36: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG37: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG38: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG39: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG40: '#bababa'});
+	jQuery('#vmap14').vectorMap('set', 'colors', {EG41: '#bababa'});
 	
 	jQuery('#vmap15').vectorMap({
 		map: '6b_2og',
@@ -458,6 +706,24 @@ jQuery(document).ready(function() {
 	});
 		
 	jQuery('#vmap15').vectorMap('set', 'colors', {EG: '#bababa'});
+	jQuery('#vmap15').vectorMap('set', 'colors', {EG2: '#bababa'});
+	jQuery('#vmap15').vectorMap('set', 'colors', {EG3: '#bababa'});
+	jQuery('#vmap15').vectorMap('set', 'colors', {EG4: '#bababa'});
+	jQuery('#vmap15').vectorMap('set', 'colors', {EG5: '#bababa'});
+	jQuery('#vmap15').vectorMap('set', 'colors', {EG6: '#bababa'});
+	jQuery('#vmap15').vectorMap('set', 'colors', {EG7: '#bababa'});
+	jQuery('#vmap15').vectorMap('set', 'colors', {EG8: '#bababa'});
+	jQuery('#vmap15').vectorMap('set', 'colors', {EG9: '#bababa'});
+	jQuery('#vmap15').vectorMap('set', 'colors', {EG10: '#bababa'});
+	jQuery('#vmap15').vectorMap('set', 'colors', {EG11: '#bababa'});
+	jQuery('#vmap15').vectorMap('set', 'colors', {EG12: '#bababa'});
+	jQuery('#vmap15').vectorMap('set', 'colors', {EG13: '#bababa'});
+	jQuery('#vmap15').vectorMap('set', 'colors', {EG14: '#bababa'});
+	jQuery('#vmap15').vectorMap('set', 'colors', {EG15: '#bababa'});
+	jQuery('#vmap15').vectorMap('set', 'colors', {EG16: '#bababa'});
+	jQuery('#vmap15').vectorMap('set', 'colors', {EG17: '#bababa'});
+	jQuery('#vmap15').vectorMap('set', 'colors', {EG18: '#bababa'});
+	jQuery('#vmap15').vectorMap('set', 'colors', {EG19: '#bababa'});
 	
 	jQuery('#vmap16').vectorMap({
 		map: '6b_3og',
@@ -479,6 +745,28 @@ jQuery(document).ready(function() {
 	});
 		
 	jQuery('#vmap16').vectorMap('set', 'colors', {EG: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG2: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG3: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG4: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG5: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG6: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG7: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG8: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG9: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG10: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG11: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG12: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG13: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG14: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG15: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG16: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG17: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG18: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG19: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG20: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG21: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG22: '#bababa'});
+	jQuery('#vmap16').vectorMap('set', 'colors', {EG23: '#bababa'});
 	
 	jQuery('#vmap17').vectorMap({
 		map: '6b_4og',
@@ -500,6 +788,27 @@ jQuery(document).ready(function() {
 	});
 		
 	jQuery('#vmap17').vectorMap('set', 'colors', {EG: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG2: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG3: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG4: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG5: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG6: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG7: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG8: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG9: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG10: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG11: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG12: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG13: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG14: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG15: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG16: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG17: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG18: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG19: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG20: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG21: '#bababa'});
+	jQuery('#vmap17').vectorMap('set', 'colors', {EG22: '#bababa'});
 	
 
 	
