@@ -70,7 +70,7 @@
 					<!-- Start: Datumsauswahl -->
 					<p>Datum:&nbsp;&nbsp;&nbsp;<br>	
 						<!-- Tag auswählen -->
-						<select id="Day "style="width:40px" >
+						<select id="Day" style="width:45px" >
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
@@ -134,7 +134,7 @@
 					
 					<!-- Start: Zeitraum -->
 					<p> Zeitraum:<br>
-					
+						<input type="radio" name="zeitraum" value="woche"> 1 Tag<br>
 						<input type="radio" name="zeitraum" value="woche"> 7 Tage<br>
 						<input type="radio" name="zeitraum" value="monat"> 4 Wochen<br>
 						<input type="radio" name="zeitraum" value="semester"> 6 Monate (1 Semester)<br>
@@ -144,8 +144,16 @@
 					<!-- Ende: Zeitraum -->	
 					
 					<!-- Start: Diagrammtyp-->
-					<p>Diagrammtyp:<br>  
-					<table>
+					Darstellungstyp:<input type="checkbox" name="infobox" id="info1"></input>
+	<label class="info" for="info1"><img src="./Bilder/info.png" alt="Grafik 1"></label><br />
+	<span class="info1">
+		<p>
+			<b>Einzelsicht:</b></br>Zeigt die genaue Belegung eines Raums zu einem bestimmten Zeitraum in einem Kreisdiagramm an. </br></br>
+			<b>Gesamtsicht:</b></br> Zeigt die durchschnittliche Belegung eines Raums in einem Balkendiagramm an.	
+		</p>
+	</span>
+    
+					<!--<table>
 						<tr>
 							<td>	
 								<span class="hover"><label for ="Dounut"><img src="./Bilder/logodounut.jpg" ><span class="infobox">&nbsp;Dounutdiagramm&nbsp; </span></span>
@@ -178,6 +186,36 @@
 					<br>
 					</p>
 					<!-- Ende: Diagrammtyp -->
+					<!--<p>
+						<input type="checkbox" name="Diagrammtyp" value="pie" checked>Einzelsicht <span class="hover"><label for ="Kreis"><img src="./Bilder/kreis1.jpg"><span class="infobox">&nbsp;Kreisdiagramm&nbsp;</span><br>
+						<input type="checkbox" name="Diagrammtyp" value="column" checked>Gesamtsicht<span class="hover"><label for ="Balken"><img src="./Bilder/logobalken.jpg"><span class="infobox">&nbsp;Balkendiagramm&nbsp;</span><br>
+					</p>
+					-->
+					<table cellpadding="1">
+						<tr>
+						    <td>
+							<input type="checkbox" name="Diagrammtyp" value="pie" checked>
+							</td>
+							<td>	
+								<span class="hover"><label for ="Dounut"><img src="./Bilder/kreis2.jpg" ><span class="infobox">&nbsp;Kreisdiagramm&nbsp; </span></span>
+							</td>
+							<td>
+							 Einzelsicht
+							</td>
+						</tr>	
+						<tr>
+							<td>
+								<input type="checkbox" name="Diagrammtyp" value="column" checked>
+							</td>
+							<td>	
+								<span class="hover"><label for ="Balken"><img src="./Bilder/balken1.jpg"><span class="infobox">&nbsp;Balkendiagramm&nbsp;</span></span>
+							</td>
+							<td>
+							 Gesamtsicht
+							</td>
+						</tr>	
+					</table>
+					<br>
 					
 					<input type="button" onClick="rd1FrageDatenAb()" value="anzeigen"/>
 				</form>
