@@ -224,7 +224,6 @@
 		<div id="main">
 			<div id="top">
 				<div id="pfad"><a id="standorte" class="upperHead routeMap">Standorte</a></div>
-				<div id="titel"><a class="upperHead">Titel</a></div>
 			</div>
 			<div id="grafik">
 				    <div id="vmap" class="map" style="width: 100%; height: 600px;"></div>

@@ -1,3 +1,5 @@
+var already = false;
+
 jQuery(document).ready(function() {
 	jQuery('#vmap').vectorMap({
 	    map: 'standorte',
@@ -10,7 +12,14 @@ jQuery(document).ready(function() {
 				$('#vmap').css("z-index", "1");
 				$('#vmap2').css("z-index", "5");
 		        
-				$("#pfad").append("<a class='routeMap' id='campuslichtenberg'>> Lichtenberg</a>");
+				
+				$("#standort").val("1");
+				if(!already)
+				{
+					already = true;
+					$("#standort").change();
+					already = false;
+				}
 			}
 			
 			if (code == 'standortbitterfelderstraße'){
@@ -59,7 +68,11 @@ jQuery(document).ready(function() {
 				$('#vmap2').css("z-index", "1");
 				$('#vmap5').css("z-index", "5");
 				
-				$("#pfad").append("<a class='routeMap' id='haus1'>> Haus 1</a>");		     		     
+				if(!already){
+					already = true;	     	
+					getSelect("#haus", "Haus 1");    	     
+					already = false;
+				}
 			}
 			
 			if (code == 'haus5'){
@@ -67,7 +80,11 @@ jQuery(document).ready(function() {
 				$('#vmap2').css("z-index", "1");
 				$('#vmap6').css("z-index", "5");
 		     
-				$("#pfad").append("<a class='routeMap' id='haus5'>> Haus 5</a>");		
+				if(!already){
+					already = true;	 
+					getSelect("#haus", "Haus 5");
+					already = false;
+				}	
 			}
 			
 			if (code == 'haus6a'){
@@ -75,7 +92,11 @@ jQuery(document).ready(function() {
 				$('#vmap2').css("z-index", "1");
 				$('#vmap7').css("z-index", "5");
 				
-				$("#pfad").append("<a class='routeMap' id='haus6a'>> Haus 6A</a>");				     
+				if(!already){
+					already = true;	 	
+					getSelect("#haus", "Haus 6A"); 
+					already = false;
+				}   		     
 			}
 			
 			if (code == 'haus6b6c'){
@@ -83,7 +104,11 @@ jQuery(document).ready(function() {
 				$('#vmap2').css("z-index", "1");
 				$('#vmap8').css("z-index", "5");
 		     
-				$("#pfad").append("<a class='routeMap' id='haus6b'>> Haus 6B</a>");	
+				if(!already){
+					already = true;	 
+					getSelect("#haus", "Haus 6B");
+					already = false;
+				}    
 			}
 			
 			if (region == 'NONE'){
@@ -317,6 +342,36 @@ jQuery(document).ready(function() {
 		    
 		onRegionClick: function(element, code, region)
 		{
+
+			if (code == '1.2068'){
+				if(!already){
+			already = true;
+				getSelect("#raum", "12.068");
+				already = false;
+			}
+			}
+			if (code == '1.2067'){
+				if(!already){
+			already = true;
+				getSelect("#raum", "12.067");
+				already = false;
+			}
+			}
+			if (code == '1.2066'){
+				if(!already){
+			already = true;
+				getSelect("#raum", "12.066");
+				already = false;
+			}
+			}
+			if (code == '1.2065'){
+				if(!already){
+			already = true;
+				getSelect("#raum", "12.065");
+				already = false;
+			}
+			}
+
 			if (region == 'NONE'){
 				exit();
 			}
@@ -468,6 +523,44 @@ jQuery(document).ready(function() {
 		    
 		onRegionClick: function(element, code, region)
 		{
+
+			if (code == '5.0001'){
+				if(!already){
+					already = true;
+					getSelect("#raum", "50.001");
+					already = false;
+				}
+			}
+			if (code == '5.0002'){
+				if(!already){
+					already = true;
+					getSelect("#raum", "50.002");
+					already = false;
+				}
+			}
+			if (code == '5.0003'){
+				if(!already){
+					already = true;
+					getSelect("#raum", "50.003");
+					already = false;
+				}
+			}
+			if (code == '5.0014'){
+				if(!already){
+					already = true;
+					getSelect("#raum", "50.014");
+					already = false;
+				}
+			}
+			if (code == '5.0015'){
+				if(!already){
+					already = true;
+					getSelect("#raum", "50.015");
+					already = false;
+				}
+			}
+
+
 			if (region == 'NONE'){
 				exit();
 			}
@@ -812,4 +905,132 @@ jQuery(document).ready(function() {
 	
 
 	
+});
+
+function getSelect(it, which){
+	var pw2 = function(){
+		var pw;
+		$(it).children("option").each(function(i){
+			//alert($(this).text().search(which));
+			if($(this).text().search(which) != -1){
+				pw = $(this).attr("value");
+				return false;
+			}
+		});
+		if(pw == ""){
+			return "0@pw0";
+		}
+		else
+		{
+			return pw;
+		}
+
+	}
+	if(pw2 != "0@pw0"){
+		$(it).val(pw2);
+		$(it).change();
+	}
+}
+
+$(document).ready(function(){
+	$("path[original='#dddddd']").click(function(){
+		var id = $(this).attr("id");
+		var id2 = id;
+		id = id.substring(id.indexOf("_")+1, id.length);
+		if(!already){
+			already = true;
+			getSelect("#raum", id);
+			already = false;
+		}
+		id2 = id2.substring(id2.indexOf("jqvmap")+2, id2.indexOf("_"));
+		$("div[id^='vmap']").css("z-index", "1");
+		$("#"+id2).css("z-index", "5");
+	});
+
+	$("#standort").change(function(){
+		var haus = $("#standort :selected").text();
+		$("#pfad").find("a+a+a ~ a").remove();
+		$("#pfad").find("a+a+a").remove();
+		switch(haus){
+			case "Campus Lichtenberg":
+				if(!already)
+				{
+					already = true;
+					$("#jqvmap1_campuslichtenberg").trigger("click");
+					already = false;
+				}
+				$("#pfad").append("<a class='routeMap' id='campuslichtenberg'>> Lichtenberg</a>");
+			break;
+			default:
+			break;
+		}
+	});
+
+	$("#haus").change(function(){
+		var haus = $("#haus :selected").text();
+		$("#pfad").find("a+a+a+a ~ a").remove();
+		$("#pfad").find("a+a+a+a").remove();
+		switch(haus){
+			case "Haus 1":
+				if(!already)
+				{
+					already = true;
+					$("#jqvmap2_haus1").trigger("click");
+					already = false;
+				}
+				$("#pfad").append("<a class='routeMap' id='haus1'>> Haus 1</a>");	
+			break;
+			case "Haus 6A":
+				if(!already)
+				{
+					already = true;
+					$("#jqvmap2_haus6a").trigger("click");
+					already = false;
+				}
+				$("#pfad").append("<a class='routeMap' id='haus6a'>> Haus 6A</a>");
+			break;
+			case "Haus 6B":
+				if(!already)
+				{
+					already = true;
+					$("#jqvmap2_haus6b6c").trigger("click");
+					already = false;
+				}
+				$("#pfad").append("<a class='routeMap' id='haus6b'>> Haus 6B</a>");
+			break;
+			case "Haus 5":
+				if(!already)
+				{
+					already = true;
+					$("#jqvmap2_haus5").trigger("click");
+					already = false;
+				}
+				$("#pfad").append("<a class='routeMap' id='haus5'>> Haus 5</a>");
+			break;
+			default:
+			break;
+		}
+	});
+
+	$("#raum").change(function(){
+		var raum = $("#raum :selected").text();
+		if($("#haus :selected").text() == "Haus 6A"){
+			raum = raum.substring(0, 6);
+		}else if($("#haus :selected").text() == "Haus 6B"){
+			if(raum.substring(0, 2) == "Z "){
+				raum = raum.substr(2, 6);
+			}else if(raum.substring(0, 2) == "6B"){
+				raum = raum.substr(0, 6);
+			}
+		}else if($("#haus :selected").text() == "Haus 5"){
+			raum = raum.replace("0.", ".0");
+		}else if($("#haus :selected").text() == "Haus 1"){
+			raum = raum.replace("2.", ".2");
+		}
+		if(!already){
+			already = true;
+			$("path[id*='" + raum + "']").trigger("click");
+			already = false;
+		}
+	});
 });
