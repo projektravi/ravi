@@ -17,12 +17,19 @@ foreach ($datei AS $ausgabe) {
 	$standort_id = addStandort($standort_name);
 	if ($standort_id == -1)
 		break;
+	// Gebäudevorauswahl
+	if (gebaeudePreChecker($zerlegen[6]) == false)
+		continue;
 	// Gebäude hinzufügen
 	$gebaeude_id = addGebaeude($zerlegen[6], $standort_id);
 	if ($gebaeude_id == -1)
 		break;
+	// Raum manipulieren
+	$raum_name = manipuliereRaum($zerlegen[6], $zerlegen[1]);
+	if ($raum_name == "")
+		continue;
 	// Raum hinzufügen
-	$raum_id = addRaum($zerlegen[0], $zerlegen[1], $zerlegen[2], $zerlegen[4], $gebaeude_id);
+	$raum_id = addRaum($zerlegen[0], $raum_name, $zerlegen[2], $zerlegen[4], $gebaeude_id);
 	if ($raum_id == -1)
 		break;
 	// Eigenschaft setzen
@@ -72,6 +79,18 @@ function addStandort($standort_name) {
 	return $standort_id;
 }
 
+function gebaeudePreChecker($gebaeude_name) {
+	myLog("Prüfe Gebäude: $gebaeude_name");
+	if ($gebaeude_name == "Haus 6B")
+		return true;
+	if ($gebaeude_name == "Haus 6A")
+		return true;
+	if ($gebaeude_name == "Haus 1")
+		return true;
+	myLog("Gebäude aussortiert.");
+	return false;
+}
+
 function addGebaeude($gebaude_name, $standort_id) {
 	myLog("Prüfe Gebäude: $gebaude_name");
 	$ergebnis = mysql_query("SELECT GebaeudeID FROM gebaeude WHERE Bezeichnung = '$gebaude_name'");
@@ -101,6 +120,62 @@ function addGebaeude($gebaude_name, $standort_id) {
 		return -1;
 	}
 	return $gebaeude_id;
+}
+
+function manipuliereRaum($gebaeude_name, $raum_name) {
+	myLog("Prüfe Raum $raum_name von Gebäude $gebaeude_name");
+	if ($gebaeude_name == "Haus 6B")
+		return manipuliereRaumHaus6B($raum_name);
+	if ($gebaeude_name == "Haus 6A")
+		return manipuliereRaumHaus6A($raum_name);
+	if ($gebaeude_name == "Haus 1")
+		return manipuliereRaumHaus1($raum_name);
+	myLog("Gebäude unbekannt.");
+	return "";
+}
+
+function manipuliereRaumHaus6B($raum_name) {
+	myLog("Manipuliere Raum: $raum_name");
+	if (strlen($raum_name) < 6) {
+		myError("Raumname zu kurz");
+		return "";
+	}
+	if (($raum_name == "6B 251/252") || ($raum_name == "6B 277/278  +V") || ($raum_name == "6B 251/252") || ($raum_name == "6B kein Raum") || ($raum_name == "6B kein Raum mit Beamer") || ($raum_name == "Z 6B 350 a")) {
+		myError("Raum nicht zuordbar");
+		return "";
+	}
+	if (substr($raum_name,0,1) == "Z") {
+		myLog("Entferne Anfangsbuchstabe");
+		$raum_name = substr($raum_name,2);
+	}
+	$raum_name = substr($raum_name,0,6);
+	myLog("Manipulierter Raum: $raum_name");
+	return $raum_name;
+}
+
+function manipuliereRaumHaus6A($raum_name) {
+	myLog("Manipuliere Raum: $raum_name");
+	if (strlen($raum_name) < 6) {
+		myError("Raumname zu kurz");
+		return "";
+	}
+	$raum_name = substr($raum_name,0,6);
+	myLog("Manipulierter Raum: $raum_name");
+	return $raum_name;
+}
+
+function manipuliereRaumHaus1($raum_name) {
+	myLog("Manipuliere Raum: $raum_name");	
+	myLog("Entferne alle Punkte und setze Punkt an 2. Stelle");
+	$raum_name = str_replace(".", "", $raum_name);
+	$raum_name = substr($raum_name,0,6);
+	$raum_name = substr($raum_name,0,1).'.'.substr($raum_name,1);
+	myLog("Manipulierter Raum: $raum_name");
+	if (($raum_name != "1.2065") && ($raum_name != "1.2066") && ($raum_name != "1.2067") && ($raum_name != "1.2068")) {
+		myError("Raum nicht verwendbar");
+		return "";
+	}
+	return $raum_name;
 }
 
 function addRaum($raum_id, $raum_nr, $raum_sitzplaetze, $raum_typ, $gebaeude_id) {
