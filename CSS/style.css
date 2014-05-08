@@ -270,6 +270,7 @@ font-weight: normal;
 color: black; 
 border: 1px solid #d92425; 
 background: #fff; 
+z-index: 999 !important;
 }
 
 input#info1:checked ~ span.info1 { 
