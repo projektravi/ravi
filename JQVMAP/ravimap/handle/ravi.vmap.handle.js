@@ -343,7 +343,7 @@ jQuery(document).ready(function() {
 		onRegionClick: function(element, code, region)
 		{
 
-			if (code == '1.2068'){
+			/*if (code == '1.2068'){
 				if(!already){
 			already = true;
 				getSelect("#raum", "12.068");
@@ -370,7 +370,7 @@ jQuery(document).ready(function() {
 				getSelect("#raum", "12.065");
 				already = false;
 			}
-			}
+			}*/
 
 			if (region == 'NONE'){
 				exit();
@@ -524,7 +524,7 @@ jQuery(document).ready(function() {
 		onRegionClick: function(element, code, region)
 		{
 
-			if (code == '5.0001'){
+			/*if (code == '5.0001'){
 				if(!already){
 					already = true;
 					getSelect("#raum", "50.001");
@@ -558,7 +558,7 @@ jQuery(document).ready(function() {
 					getSelect("#raum", "50.015");
 					already = false;
 				}
-			}
+			}*/
 
 
 			if (region == 'NONE'){
@@ -908,27 +908,26 @@ jQuery(document).ready(function() {
 });
 
 function getSelect(it, which){
-	var pw2 = function(){
-		var pw;
-		$(it).children("option").each(function(i){
-			//alert($(this).text().search(which));
-			if($(this).text().search(which) != -1){
-				pw = $(this).attr("value");
-				return false;
-			}
-		});
-		if(pw == ""){
-			return "0@pw0";
+	var pw2;
+	var pw = "";
+	$(it).children("option").each(function(i){
+		if($(this).text().search(which) != -1){
+			pw = $(this).attr("value");
+			return false;
 		}
-		else
-		{
-			return pw;
-		}
-
+	});
+	if(pw == ""){
+		pw2 = "0@pw0";
+	}
+	else
+	{
+		pw2 = pw;
 	}
 	if(pw2 != "0@pw0"){
 		$(it).val(pw2);
 		$(it).change();
+	}else if(pw2 == "0@pw0" && it == "#raum"){
+		alert("Der Raum " + which + " befindet sich nicht in der Datenbank. Bitte wählen Sie einen anderen Raum aus!");
 	}
 }
 
@@ -937,7 +936,7 @@ $(document).ready(function(){
 		var id = $(this).attr("id");
 		var id2 = id;
 		id = id.substring(id.indexOf("_")+1, id.length);
-		if(!already){
+		if(!already && id.substring(0, 9) != "stockwerk" && id.substring(0, 4) != "haus" && id.substring(0, 4) != "camp" && id.substring(0, 4) != "stan"){
 			already = true;
 			getSelect("#raum", id);
 			already = false;
@@ -1029,7 +1028,11 @@ $(document).ready(function(){
 		}
 		if(!already){
 			already = true;
-			$("path[id*='" + raum + "']").trigger("click");
+			if($("path[id*='" + raum + "']").length > 0){
+				$("path[id*='" + raum + "']").trigger("click");
+			}else{
+				alert("Der von Ihnen angeforderte Raum ist nicht auf dem Grundriss verfügbar! Sie können Ihn trotzdem auswerten lassen.");
+			}
 			already = false;
 		}
 	});

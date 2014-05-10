@@ -1,7 +1,6 @@
 body {
 margin: 0;
 padding: 0;
-
 }
 
 *{
@@ -166,7 +165,7 @@ border: 12px solid rgb(221, 221, 221);
 -webkit-border-radius: 40px; /* Safari, Chrome */
 -khtml-border-radius: 40px; /* Linux-Browser */
 border-radius: 8px; /* CSS3 */
-
+margin-bottom: 40px;
 }
 
 #top{
