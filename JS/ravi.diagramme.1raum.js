@@ -7,6 +7,21 @@ function rd1FrageDatenAb() {
 	var tag = f.Day.value;
 	var monat = f.Month.value;
 	var jahr = f.Year.value;
+	$('#diagramm1').hide();
+	$('#diagramm2').hide();	
+	alert($( "#standort option:selected" ).text());
+
+
+	
+	
+	if ($("#Einzelsicht").is(":checked")){
+		$('#diagramm1').show();	
+	};
+	if ($("#Gesamtsicht").is(":checked")){
+		$('#diagramm2').show();
+	};
+	
+	
 	
 	// Daten an Server senden
 	$.ajax({
@@ -20,6 +35,7 @@ function rd1FrageDatenAb() {
 		// Callback-Funktion, die nach der Antwort des Servers ausgefuehrt wird
         success: function(data) { rd1InitialisiereDiagram(data, raumName); }
 	});
+	
 }
 
 function rd1InitialisiereDiagram(data, raumName) {	
@@ -48,13 +64,13 @@ function rd1InitialisiereDiagram(data, raumName) {
 	datenarray.push({name: "belegt", y: sumBelegung / (i)});
 	datenarray.push({name: "nicht belegt", y: 100 - (sumBelegung / (i))});
 	var titel = "Absolute Belegung des Raumes " + raumName + " im Zeitraum " + response[0].Buchung_fuer + " - "	+ response[i-1].Buchung_fuer + "";
-	rd3DPie("grafik", titel , "Durchschnitt", datenarray);
+	rd3DPie("diagramm1", titel , "Durchschnitt", datenarray);
 	// Belegung nach Tage aufgeschlüsselt in einer StackedBar
 	var daten = new Array();
 	daten.push({name: "belegt", data: belegt});
 	daten.push({name: "nicht belegt", data: nicht_belegt});
 	titel = "Durchschnittliche Belegung des Raumes " + raumName + " im Zeitraum " + response[0].Buchung_fuer + " - " + response[i-1].Buchung_fuer + "";
-	rdStackedBar("diagramm1", titel, "Belegung in %", kategorien, daten, 100);	
+	rdStackedBar("diagramm2", titel, "Belegung in %", kategorien, daten, 100);	
 
 	return;
 }
