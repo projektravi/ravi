@@ -9,20 +9,13 @@ function rd1FrageDatenAb() {
 	var jahr = f.Year.value;
 	$('#diagramm1').hide();
 	$('#diagramm2').hide();	
-	alert($( "#standort option:selected" ).text());
-
-
-	
-	
-	if ($("#Einzelsicht").is(":checked")){
+		if ($("#Einzelsicht").is(":checked")){
 		$('#diagramm1').show();	
 	};
 	if ($("#Gesamtsicht").is(":checked")){
 		$('#diagramm2').show();
 	};
-	
-	
-	
+		
 	// Daten an Server senden
 	$.ajax({
 		// pfad zur PHP Datei (ab HTML Datei)
