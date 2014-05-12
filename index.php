@@ -194,7 +194,7 @@
 					<table cellpadding="1">
 						<tr>
 						    <td>
-							<input type="checkbox" name="Diagrammtyp" value="pie" checked>
+							<input id="Einzelsicht" type="checkbox" name="Diagrammtyp" value="pie" checked>
 							</td>
 							<td>	
 								<span class="hover"><label for ="Dounut"><img src="./Bilder/kreis2.jpg" ><span class="infobox">&nbsp;Kreisdiagramm&nbsp; </span></span>
@@ -205,7 +205,7 @@
 						</tr>	
 						<tr>
 							<td>
-								<input type="checkbox" name="Diagrammtyp" value="column" checked>
+								<input id="Gesamtsicht" type="checkbox" name="Diagrammtyp" value="column" checked>
 							</td>
 							<td>	
 								<span class="hover"><label for ="Balken"><img src="./Bilder/balken1.jpg"><span class="infobox">&nbsp;Balkendiagramm&nbsp;</span></span>
@@ -243,10 +243,11 @@
 					<div id="vmap15" class="map" style="width: 100%; height: 600px;"></div>
 					<div id="vmap16" class="map" style="width: 100%; height: 600px;"></div>
 					<div id="vmap17" class="map" style="width: 100%; height: 600px;"></div>
+					<div id="diagramm1" style="height: 0px"></div>
+					<div id="diagramm2" style="height: 0px"></div>
+					<div id="diagramm3" style="height: 0px"></div>
 			</div>
-			<div id="diagramm1" style="height: 0px"></div>
-			<div id="diagramm2" style="height: 0px"></div>
-			<div id="diagramm3" style="height: 0px"></div>
+
 		</div>
 	</div>
 	
