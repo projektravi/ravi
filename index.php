@@ -134,11 +134,11 @@
 					
 					<!-- Start: Zeitraum -->
 					<p> Zeitraum:<br>
-						<input type="radio" name="zeitraum" value="woche"> 1 Tag<br>
-						<input type="radio" name="zeitraum" value="woche"> 7 Tage<br>
-						<input type="radio" name="zeitraum" value="monat"> 4 Wochen<br>
-						<input type="radio" name="zeitraum" value="semester"> 6 Monate (1 Semester)<br>
-						<input type="radio" name="zeitraum" value="jahr"> 12 Monate<br>
+						<input type="radio" name="zeitraum" value="1"> 1 Tag<br>
+						<input type="radio" name="zeitraum" value="2"> 7 Tage<br>
+						<input type="radio" name="zeitraum" value="3"> 4 Wochen<br>
+						<input type="radio" name="zeitraum" value="4"> 6 Monate (1 Semester)<br>
+						<input type="radio" name="zeitraum" value="5"> 12 Monate<br>
 					
 					<br></p>
 					<!-- Ende: Zeitraum -->	
@@ -244,6 +244,9 @@
 					<div id="vmap16" class="map" style="width: 100%; height: 600px;"></div>
 					<div id="vmap17" class="map" style="width: 100%; height: 600px;"></div>
 			</div>
+			<div id="diagramm1" style="height: 0px"></div>
+			<div id="diagramm2" style="height: 0px"></div>
+			<div id="diagramm3" style="height: 0px"></div>
 		</div>
 	</div>
 	

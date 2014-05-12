@@ -9,8 +9,10 @@ $scripte = array();
 $scripte[] = "js/ext/jquery-1.10.1.min.js";
 // jQuery UI 
 $scripte[] = "js/ext/jquery-ui-1.10.3.min.js";
-// CanvasJS
-$scripte[] = "js/ext/canvasjs-1.0.0.js";
+// Highcharts
+$scripte[] = "js/ext/highcharts-4.0.1.js";
+$scripte[] = "js/ext/highcharts-3d-4.0.1.js";
+$scripte[] = "js/ext/modules/exporting-4.0.1.js";
 
 // intern
 // Errorhandler
@@ -21,6 +23,8 @@ $scripte[] = "js/ravi.helper.js";
 $scripte[] = "js/ravi.menu.raumauswahl.js";
 // Menu - Datumsauswahl
 $scripte[] = "js/ravi.menu.datumsauswahl.js";
+// Diagramme
+$scripte[] = "js/ravi.diagramme.js";
 // Diagramme - 1 Raum + 1 Zeitraum
 $scripte[] = "js/ravi.diagramme.1raum.js";
 // Impressum
