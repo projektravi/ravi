@@ -3,7 +3,7 @@ include("dbconnect.php");
 
 $id = $_POST["StandortID"];
 
-$ergebnis = mysql_query("SELECT GebaeudeID, Bezeichnung FROM gebaeude WHERE StandortID = " . $id);
+$ergebnis = mysql_query("SELECT GebaeudeID, Bezeichnung FROM gebaeude WHERE StandortID = " . $id . " ORDER BY Bezeichnung");
 if (!$ergebnis) {
     echo 'Konnte Abfrage nicht ausführen: ' . mysql_error();
     exit;

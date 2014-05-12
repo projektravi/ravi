@@ -87,6 +87,8 @@ function gebaeudePreChecker($gebaeude_name) {
 		return true;
 	if ($gebaeude_name == "Haus 1")
 		return true;
+	if ($gebaeude_name == "Haus 5")
+		return true;
 	myLog("Gebäude aussortiert.");
 	return false;
 }
@@ -130,6 +132,8 @@ function manipuliereRaum($gebaeude_name, $raum_name) {
 		return manipuliereRaumHaus6A($raum_name);
 	if ($gebaeude_name == "Haus 1")
 		return manipuliereRaumHaus1($raum_name);
+	if ($gebaeude_name == "Haus 5")
+		return manipuliereRaumHaus5($raum_name);	
 	myLog("Gebäude unbekannt.");
 	return "";
 }
@@ -140,9 +144,12 @@ function manipuliereRaumHaus6B($raum_name) {
 		myError("Raumname zu kurz");
 		return "";
 	}
-	if (($raum_name == "6B 251/252") || ($raum_name == "6B 277/278  +V") || ($raum_name == "6B 251/252") || ($raum_name == "6B kein Raum") || ($raum_name == "6B kein Raum mit Beamer") || ($raum_name == "Z 6B 350 a")) {
+	if (($raum_name == "6B 251/252") || ($raum_name == "6B 277/278  +V") || ($raum_name == "6B 251/252") || ($raum_name == "6B kein Raum") || ($raum_name == "6B kein Raum mit Beamer")) {
 		myError("Raum nicht zuordbar");
 		return "";
+	}
+	if ($raum_name == "Z 6B 350 a") {
+		return "6B 350A";
 	}
 	if (substr($raum_name,0,1) == "Z") {
 		myLog("Entferne Anfangsbuchstabe");
@@ -175,6 +182,16 @@ function manipuliereRaumHaus1($raum_name) {
 		myError("Raum nicht verwendbar");
 		return "";
 	}
+	return $raum_name;
+}
+
+function manipuliereRaumHaus5($raum_name) {
+	myLog("Manipuliere Raum: $raum_name");	
+	myLog("Entferne alle Punkte und setze Punkt an 2. Stelle");
+	$raum_name = str_replace(".", "", $raum_name);
+	$raum_name = substr($raum_name,0,6);
+	$raum_name = substr($raum_name,0,1).'.'.substr($raum_name,1);
+	myLog("Manipulierter Raum: $raum_name");
 	return $raum_name;
 }
 
