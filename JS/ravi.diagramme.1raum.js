@@ -9,27 +9,34 @@ function rd1FrageDatenAb() {
 	var jahr = f.Year.value;
 	$('#diagramm1').hide();
 	$('#diagramm2').hide();	
-		if ($("#Einzelsicht").is(":checked")){
-		$('#diagramm0').hide();	
-		$('#diagramm1').show();			
-	};
-	if ($("#Gesamtsicht").is(":checked")){
-		$('#diagramm0').hide();	
-		$('#diagramm2').show();
-	};		
-	// Daten an Server senden
-	$.ajax({
-		// pfad zur PHP Datei (ab HTML Datei)
-		url: "PHP/diagrammeRaumZeitraumAuswahl.php",	
-		// Daten, die an Server gesendet werden soll in JSON Notation
-		data: {Zeitraum: zeitraum, RaumID: raumid, Tag: tag, Monat: monat, Jahr: jahr},
-		datatype: "json",	
-		// Methode POST oder GET
-		type: "POST",
-		// Callback-Funktion, die nach der Antwort des Servers ausgefuehrt wird
-        success: function(data) { rd1InitialisiereDiagram(data, raumName); }
-	});
 	
+	if ($("#Einzelsicht").is(":checked") || $("#Gesamtsicht").is(":checked")){
+			
+		if ($("#Einzelsicht").is(":checked")){
+			$('#diagramm0').hide();	
+			$('#diagramm1').show();			
+		};
+		if ($("#Gesamtsicht").is(":checked")){
+			$('#diagramm0').hide();	
+			$('#diagramm2').show();
+		};		
+		// Daten an Server senden
+		$.ajax({
+			// pfad zur PHP Datei (ab HTML Datei)
+			url: "PHP/diagrammeRaumZeitraumAuswahl.php",	
+			// Daten, die an Server gesendet werden soll in JSON Notation
+			data: {Zeitraum: zeitraum, RaumID: raumid, Tag: tag, Monat: monat, Jahr: jahr},
+			datatype: "json",	
+			// Methode POST oder GET
+			type: "POST",
+			// Callback-Funktion, die nach der Antwort des Servers ausgefuehrt wird
+			success: function(data) { rd1InitialisiereDiagram(data, raumName); }
+		});
+	}
+	else {
+	$('#diagramm0').show();
+	alert("Bitte waehlen Sie den Darstellungstyp!");
+	}
 }
 
 function rd1InitialisiereDiagram(data, raumName) {	
