@@ -55,14 +55,14 @@ function rd1InitialisiereDiagram(data, raumName) {
 	}	
 	// Belegung absolut für den Zeitraum im Kuchendiagramm
 	var datenarray =  new Array();
-	datenarray.push({name: "belegt", y: sumBelegung / (i)});
 	datenarray.push({name: "nicht belegt", y: 100 - (sumBelegung / (i))});
+	datenarray.push({name: "belegt", y: sumBelegung / (i)});	
 	var titel = "Absolute Belegung des Raumes " + raumName + " im Zeitraum " + response[0].Buchung_fuer + " - "	+ response[i-1].Buchung_fuer + "";
 	rd3DPie("diagramm1", titel , "Durchschnitt", datenarray);
 	// Belegung nach Tage aufgeschlüsselt in einer StackedBar
-	var daten = new Array();
-	daten.push({name: "belegt", data: belegt});
+	var daten = new Array();	
 	daten.push({name: "nicht belegt", data: nicht_belegt});
+	daten.push({name: "belegt", data: belegt});
 	titel = "Durchschnittliche Belegung des Raumes " + raumName + " im Zeitraum " + response[0].Buchung_fuer + " - " + response[i-1].Buchung_fuer + "";
 	rdStackedBar("diagramm2", titel, "Belegung in %", kategorien, daten, 100);	
 
