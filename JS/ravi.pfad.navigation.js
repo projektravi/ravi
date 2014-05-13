@@ -20,27 +20,51 @@ $(document).ready(function(){
 		  switch(target){
 			case "standorte":
 				$('#vmap').css("z-index", "5");
+				$('#diagramm0').show();	
+				$('#diagramm1').hide();
+				$('#diagramm2').hide();				
 			break;
 			case "campuslichtenberg":
 				$('#vmap2').css("z-index", "5");
+				$('#diagramm0').show();	
+				$('#diagramm1').hide();
+				$('#diagramm2').hide();	
 			break;
 			case "campusschoeneberg":
 				$('#vmap4').css("z-index", "5");
+				$('#diagramm0').show();	
+				$('#diagramm1').hide();
+				$('#diagramm2').hide();	
 			break;
 			case "standortbitterfelderstraße":
 				$('#vmap3').css("z-index", "5");
+				$('#diagramm0').show();	
+				$('#diagramm1').hide();
+				$('#diagramm2').hide();	
 			break;
 			case "haus1":
 				$('#vmap5').css("z-index", "5");
+				$('#diagramm0').show();	
+				$('#diagramm1').hide();
+				$('#diagramm2').hide();	
 			break;
 			case "haus5":
 				$('#vmap6').css("z-index", "5");
+				$('#diagramm0').show();	
+				$('#diagramm1').hide();
+				$('#diagramm2').hide();	
 			break;
 			case "haus6a":
 				$('#vmap7').css("z-index", "5");
+				$('#diagramm0').show();	
+				$('#diagramm1').hide();
+				$('#diagramm2').hide();	
 			break;
 			case "haus6b":
 				$('#vmap8').css("z-index", "5");
+				$('#diagramm0').show();	
+				$('#diagramm1').hide();
+				$('#diagramm2').hide();	
 			break;
 			default:
 			break;

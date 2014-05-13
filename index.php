@@ -226,7 +226,8 @@
 				<div id="pfad"><a id="standorte" class="upperHead routeMap">Standorte</a></div>
 			</div>
 			<div id="grafik">
-				    <div id="vmap" class="map" style="width: 100%; height: 600px;"></div>
+				    <div id="diagramm0">
+					<div id="vmap" class="map" style="width: 100%; height: 600px;"></div>
 					<div id="vmap2" class="map" style="width: 100%; height: 600px;"></div>
 					<div id="vmap3" class="map" style="width: 100%; height: 600px;"></div>
 					<div id="vmap4" class="map" style="width: 100%; height: 600px;"></div>
@@ -243,6 +244,7 @@
 					<div id="vmap15" class="map" style="width: 100%; height: 600px;"></div>
 					<div id="vmap16" class="map" style="width: 100%; height: 600px;"></div>
 					<div id="vmap17" class="map" style="width: 100%; height: 600px;"></div>
+					</div>
 					<div id="diagramm1" style="height: 0px"></div>
 					<div id="diagramm2" style="height: 0px"></div>
 					<div id="diagramm3" style="height: 0px"></div>

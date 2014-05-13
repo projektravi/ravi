@@ -10,12 +10,13 @@ function rd1FrageDatenAb() {
 	$('#diagramm1').hide();
 	$('#diagramm2').hide();	
 		if ($("#Einzelsicht").is(":checked")){
-		$('#diagramm1').show();	
+		$('#diagramm0').hide();	
+		$('#diagramm1').show();			
 	};
 	if ($("#Gesamtsicht").is(":checked")){
+		$('#diagramm0').hide();	
 		$('#diagramm2').show();
-	};
-		
+	};		
 	// Daten an Server senden
 	$.ajax({
 		// pfad zur PHP Datei (ab HTML Datei)
