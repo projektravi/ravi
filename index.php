@@ -138,11 +138,16 @@
 						<input type="radio" name="zeitraum" value="2"> 7 Tage<br>
 						<input type="radio" name="zeitraum" value="3"> 4 Wochen<br>
 						<input type="radio" name="zeitraum" value="4"> 6 Monate (1 Semester)<br>
-						<input type="radio" name="zeitraum" value="5"> 12 Monate<br>
-					
-					<br></p>
+						<input type="radio" name="zeitraum" value="5"> 12 Monate<br>					
+					</p>
 					<!-- Ende: Zeitraum -->	
-					
+					<table border="0">
+						<tr>
+						<td><input id="Sa" type="checkbox" name="Sa" value="sa">Samstag</td>
+						<td><input id="So" type="checkbox" name="So" value="so">Sonntag</td>
+						</tr>
+					</table>
+					<br/>
 					<!-- Start: Diagrammtyp-->
 					Darstellungstyp:<input type="checkbox" name="infobox" id="info1"></input>
 	<label class="info" for="info1"><img src="./Bilder/info.png" alt="Grafik 1"></label><br />
@@ -218,7 +223,7 @@
 					<br>
 					
 					<input type="button" onClick="rd1FrageDatenAb()" value="anzeigen"/>
-					<input type="button" onClick="oeffneNeuenTab()" value="in neuem Tab anzeigen"/>
+					<input type="button" onClick="oeffneNeuenTab()" value="neuen Tab oeffnen"/>
 				</form>
 			</div>
 		</div>				
