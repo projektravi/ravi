@@ -218,6 +218,7 @@
 					<br>
 					
 					<input type="button" onClick="rd1FrageDatenAb()" value="anzeigen"/>
+					<input type="button" onClick="oeffneNeuenTab()" value="in neuem Tab anzeigen"/>
 				</form>
 			</div>
 		</div>				

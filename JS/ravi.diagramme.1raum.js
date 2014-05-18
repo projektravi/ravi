@@ -1,3 +1,9 @@
+//var tagnt = $("#Day :selected").text();
+//$("#Day").val(tagnt);
+function oeffneNeuenTab() {
+window.open('index.php');
+}
+
 // Fragt die Daten zu einem ausgewählten Raum und Zeitraum ab
 function rd1FrageDatenAb() {
 	var f = document.menu;
