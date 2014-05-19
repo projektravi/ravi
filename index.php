@@ -25,7 +25,7 @@
 				<table border="0" cellpadding="7">
 					<tr>
 						<td><a href="index.php">Startseite</td>
-						<td>Kontakt</td>
+						<td><a href="javascript:changeDivKontakt()">Kontakt</td>
 						<td><a href="javascript:changeDivContent()">Impressum/Team</td>
 					</tr>
 				</table>			

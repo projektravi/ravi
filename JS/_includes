@@ -29,6 +29,8 @@ $scripte[] = "js/ravi.diagramme.js";
 $scripte[] = "js/ravi.diagramme.1raum.js";
 // Impressum
 $scripte[] = "js/ravi.impressum.js";
+//Kontakt
+$scripte[] = "js/ravi.kontakt.js";
 
 //JQVMAP
 $scripte[] = "js/ravi.pfad.navigation.js";
