@@ -12,7 +12,8 @@ $scripte[] = "js/ext/jquery-ui-1.10.3.min.js";
 // Highcharts
 $scripte[] = "js/ext/highcharts-4.0.1.js";
 $scripte[] = "js/ext/highcharts-3d-4.0.1.js";
-$scripte[] = "js/ext/modules/exporting-4.0.1.js";
+$scripte[] = "js/ext/highcharts-modules/exporting-4.0.1.js";
+$scripte[] = "js/ext/highcharts-modules/heatmap-4.0.1.js";
 
 // intern
 // Errorhandler

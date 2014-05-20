@@ -66,3 +66,61 @@ function rdStackedBar(container, titel, hinweis, kategorien, daten, maxWert) {
 		series: daten
 	});
 }
+
+function rdHeatMap(container, titel, kategorien_x_achse, kategorien_y_achse, daten, minWert, maxWert, mitLegende, hoehe) {
+	container = "#" + container;
+	$(container).css("height", "400px");
+	$(container).highcharts({
+        
+        chart: {
+            type: 'heatmap',
+			height: hoehe,
+            marginTop: 60,
+            marginBottom: 60
+        },
+
+        title: {			
+            text: titel
+        },
+
+        xAxis: {
+            categories: kategorien_x_achse
+        },
+
+        yAxis: {
+            categories: kategorien_y_achse,
+            title: null,
+			reversed: true
+        },
+
+        colorAxis: {
+            min: minWert,
+			max: maxWert,
+            minColor: '#FFFFFF',
+            maxColor: Highcharts.getOptions().colors[1]
+        },
+
+        legend: {
+            align: 'right',
+			enabled: mitLegende,
+            layout: 'vertical',
+            margin: 0,
+            verticalAlign: 'top',
+            y: 25,
+            symbolHeight: 320
+        },
+
+        tooltip: {
+			enabled: true,
+            formatter: function () {
+                return this.point.value == 1 ? "belegt" : "nicht belegt";
+            }
+        },
+
+        series: [{            
+            borderWidth: 1,
+            data: daten
+        }]
+
+    });
+}
