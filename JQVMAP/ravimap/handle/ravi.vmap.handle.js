@@ -28,6 +28,7 @@ jQuery(document).ready(function() {
 				$('#vmap3').css("z-index", "5");
 		        
 				$("#pfad").append("<a class='routeMap' id='standortbitterfelderstraße'>> Bitterfelder Straße</a>");
+				alertRavi("Der ausgewählte Standort liefert keine Daten. Bitte navigieren Sie zum Campus Lichtenberg.");
 			}
 			
 			if (code == 'campusschoeneberg'){
@@ -35,7 +36,8 @@ jQuery(document).ready(function() {
 				$('#vmap').css("z-index", "1");
 				$('#vmap4').css("z-index", "5");
 				
-				$("#pfad").append("<a class='routeMap' id='campusschoeneberg'>> Schöneberg</a>");		        
+				$("#pfad").append("<a class='routeMap' id='campusschoeneberg'>> Schöneberg</a>");		
+				alertRavi("Der ausgewählte Standort liefert keine Daten. Bitte navigieren Sie zum Campus Lichtenberg.");        
 			}
 			
 			if (region == 'NONE'){
@@ -73,6 +75,10 @@ jQuery(document).ready(function() {
 					getSelect("#haus", "Haus 1");    	     
 					already = false;
 				}
+				$('#vmap5').css("z-index", "1");
+				$('#vmap9').css("z-index", "5");
+				
+				$("#pfad").append("<a class='routeMap' id='stockwerk12og'>> Stockwerk 2 OG</a>");	
 			}
 			
 			if (code == 'haus5'){
@@ -85,6 +91,10 @@ jQuery(document).ready(function() {
 					getSelect("#haus", "Haus 5");
 					already = false;
 				}	
+				$('#vmap6').css("z-index", "1");
+				$('#vmap10').css("z-index", "5");
+				
+				$("#pfad").append("<a class='routeMap' id='stockwerk5eg'>> Stockwerk EG</a>");	
 			}
 			
 			if (code == 'haus6a'){
@@ -927,7 +937,9 @@ function getSelect(it, which){
 		$(it).val(pw2);
 		$(it).change();
 	}else if(pw2 == "0@pw0" && it == "#raum"){
-		alert("Der Raum " + which + " befindet sich nicht in der Datenbank. Bitte wählen Sie einen anderen Raum aus!");
+		alertRavi("Der Raum " + which + " befindet sich nicht in der Datenbank. Bitte wählen Sie einen anderen Raum aus!");
+		$("#raum").val("");
+		$("#raum").change();
 	}
 }
 
@@ -1030,10 +1042,18 @@ $(document).ready(function(){
 			already = true;
 			if($("path[id*='" + raum + "']").length > 0){
 				$("path[id*='" + raum + "']").trigger("click");
+				$("#pfad a:last-child").remove();
 			}else{
-				alert("Der von Ihnen angeforderte Raum ist nicht auf dem Grundriss verfügbar! Sie können Ihn trotzdem auswerten lassen.");
+				alertRavi("Der von Ihnen angeforderte Raum ist nicht auf dem Grundriss verfügbar! Sie können Ihn trotzdem auswerten lassen.");
 			}
 			already = false;
 		}
 	});
 });
+
+function alertRavi(text){
+	$("body").prepend("<div id='alertRavi'><a>" + text + "</a></div>");
+	$("#alertRavi").css("margin-left", ($(window).width()/2)-150);
+	$("#alertRavi").css("margin-top", 0);
+	setTimeout(function(){$("#alertRavi").css("margin-top", -150);setTimeout(function(){$("#alertRavi").remove();}, 1000)}, 5000);
+}
