@@ -1,6 +1,7 @@
 <?php
 	
 // Parameter auslesen
+
 $raumid = $_POST["RaumID"];
 $tag = $_POST["Tag"];
 $monat = $_POST["Monat"];
@@ -18,20 +19,11 @@ if ($mitSonntag == "true") {
 } else { 
 	$mitSonntag = false;
 }
-// Zeitraum definieren
-if ($zeitraum == 1) {
-	$anz_tage = 1;
-	$ende_datum_parameter = "+0 days";
-	$mitSamstag = true;
-	$mitSonntag = true;
-} else if ($zeitraum == 2) {
-	$anz_tage = 7;
-	$ende_datum_parameter = "+6 days";
-}
+
 /*
-$raumid = "330213240291424";//$_POST["RaumID"];
-$tag = 3;//$_POST["Tag"];
-$monat = 1;//$_POST["Monat"];
+$raumid = "325604513970052";//$_POST["RaumID"];
+$tag = 12;//$_POST["Tag"];
+$monat = 5;//$_POST["Monat"];
 $jahr = 2011;//$_POST["Jahr"];
 $raumnr = "XYZ";//$_POST["RaumNr"];
 $mitSamstag = "true";//$_POST["Samstag"];
@@ -47,6 +39,16 @@ if ($mitSonntag == "true") {
 	$mitSonntag = false;
 }
 */
+// Zeitraum definieren
+if ($zeitraum == 1) {
+	$anz_tage = 1;
+	$ende_datum_parameter = "+0 days";
+	$mitSamstag = true;
+	$mitSonntag = true;
+} else if ($zeitraum == 2) {
+	$anz_tage = 7;
+	$ende_datum_parameter = "+6 days";
+}
 // An benötigtes Format anpassen
 if (strlen($tag) == 1)
 	$tag = "0".$tag;
@@ -62,9 +64,11 @@ $aktueller_tag = date('Y-m-d', strtotime('-1 days', strtotime($date_begin)));
 $belegung_absolut_pro_tag = array();
 $belegung_pro_tag_pro_stunde = array();
 $belegt_gesamt = 0;
-$stunden_zaehler = 8;
 $i = 1;
 $gewertete_tage = 0;
+$stunden_beginn = 8;
+$stunden_ende = 20;
+$stunden_zaehler = $stunden_beginn;
 // Schleifendurchlauf für den Zeitraum, pro Tag eine Schleife
 for ($i = 1; $i <= $anz_tage; $i++) {
 	// Daten für aktuellen Tag festlegen
@@ -79,7 +83,7 @@ for ($i = 1; $i <= $anz_tage; $i++) {
 	}
 	$gewertete_tage++;
 	// Daten für den aktuellen Tag sammeln
-	$abfrage = "SELECT Buchung_fuer, Beginn, Ende 
+	$abfrage = "SELECT Buchung_fuer, Beginn, Ende, hour(Beginn) as Beginn_Stunde, minute(Beginn) as Beginn_Minuten, hour(Ende) as Ende_Stunde, minute(Ende) as Ende_Minuten
 							FROM belegung 
 							WHERE RaumID = ".$raumid." AND Buchung_fuer = '".$aktueller_tag."' 
 							ORDER BY Buchung_fuer, Beginn";
@@ -92,25 +96,15 @@ for ($i = 1; $i <= $anz_tage; $i++) {
 	$gesamt_belegung_in_h = 0;
 	$belegung_in_h = 0;
 	$stunden_arr = array();
+	$belegte_zeitraeume = array();
 	$belegt_in_dieser_stunde = 0;
-	$stunden_zaehler = 8;
+	$stunden_zaehler = $stunden_beginn;
 	while ($row = mysql_fetch_object($ergebnis)) {
-		$begin = $row->Beginn;
-		$ende = $row->Ende;
 		// Belegung absolut
-		$belegung_in_h += $ende - $begin;
+		$belegung_in_h += ($row->Ende) - ($row->Beginn);
 		// Belegung in Stunden
-		while ($stunden_zaehler <= $ende && $stunden_zaehler <= 20) {
-			$belegt_in_dieser_stunde = 0;	
-			if ($stunden_zaehler >= $begin && $stunden_zaehler <= $ende) {
-				$belegt_in_dieser_stunde = 1;
-			}
-			$t_arr = array();
-			$t_arr["Stunde"] = $stunden_zaehler;
-			$t_arr["Belegt"] = $belegt_in_dieser_stunde;	
-			$stunden_arr[] = $t_arr;
-			$stunden_zaehler++;
-		}		
+		$belegte_zeitraeume[] = [$row->Beginn_Stunde, $row->Beginn_Minuten, $row->Ende_Stunde, $row->Ende_Minuten];		
+		//echo "<br> stunde " . $row->Beginn_Stunde . " minuten " . $row->Beginn_Minuten . " stunde " . $row->Ende_Stunde . " minuten " . $row->Ende_Minuten;
 	}
 	if ($belegung_in_h > 12) {
 		$belegung_in_h = 12;
@@ -123,16 +117,49 @@ for ($i = 1; $i <= $anz_tage; $i++) {
 	$t_arr["ProzBelegung"] = $gesamt_belegung_in_h;
 	// Daten für absolute Belegung pro Tag in Gesamtarray verpacken
 	$belegung_absolut_pro_tag[] = $t_arr;	
-	// Daten verpacken für Belegung pro Tag und pro Stunde
-	if ($stunden_zaehler < 20) {
-		while ($stunden_zaehler <= 20) {			
-			$t_arr = array();
-			$t_arr["Stunde"] = $stunden_zaehler;
-			$t_arr["Belegt"] = 0;	
-			$stunden_arr[] = $t_arr;
-			$stunden_zaehler++;
-		}		
+	// Daten verpacken für Belegung pro Tag und pro Stunde	
+	while ($stunden_zaehler < $stunden_ende) {
+		$belegt_in_dieser_stunde = 0;	
+		foreach ($belegte_zeitraeume as $value) {
+			// liegt die Stunde in der Belegung
+			$sa = $value[0];
+			$ma = $value[1];
+			$se = $value[2];
+			$me = $value[3];
+			// Belegung endet vor der Stunde 
+			if ($se < $stunden_zaehler) {
+				continue;
+			}
+			// Belegung fängt nach der Stunde an
+			if ($sa > $stunden_zaehler) {
+				break;
+			}
+			//echo "<br> aktuelle " . $stunden_zaehler . "stunde " . $sa . " minuten " . $ma . " stunde " . $se . " minuten " . $me;
+			if ($stunden_zaehler >= $sa && $stunden_zaehler <= $se) {	
+				if ($stunden_zaehler > $sa && $stunden_zaehler < $se) { // Belegung irgendwo dazwischen
+					$belegt_in_dieser_stunde = 100;
+					//echo "<br>hier1";
+					break;					
+				} else if ($stunden_zaehler == $sa && $stunden_zaehler == $se) { // Belegung beginnt und endet in dieser Stunde
+					$belegt_in_dieser_stunde += (($me - $ma) * 100) / 60;
+					//echo "<br>hier2";
+				} else if ($stunden_zaehler == $sa) { // Belegung beginnt in dieser Stunde
+					$belegt_in_dieser_stunde += ((60 - $ma) * 100) / 60;
+					//echo "<br>hier3";
+				} else if ($stunden_zaehler == $se && $me != 0) { // Belegung endet in dieser Stunde
+					$belegt_in_dieser_stunde += ($me * 100) / 60;					
+					//echo "<br>hier4";
+				}
+			}			
+		}
+		//echo "<br> aktuelle " . $stunden_zaehler . "belegt in dieser stunde " . $belegt_in_dieser_stunde;
+		$t_arr = array();
+		$t_arr["Stunde"] = $stunden_zaehler;
+		$t_arr["Belegt"] = $belegt_in_dieser_stunde;	
+		$stunden_arr[] = $t_arr;
+		$stunden_zaehler++;
 	}
+	
 	$t_arr = array();
 	$t_arr["Buchung_fuer"] = date('l, d. F Y' ,strtotime($aktueller_tag));	
 	$t_arr["StundenBelegung"] = $stunden_arr;

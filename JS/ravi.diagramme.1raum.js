@@ -131,7 +131,7 @@ function rd1InitialisiereDiagram(data) {
 			hoehe = null;
 			titel = "Belegung des Raumes " + response.raumnr + " pro Tag und Stunde <br/> im Zeitraum " + response.datum_begin + " - " + response.datum_ende + "";
 		}
-		rdHeatMap("diagramm3", titel, kategorien_x, kategorien_y, daten, 0, 1, false, hoehe);
+		rdHeatMap("diagramm3", titel, kategorien_x, kategorien_y, daten, 0, 100, false, hoehe);
 	}
 
 	return;

@@ -113,7 +113,7 @@ function rdHeatMap(container, titel, kategorien_x_achse, kategorien_y_achse, dat
         tooltip: {
 			enabled: true,
             formatter: function () {
-                return this.point.value == 1 ? "belegt" : "nicht belegt";
+                return this.point.value == 0 ? "nicht belegt" : "belegt zu " + this.point.value + "%";
             }
         },
 
