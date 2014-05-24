@@ -136,7 +136,7 @@
 					<p> Zeitraum:<br>
 						<input type="radio" name="zeitraum" value="1"> 1 Tag<br>
 						<input type="radio" name="zeitraum" value="2"> 7 Tage<br>
-						<input type="radio" name="zeitraum" value="3" disabled> 4 Wochen<br>
+						<input type="radio" name="zeitraum" value="3"> 4 Wochen<br>
 						<input type="radio" name="zeitraum" value="4" disabled> 6 Monate (1 Semester)<br>
 						<input type="radio" name="zeitraum" value="5" disabled> 12 Monate<br>					
 					</p>
@@ -232,7 +232,7 @@
 				<div id="pfad"><a id="standorte" class="upperHead routeMap">Standorte</a></div>
 			</div>
 			<div id="grafik">
-				<div id="diagramm0">
+				<div id="grundrisse">
 					<div id="vmap" class="map" style="width: 100%; height: 600px;"></div>
 					<div id="vmap2" class="map" style="width: 100%; height: 600px;"></div>
 					<div id="vmap3" class="map" style="width: 100%; height: 600px;"></div>
@@ -251,11 +251,18 @@
 					<div id="vmap16" class="map" style="width: 100%; height: 600px;"></div>
 					<div id="vmap17" class="map" style="width: 100%; height: 600px;"></div>
 				</div>
+				<div id="diagramm1_ws1" style="height: 0px"></div>
 				<div id="diagramm1" style="height: 0px"></div>
-				<div id="whitespace1" style="height: 0px"></div>
+				<div id="diagramm1_ws2" style="height: 0px"></div>
+				<div id="diagramm2_ws1" style="height: 0px"></div>
 				<div id="diagramm2" style="height: 0px"></div>
-				<div id="whitespace2" style="height: 0px"></div>
+				<div id="diagramm2_ws2" style="height: 0px"></div>
+				<div id="diagramm3_ws1" style="height: 0px"></div>
 				<div id="diagramm3" style="height: 0px"></div>
+				<div id="diagramm3_ws2" style="height: 0px"></div>
+				<div id="diagramm4_ws1" style="height: 0px"></div>
+				<div id="diagramm4" style="height: 0px"></div>
+				<div id="diagramm4_ws2" style="height: 0px"></div>				
 			</div>
 
 		</div>

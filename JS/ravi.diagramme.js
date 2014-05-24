@@ -1,6 +1,6 @@
 function rd3DPie(container, titel, hinweis, datenarray) {
+	rd1ShowContainer(container);
 	container = "#" + container;
-	$(container).css("height", "400px");
 	$(container).highcharts({
 		chart: {
 			type: 'pie',
@@ -36,8 +36,8 @@ function rd3DPie(container, titel, hinweis, datenarray) {
 }
 
 function rdStackedBar(container, titel, hinweis, kategorien, daten, maxWert) {
+	rd1ShowContainer(container);
 	container = "#" + container;
-	$(container).css("height", "400px");	
 	$(container).highcharts({
 		chart: {
 			type: 'bar'
@@ -68,8 +68,8 @@ function rdStackedBar(container, titel, hinweis, kategorien, daten, maxWert) {
 }
 
 function rdHeatMap(container, titel, kategorien_x_achse, kategorien_y_achse, daten, minWert, maxWert, mitLegende, hoehe) {
+	rd1ShowContainer(container);
 	container = "#" + container;
-	$(container).css("height", "400px");
 	$(container).highcharts({
         
         chart: {
@@ -123,4 +123,44 @@ function rdHeatMap(container, titel, kategorien_x_achse, kategorien_y_achse, dat
         }]
 
     });
+}
+
+function rdColumn(container, titel, hinweis, daten, maxWert) {	
+	rd1ShowContainer(container);
+	container = "#" + container;
+	$(container).highcharts({
+		chart: {
+			type: 'column'
+		},
+		colors: [Highcharts.getOptions().colors[1]
+		],
+		title: {
+			text: titel
+		},		
+		xAxis: {
+			type: 'category',
+			labels: {
+				rotation: -45,
+				align: 'right',
+				format: '<style="font-size:8px">{value}</style>'
+			}
+		},
+		yAxis: {
+			min: 0,
+			max: maxWert,
+			title: {
+				text: hinweis
+			}
+		},
+		legend: {
+			enabled: false
+		},
+		tooltip: {
+			pointFormat: 'belegt: <b>{point.y:.1f} %</b>'
+		},
+		series: [{
+			name: 'Population',
+			data: daten
+		}]
+	});
 }

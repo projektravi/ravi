@@ -1,44 +1,5 @@
 <?php
-	
-// Parameter auslesen
-
-$raumid = $_POST["RaumID"];
-$tag = $_POST["Tag"];
-$monat = $_POST["Monat"];
-$jahr = $_POST["Jahr"];
-$raumnr = $_POST["RaumNr"];
-$mitSamstag = $_POST["Samstag"];
-if ($mitSamstag == "true") {
-	$mitSamstag = true;
-} else { 
-	$mitSamstag = false;
-}
-$mitSonntag = $_POST["Sonntag"];
-if ($mitSonntag == "true") {
-	$mitSonntag = true;
-} else { 
-	$mitSonntag = false;
-}
-
-/*
-$raumid = "325604513970052";//$_POST["RaumID"];
-$tag = 12;//$_POST["Tag"];
-$monat = 5;//$_POST["Monat"];
-$jahr = 2011;//$_POST["Jahr"];
-$raumnr = "XYZ";//$_POST["RaumNr"];
-$mitSamstag = "true";//$_POST["Samstag"];
-if ($mitSamstag == "true") {
-	$mitSamstag = true;
-} else { 
-	$mitSamstag = false;
-}
-$mitSonntag = "false";//$_POST["Sonntag"];
-if ($mitSonntag == "true") {
-	$mitSonntag = true;
-} else { 
-	$mitSonntag = false;
-}
-*/
+// Zeitraum definieren
 // Zeitraum definieren
 if ($zeitraum == 1) {
 	$anz_tage = 1;
@@ -48,6 +9,9 @@ if ($zeitraum == 1) {
 } else if ($zeitraum == 2) {
 	$anz_tage = 7;
 	$ende_datum_parameter = "+6 days";
+} else if ($zeitraum == 3) {
+	$anz_tage = 28;
+	$ende_datum_parameter = "+4 week -1 day";
 }
 // An benötigtes Format anpassen
 if (strlen($tag) == 1)
@@ -69,10 +33,38 @@ $gewertete_tage = 0;
 $stunden_beginn = 8;
 $stunden_ende = 20;
 $stunden_zaehler = $stunden_beginn;
+$woche_tag = 0;
+$woche_tag2 = 0;
+$belegung_woche = 0;
+$belegung_absolut_pro_woche = array();
+$maximaleAnzahlTage = 7;
+$belegung_pro_tag_pro_woche = array();
+if ($mitSamstag == false) {
+	$maximaleAnzahlTage--;
+}
+if ($mitSonntag == false) {
+	$maximaleAnzahlTage--;
+}
 // Schleifendurchlauf für den Zeitraum, pro Tag eine Schleife
-for ($i = 1; $i <= $anz_tage; $i++) {
+for ($i = 1; $i <= ($anz_tage + 1); $i++) {
 	// Daten für aktuellen Tag festlegen
 	$aktueller_tag = date('Y-m-d', strtotime('+1 days', strtotime($aktueller_tag)));
+	// Wochentag erhöhen
+	$woche_tag++;
+	// Ende der Woche erreicht? Daten ins Array schreiben
+	if ($woche_tag == 8) {		
+		$t_arr = array();
+		$t_arr["Buchung_fuer"] = (($i-1) / 7) . ". Woche";	
+		$t_arr["ProzBelegung"] = $belegung_woche / $maximaleAnzahlTage;
+		$belegung_absolut_pro_woche[] = $t_arr;
+		$belegung_woche = 0;
+		$woche_tag = 1;
+		$woche_tag2 = 0;		
+	}
+	// eigentliches Ende der Gesamtschleife erreicht?
+	if ($i > $anz_tage) {
+		break;
+	}
 	// Prüfung auf Samstag
 	if (date('N', strtotime($aktueller_tag)) == 6 && $mitSamstag == false) {
 		continue;
@@ -82,6 +74,7 @@ for ($i = 1; $i <= $anz_tage; $i++) {
 		continue;
 	}
 	$gewertete_tage++;
+	$woche_tag2++;
 	// Daten für den aktuellen Tag sammeln
 	$abfrage = "SELECT Buchung_fuer, Beginn, Ende, hour(Beginn) as Beginn_Stunde, minute(Beginn) as Beginn_Minuten, hour(Ende) as Ende_Stunde, minute(Ende) as Ende_Minuten
 							FROM belegung 
@@ -110,6 +103,7 @@ for ($i = 1; $i <= $anz_tage; $i++) {
 		$belegung_in_h = 12;
 	}
 	$gesamt_belegung_in_h = ($belegung_in_h * 100) / 12;
+	$belegung_woche += $gesamt_belegung_in_h;
 	$belegt_gesamt += $gesamt_belegung_in_h;
 	// Daten verpacken für absolute Belegung pro Tag
 	$t_arr = array();
@@ -120,6 +114,7 @@ for ($i = 1; $i <= $anz_tage; $i++) {
 	// Daten verpacken für Belegung pro Tag und pro Stunde	
 	while ($stunden_zaehler < $stunden_ende) {
 		$belegt_in_dieser_stunde = 0;	
+		unset($value);
 		foreach ($belegte_zeitraeume as $value) {
 			// liegt die Stunde in der Belegung
 			$sa = $value[0];
@@ -158,23 +153,46 @@ for ($i = 1; $i <= $anz_tage; $i++) {
 		$t_arr["Belegt"] = $belegt_in_dieser_stunde;	
 		$stunden_arr[] = $t_arr;
 		$stunden_zaehler++;
-	}
-	
+	}	
 	$t_arr = array();
 	$t_arr["Buchung_fuer"] = date('l, d. F Y' ,strtotime($aktueller_tag));	
 	$t_arr["StundenBelegung"] = $stunden_arr;
 	$belegung_pro_tag_pro_stunde[] = $t_arr;
+	// Belegung pro Tag pro Woche
+	if (count($belegung_pro_tag_pro_woche) < $maximaleAnzahlTage) {
+		// noch kein Eintrag vorhanden
+		$t_arr = array();
+		$t_arr["Buchung_fuer"] = date('l' ,strtotime($aktueller_tag));	
+		$t_arr["StundenBelegung"] = $stunden_arr;
+		$belegung_pro_tag_pro_woche[] = $t_arr;			
+	} else {
+		// Einträge erhöhen
+		$t_arr = array();
+		$t_arr = $belegung_pro_tag_pro_woche[$woche_tag2-1];
+		$j = 0;
+		unset($value);
+		foreach ($t_arr["StundenBelegung"] as &$value) {
+			$value["Belegt"] += $stunden_arr[$j]["Belegt"];
+			$j++;
+		}
+		$belegung_pro_tag_pro_woche[$woche_tag2-1] = $t_arr;	
+	}
+}
+// Belegung pro Tag pro Woche berechnen
+unset($value);
+foreach ($belegung_pro_tag_pro_woche as &$value) {
+	unset($value2);
+	foreach ($value["StundenBelegung"] as &$value2) {
+		$value2["Belegt"] /= 4;
+	}
 }
 
-$werte_array = array();
-$werte_array["raumnr"] = $raumnr;
-$werte_array["zeitraum"] = $zeitraum;
 $werte_array["datum_begin"] = date('l, d. F Y' ,strtotime($date_begin));
 $werte_array["datum_ende"] = date('l, d. F Y' ,strtotime($date_ende));
 $werte_array["belegt_gesamt"] = $belegt_gesamt / $gewertete_tage;
 $werte_array["belegung_absolut_pro_tag"] = $belegung_absolut_pro_tag;	
 $werte_array["belegung_pro_tag_pro_stunde"] = $belegung_pro_tag_pro_stunde;	
-
-print_r(json_encode($werte_array));
+$werte_array["belegung_absolut_pro_woche"] = $belegung_absolut_pro_woche;
+$werte_array["belegung_pro_tag_pro_woche"] = $belegung_pro_tag_pro_woche;
 
 ?>
