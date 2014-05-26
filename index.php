@@ -137,7 +137,7 @@
 						<input type="radio" name="zeitraum" value="1"> 1 Tag<br>
 						<input type="radio" name="zeitraum" value="2"> 7 Tage<br>
 						<input type="radio" name="zeitraum" value="3"> 4 Wochen<br>
-						<input type="radio" name="zeitraum" value="4" disabled> 6 Monate (1 Semester)<br>
+						<input type="radio" name="zeitraum" value="4"> 6 Monate<br>
 						<input type="radio" name="zeitraum" value="5" disabled> 12 Monate<br>					
 					</p>
 					<!-- Ende: Zeitraum -->	
@@ -251,7 +251,13 @@
 					<div id="vmap16" class="map" style="width: 100%; height: 600px;"></div>
 					<div id="vmap17" class="map" style="width: 100%; height: 600px;"></div>
 				</div>
-				<div id="diagramm1_ws1" style="height: 0px"></div>
+				<div id="wartebild" style="height: 0px; display: none" align="center">
+					<br><br>
+					<img src="Bilder\warten.gif">
+					<br>
+					Die Auswertung wird vorbereitet - Bitte haben Sie Geduld ...					
+				</div>
+				<div id="diagramm1_ws1" style="height: 0px" ></div>
 				<div id="diagramm1" style="height: 0px"></div>
 				<div id="diagramm1_ws2" style="height: 0px"></div>
 				<div id="diagramm2_ws1" style="height: 0px"></div>

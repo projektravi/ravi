@@ -1051,8 +1051,17 @@ $(document).ready(function(){
 	});
 });
 
-function alertRavi(text){
-	$("body").prepend("<div id='alertRavi'><a>" + text + "</a></div>");
+function alertRavi(text, isWarning){
+	var bild = "Bilder\\info_sign.png";
+	if (isWarning)
+		bild = "Bilder\\warning_page.png"
+	var htmlSchnippsel = "<div id='alertRavi'>";
+	htmlSchnippsel += "<table height='100%' width='100%'>";
+	htmlSchnippsel += "<tr><td valign='middle' align='center'><img src='" + bild + "' width='25'></td>";
+	htmlSchnippsel += "<td align='center' style='padding: 10px'>" + text + "</td></tr></table>";
+	htmlSchnippsel += "</div>";
+	//$("body").prepend("<div id='alertRavi'><a>" + text + "</a></div>");
+	$("body").prepend(htmlSchnippsel);
 	$("#alertRavi").css("margin-left", ($(window).width()/2)-150);
 	$("#alertRavi").css("margin-top", 0);
 	setTimeout(function(){$("#alertRavi").css("margin-top", -150);setTimeout(function(){$("#alertRavi").remove();}, 1000)}, 5000);

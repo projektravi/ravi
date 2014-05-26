@@ -7,11 +7,23 @@ function oeffneNeuenTab() {
 // Fragt die Daten zu einem ausgewählten Raum und Zeitraum ab
 function rd1FrageDatenAb() {
 	rd1HideAllContainer();
+	// Prüfungen
 	if ($("#Einzelsicht").is(":checked") == false && $("#Gesamtsicht").is(":checked") == false) {
 		$('#grundrisse').show();
-		alert("Bitte waehlen Sie den Darstellungstyp!");
+		alertRavi("Bitte waehlen Sie den Darstellungstyp!", true);
 		return;
 	}
+	if (document.menu.raum.selectedIndex == 0) {
+		$('#grundrisse').show();
+		alertRavi("Bitte waehlen Sie zuerst einen Raum!", true);
+		return;
+	}
+	if ($("input[name='zeitraum']:checked").length == 0) {
+		$('#grundrisse').show();
+		alertRavi("Bitte waehlen Sie noch einen Zeitraum!", true);
+		return;
+	}	
+	// Dokumentenparameter abfragen
 	var f = document.menu;
 	var zeitraum = $("input[name='zeitraum']:checked").val()
 	var raumid = f.raum.value;
@@ -21,8 +33,9 @@ function rd1FrageDatenAb() {
 	var jahr = f.Year.value;		
 	var mitSamstag = $("#Sa").is(":checked");
 	var mitSonntag = $("#So").is(":checked");
-	//var divGrundgrisse = $('#grundrisse');
 	$('#grundrisse').hide();	
+	$('#wartebild').css("height", "275px");
+	$('#wartebild').show();
 	/*
 	if ($("#Einzelsicht").is(":checked")){		
 		$('#diagramm1').show();		
@@ -56,6 +69,8 @@ function rd1FrageDatenAb() {
 }
 
 function rd1InitialisiereDiagram(data) {	
+	$('#wartebild').css("height", "0px");
+	$('#wartebild').hide();
 	var response = $.parseJSON(data);	
 	if (response.length == 0)
 		return;
@@ -67,25 +82,27 @@ function rd1InitialisiereDiagram(data) {
 	// Puffer
 	var i, j, y_wert, a_proz, a_stunden;
 	// Belegung absolut für den Zeitraum im Kuchendiagramm
-	// aktuell für: 1 Tag, 7 Tage, 4 Wochen
-	if (zeitraum == 1 || zeitraum == 2 || zeitraum == 3) {
+	// aktuell für: 1 Tag, 7 Tage, 4 Wochen, 6 Monate
+	if (zeitraum == 1 || zeitraum == 2 || zeitraum == 3 || zeitraum == 4) {
 		daten =  new Array();
 		daten.push({name: "nicht belegt", y: 100 - response.belegt_gesamt});
 		daten.push({name: "belegt", y: response.belegt_gesamt});	 
 		 if (zeitraum == 1) {
 			titel = "Absolute Belegung des Raumes " + response.raumnr + "<br/>" + response.datum_begin + "";
 		} else {
-			titel = "Absolute Belegung des Raumes " + response.raumnr + "<br/> im Zeitraum " + response.datum_begin + " - "	+ response.datum_ende + "";
+			titel = "Absolute Belegung des Raumes " + response.raumnr + "<br/>im Zeitraum " + response.datum_begin + " - "	+ response.datum_ende + "";
 		}
 		rd3DPie("diagramm1", titel , "Durchschnitt", daten);
 	}
-	// Belegung nach Tage / Wochen aufgeschlüsselt in einer StackedBar
-	// aktuell für: 7 Tage, 4 Wochen
-	if (zeitraum == 2 || zeitraum == 3) {
+	// Belegung nach Tage / Wochen / Monate aufgeschlüsselt in einer StackedBar
+	// aktuell für: 7 Tage, 4 Wochen, 6 Monate
+	if (zeitraum == 2 || zeitraum == 3 || zeitraum == 4) {
 		if (zeitraum == 2) {
 			belegung_absolut = response.belegung_absolut_pro_tag;
 		} else if (zeitraum == 3) {
 			belegung_absolut = response.belegung_absolut_pro_woche;
+		} else if (zeitraum == 4) {
+			belegung_absolut = response.belegung_absolut_pro_monat;
 		}
 		kategorien_y =  new Array();
 		belegt = new Array();
@@ -103,7 +120,7 @@ function rd1InitialisiereDiagram(data) {
 		daten = new Array();	
 		daten.push({name: "nicht belegt", data: nicht_belegt});
 		daten.push({name: "belegt", data: belegt});
-		titel = "Durchschnittliche Belegung des Raumes " + response.raumnr + "<br/> im Zeitraum " + response.datum_begin + " - " + response.datum_ende + "";
+		titel = "Durchschnittliche Belegung des Raumes " + response.raumnr + "<br/>im Zeitraum " + response.datum_begin + " - " + response.datum_ende + "";
 		rdStackedBar("diagramm2", titel, "Belegung in %", kategorien_y, daten, 100);	
 	}
 	// Belegung nach Tagen aufgeschlüsselt in einer ColumnChart
@@ -119,15 +136,30 @@ function rd1InitialisiereDiagram(data) {
 			// Arrays für Balkendiagramm füllen
 			daten.push([y_wert, a_proz]);
 		}	
-		titel = "Durchschnittliche Belegung des Raumes " + response.raumnr + "<br/> im Zeitraum " + response.datum_begin + " - " + response.datum_ende + "";
+		titel = "Durchschnittliche Belegung des Raumes " + response.raumnr + "<br/>im Zeitraum " + response.datum_begin + " - " + response.datum_ende + "";
 		rdColumn("diagramm3", titel, "Belegung in %", daten, 100);
 	}
+	// Belegung nach Tagen aufgeschlüsselt in einer LineChart
+	// aktuell für: 6 Monate
+	if (zeitraum == 4) {
+		belegung_absolut = response.belegung_absolut_pro_tag;	
+		daten = new Array();
+		i = 0;
+		for (i = 0; i < belegung_absolut.length; i++) {
+			// Daten aus Übergabearray holen
+			a_proz = belegung_absolut[i].ProzBelegung;
+			// Arrays für Balkendiagramm füllen
+			daten.push(a_proz);
+		}	
+		titel = "Durchschnittliche Belegung des Raumes " + response.raumnr + "<br/> im Zeitraum " + response.datum_begin + " - " + response.datum_ende + "";
+		rdLine("diagramm3", titel, "Belegung in %", daten, 100, response.tag, response.monat-1, response.jahr);
+	}
 	// Belegung nach Tagen und Uhrzeiten aufgeschlüsselt in einer HeatMap
-	// aktuell für: 1 Tag, 7 Tage, 4 Wochen
-	if (zeitraum == 1 || zeitraum == 2 || zeitraum == 3) {
+	// aktuell für: 1 Tag, 7 Tage, 4 Wochen, 6 Monate
+	if (zeitraum == 1 || zeitraum == 2 || zeitraum == 3 || zeitraum == 4) {
 		if (zeitraum == 1 || zeitraum == 2) {
 			belegung_pro_stunde = response.belegung_pro_tag_pro_stunde;
-		} else if (zeitraum == 3) {
+		} else if (zeitraum == 3 || zeitraum == 4) {
 			belegung_pro_stunde = response.belegung_pro_tag_pro_woche;
 		}
 		kategorien_x = new Array();
@@ -151,15 +183,19 @@ function rd1InitialisiereDiagram(data) {
 		if (zeitraum == 1) {
 			hoehe = 165;
 			legende = false;
-			titel = "Belegung des Raumes " + response.raumnr + " pro Tag und Stunde <br/>" + response.datum_begin + "";
+			titel = "Belegung des Raumes " + response.raumnr + " pro Stunde <br/>am" + response.datum_begin + "";
 		} else if (zeitraum == 2) {
 			hoehe = null;			
 			legende = false;
-			titel = "Belegung des Raumes " + response.raumnr + " pro Tag und Stunde <br/> im Zeitraum " + response.datum_begin + " - " + response.datum_ende + "";
+			titel = "Belegung des Raumes " + response.raumnr + " pro Tag und Stunde <br/>im Zeitraum " + response.datum_begin + " - " + response.datum_ende + "";
 		} else if (zeitraum == 3) {
 			hoehe = null;			
 			legende = true;
-			titel = "Belegung des Raumes " + response.raumnr + " pro Wochentag und Stunde <br/> im Zeitraum " + response.datum_begin + " - " + response.datum_ende + "";
+			titel = "Belegung des Raumes " + response.raumnr + " pro Wochentag und Stunde <br/>im Zeitraum " + response.datum_begin + " - " + response.datum_ende + "";
+		} else if (zeitraum == 4) {
+			hoehe = null;			
+			legende = true;
+			titel = "Belegung des Raumes " + response.raumnr + " pro Wochentag und Stunde <br/>im Zeitraum " + response.datum_begin + " - " + response.datum_ende + "";
 		}
 		rdHeatMap("diagramm4", titel, kategorien_x, kategorien_y, daten, 0, 100, legende, hoehe);
 	}
@@ -187,7 +223,7 @@ function rd1HideAllContainer() {
 	rd1HideContainer("diagramm2");
 	rd1HideContainer("diagramm3");
 	rd1HideContainer("diagramm4");
-	
+		
 	return;
 }
 

@@ -84,7 +84,10 @@ function rdHeatMap(container, titel, kategorien_x_achse, kategorien_y_achse, dat
         },
 
         xAxis: {
-            categories: kategorien_x_achse
+            categories: kategorien_x_achse,
+			labels: {
+				align: 'center'
+            }
         },
 
         yAxis: {
@@ -163,4 +166,68 @@ function rdColumn(container, titel, hinweis, daten, maxWert) {
 			data: daten
 		}]
 	});
+}
+
+function rdLine(container, titel, hinweis, daten, maxWert, tag, monat, jahr) {
+	rd1ShowContainer(container);
+	container = "#" + container;
+	$(container).highcharts({
+		chart: {
+			zoomType: 'x'
+		},
+		title: {
+			text: titel
+		},
+		subtitle: {
+			text: 'Ziehen Sie einen Rahmen zum reinzoomen',
+			style: {                
+				fontSize: '9px'
+            },
+			useHTML: true
+		},
+		xAxis: {
+			type: 'datetime',
+			minRange: 14 * 24 * 3600000 // fourteen days
+		},
+		yAxis: {
+			min: 0,
+			max: maxWert,
+			title: {
+				text: hinweis
+			}
+		},
+		legend: {
+			enabled: false
+		},		
+		plotOptions: {
+			area: {
+				fillColor: {
+					linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
+					stops: [
+						[0, Highcharts.getOptions().colors[1]],
+						[1, Highcharts.Color(Highcharts.getOptions().colors[1]).setOpacity(0).get('rgba')]
+					]
+				},
+				marker: {
+					radius: 2
+				},
+				lineWidth: 1,
+				states: {
+					hover: {
+						lineWidth: 1
+					}
+				},
+				threshold: null
+			}
+		},
+
+		series: [{
+			type: 'area',
+			name: 'belegt',
+			pointInterval: 24 * 3600 * 1000,
+			pointStart: Date.UTC(jahr, monat, tag),
+			data: daten
+		}]
+	});
+    
 }

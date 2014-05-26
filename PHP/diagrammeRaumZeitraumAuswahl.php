@@ -29,9 +29,9 @@ if (true) {
 	$diagramm4 = $_POST["Diagramm4"];
 } else {	 
 	//debugg
-	$zeitraum = 2;
+	$zeitraum = 4;
 	$raumid = "325604513970052";
-	$tag = 1;
+	$tag = 2;
 	$monat = 1;
 	$jahr = 2011;
 	$raumnr = "XYZ";
@@ -61,6 +61,9 @@ $werte_array["diagramm3"] = $diagramm3;
 $werte_array["diagramm4"] = $diagramm4;
 $werte_array["mitSamstag"] = $mitSamstag;
 $werte_array["mitSonntag"] = $mitSonntag;
+$werte_array["tag"] = $tag;
+$werte_array["monat"] = $monat;
+$werte_array["jahr"] = $jahr;
 // Auswertung starten
 include("auswertung1Raum.php");
 // Übergabearray in JSON ausgeben
