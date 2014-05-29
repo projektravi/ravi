@@ -153,8 +153,10 @@
 	<label class="info" for="info1"><img src="./Bilder/info.png" alt="Grafik 1"></label><br />
 	<span class="info1">
 		<p>
-			<b>Einzelsicht:</b></br>Zeigt die genaue Belegung eines Raums zu einem bestimmten Zeitraum in einem Kreisdiagramm an. </br></br>
-			<b>Gesamtsicht:</b></br> Zeigt die durchschnittliche Belegung eines Raums in einem Balkendiagramm an.	
+			<b>Kreisdiagramm:</b></br>Zeigt die prozentuale Belegung eines Raums zu einem genauen Zeitpunkt in einem Kreisdiagramm an. </br></br>
+			<b>Balkendiagramm:</b></br> Zeigt die durchschnittliche Belegung eines Raums für einen ausgewählten Zeitraum in einem Balkendiagramm an.</br></br>
+			<b>Liniendiagramm:</b></br> Zeigt die durchschnittliche Belegung eines Raums für einen ausgewählten Zeitraum unter Berücksichtigung der Uhrzeiten in einem Liniendiagramm an.	</br></br>
+			<b>Heatmap:</b></br> Zeigt die prozentuale Belegung eines Raums in einem ausgewählten Zeitraum zu verschiedenen Uhrzeiten an.</br></br>
 		</p>
 	</span>
     
@@ -205,7 +207,7 @@
 								<span class="hover"><label for ="Dounut"><img src="./Bilder/kreis2.jpg" ><span class="infobox">&nbsp;Kreisdiagramm&nbsp; </span></span>
 							</td>
 							<td>
-							 Einzelsicht
+							 Kreisdiagramm
 							</td>
 						</tr>	
 						<tr>
@@ -216,7 +218,29 @@
 								<span class="hover"><label for ="Balken"><img src="./Bilder/balken1.jpg"><span class="infobox">&nbsp;Balkendiagramm&nbsp;</span></span>
 							</td>
 							<td>
-							 Gesamtsicht
+							 Balkendiagramm
+							</td>
+						</tr>	
+						<tr>
+							<td>
+								<input id="Liniendiagramm" type="checkbox" name="Diagrammtyp" value="line" checked>
+							</td>
+							<td>	
+								<span class="hover"><label for ="Linie"><img src="./Bilder/logolinie.jpg"><span class="infobox">&nbsp;Liniendiagramm&nbsp;</span></span>
+							</td>
+							<td>
+							 Liniendiagramm
+							</td>
+						</tr>	
+						<tr>
+							<td>
+								<input id="Heatmap" type="checkbox" name="Map" value="heat" checked>
+							</td>
+							<td>	
+								<span class="hover"><label for ="Heatmap"><img src="./Bilder/heatmap.jpg"><span class="infobox">&nbsp;Heatmap&nbsp;</span></span>
+							</td>
+							<td>
+							 Heatmap
 							</td>
 						</tr>	
 					</table>
