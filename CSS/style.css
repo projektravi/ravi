@@ -301,3 +301,15 @@ display: block;
 #alertRavi a{
 
 }
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+	background:none !important;
+	border: none !important;
+}
+
+.ui-widget-content {
+	border:none !important;
+}
+.ui-accordion .ui-accordion-content{
+	padding: 0em 0em 0em 0em	!important;
+}

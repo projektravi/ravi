@@ -11,7 +11,21 @@
 		a:visited {color:black;}
 		a:hover   {color:black;}
 		a:active  {color:black;}
+		#accordion .ui-accordion-header {  
+    background-color: white;  
+    margin: 0px;  
+}  
+		
+		
 	</style>
+  <script>
+  $(function() {
+    $( "#accordion" ).accordion({
+      active: false,
+	  collapsible: true
+    });
+  });
+  </script>
 </head>
 <body> <!-- onLoad="rmrFrageStandorteAb()"><!--rmrFrageStandorteAb() -->
 
@@ -138,15 +152,20 @@
 						<input type="radio" name="zeitraum" value="2"> 7 Tage<br>
 						<input type="radio" name="zeitraum" value="3" disabled> 4 Wochen<br>
 						<input type="radio" name="zeitraum" value="4" disabled> 6 Monate (1 Semester)<br>
-						<input type="radio" name="zeitraum" value="5" disabled> 12 Monate<br>					
+						<input type="radio" name="zeitraum" value="5" disabled> 12 Monate					
 					</p>
-					<!-- Ende: Zeitraum -->	
-					<table border="0">
-						<tr>
-						<td><input id="Sa" type="checkbox" name="Sa" value="sa">Samstag</td>
-						<td><input id="So" type="checkbox" name="So" value="so">Sonntag</td>
-						</tr>
-					</table>
+					<!-- Ende: Zeitraum -->
+					<div id="accordion">
+						<h4>Filter</h4>
+						<div>
+							<table border="0">
+								<tr>
+								<td><input id="Sa" type="checkbox" name="Sa" value="sa">Samstag</td>
+								<td><input id="So" type="checkbox" name="So" value="so">Sonntag</td>
+								</tr>
+							</table>
+						</div>
+					</div>
 					<br/>
 					<!-- Start: Diagrammtyp-->
 					Darstellungstyp:<input type="checkbox" name="infobox" id="info1"></input>
