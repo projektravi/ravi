@@ -151,7 +151,7 @@
 						<input type="radio" name="zeitraum" value="1"> 1 Tag<br>
 						<input type="radio" name="zeitraum" value="2"> 7 Tage<br>
 						<input type="radio" name="zeitraum" value="3" > 4 Wochen<br>
-						<input type="radio" name="zeitraum" value="4" disabled> 6 Monate (1 Semester)<br>
+						<input type="radio" name="zeitraum" value="4" > 6 Monate<br>
 						<input type="radio" name="zeitraum" value="5" disabled> 12 Monate									
 					</p>
 					<!-- Ende: Zeitraum -->
