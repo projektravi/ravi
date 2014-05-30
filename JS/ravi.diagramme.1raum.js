@@ -8,7 +8,7 @@ function oeffneNeuenTab() {
 function rd1FrageDatenAb() {
 	rd1HideAllContainer();
 	// Prüfungen
-	if ($("#Einzelsicht").is(":checked") == false && $("#Gesamtsicht").is(":checked") == false) {
+	if ($("#Einzelsicht").is(":checked") == false && $("#Gesamtsicht").is(":checked") == false && $("#Heatmap").is(":checked") == false && $("#Liniendiagramm").is(":checked") == false) {
 		$('#grundrisse').show();
 		alertRavi("Bitte waehlen Sie den Darstellungstyp!", true);
 		return;
