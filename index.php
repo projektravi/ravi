@@ -150,9 +150,15 @@
 					<p> Zeitraum:<br>
 						<input type="radio" name="zeitraum" value="1"> 1 Tag<br>
 						<input type="radio" name="zeitraum" value="2"> 7 Tage<br>
+<<<<<<< HEAD
 						<input type="radio" name="zeitraum" value="3" disabled> 4 Wochen<br>
 						<input type="radio" name="zeitraum" value="4" disabled> 6 Monate (1 Semester)<br>
 						<input type="radio" name="zeitraum" value="5" disabled> 12 Monate					
+=======
+						<input type="radio" name="zeitraum" value="3"> 4 Wochen<br>
+						<input type="radio" name="zeitraum" value="4"> 6 Monate<br>
+						<input type="radio" name="zeitraum" value="5" disabled> 12 Monate<br>					
+>>>>>>> 21ecaa6c3eb51c48e1011147fd3af9f662208bb7
 					</p>
 					<!-- Ende: Zeitraum -->
 					<div id="accordion">
@@ -172,8 +178,10 @@
 	<label class="info" for="info1"><img src="./Bilder/info.png" alt="Grafik 1"></label><br />
 	<span class="info1">
 		<p>
-			<b>Einzelsicht:</b></br>Zeigt die genaue Belegung eines Raums zu einem bestimmten Zeitraum in einem Kreisdiagramm an. </br></br>
-			<b>Gesamtsicht:</b></br> Zeigt die durchschnittliche Belegung eines Raums in einem Balkendiagramm an.	
+			<b>Kreisdiagramm:</b></br>Zeigt die prozentuale Belegung eines Raums zu einem genauen Zeitpunkt in einem Kreisdiagramm an. </br></br>
+			<b>Balkendiagramm:</b></br> Zeigt die durchschnittliche Belegung eines Raums für einen ausgewählten Zeitraum in einem Balkendiagramm an.</br></br>
+			<b>Liniendiagramm:</b></br> Zeigt die durchschnittliche Belegung eines Raums für einen ausgewählten Zeitraum unter Berücksichtigung der Uhrzeiten in einem Liniendiagramm an.	</br></br>
+			<b>Heatmap:</b></br> Zeigt die prozentuale Belegung eines Raums in einem ausgewählten Zeitraum zu verschiedenen Uhrzeiten an.</br></br>
 		</p>
 	</span>
     
@@ -224,7 +232,7 @@
 								<span class="hover"><label for ="Dounut"><img src="./Bilder/kreis2.jpg" ><span class="infobox">&nbsp;Kreisdiagramm&nbsp; </span></span>
 							</td>
 							<td>
-							 Einzelsicht
+							 Kreisdiagramm
 							</td>
 						</tr>	
 						<tr>
@@ -235,7 +243,29 @@
 								<span class="hover"><label for ="Balken"><img src="./Bilder/balken1.jpg"><span class="infobox">&nbsp;Balkendiagramm&nbsp;</span></span>
 							</td>
 							<td>
-							 Gesamtsicht
+							 Balkendiagramm
+							</td>
+						</tr>	
+						<tr>
+							<td>
+								<input id="Liniendiagramm" type="checkbox" name="Diagrammtyp" value="line" checked>
+							</td>
+							<td>	
+								<span class="hover"><label for ="Linie"><img src="./Bilder/logolinie.jpg"><span class="infobox">&nbsp;Liniendiagramm&nbsp;</span></span>
+							</td>
+							<td>
+							 Liniendiagramm
+							</td>
+						</tr>	
+						<tr>
+							<td>
+								<input id="Heatmap" type="checkbox" name="Map" value="heat" checked>
+							</td>
+							<td>	
+								<span class="hover"><label for ="Heatmap"><img src="./Bilder/heatmap.jpg"><span class="infobox">&nbsp;Heatmap&nbsp;</span></span>
+							</td>
+							<td>
+							 Heatmap
 							</td>
 						</tr>	
 					</table>
@@ -251,7 +281,7 @@
 				<div id="pfad"><a id="standorte" class="upperHead routeMap">Standorte</a></div>
 			</div>
 			<div id="grafik">
-				<div id="diagramm0">
+				<div id="grundrisse">
 					<div id="vmap" class="map" style="width: 100%; height: 600px;"></div>
 					<div id="vmap2" class="map" style="width: 100%; height: 600px;"></div>
 					<div id="vmap3" class="map" style="width: 100%; height: 600px;"></div>
@@ -270,11 +300,24 @@
 					<div id="vmap16" class="map" style="width: 100%; height: 600px;"></div>
 					<div id="vmap17" class="map" style="width: 100%; height: 600px;"></div>
 				</div>
+				<div id="wartebild" style="height: 0px; display: none" align="center">
+					<br><br>
+					<img src="Bilder\warten.gif">
+					<br>
+					Die Auswertung wird vorbereitet - Bitte haben Sie Geduld ...					
+				</div>
+				<div id="diagramm1_ws1" style="height: 0px" ></div>
 				<div id="diagramm1" style="height: 0px"></div>
-				<div id="whitespace1" style="height: 0px"></div>
+				<div id="diagramm1_ws2" style="height: 0px"></div>
+				<div id="diagramm2_ws1" style="height: 0px"></div>
 				<div id="diagramm2" style="height: 0px"></div>
-				<div id="whitespace2" style="height: 0px"></div>
+				<div id="diagramm2_ws2" style="height: 0px"></div>
+				<div id="diagramm3_ws1" style="height: 0px"></div>
 				<div id="diagramm3" style="height: 0px"></div>
+				<div id="diagramm3_ws2" style="height: 0px"></div>
+				<div id="diagramm4_ws1" style="height: 0px"></div>
+				<div id="diagramm4" style="height: 0px"></div>
+				<div id="diagramm4_ws2" style="height: 0px"></div>				
 			</div>
 
 		</div>
