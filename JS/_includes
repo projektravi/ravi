@@ -14,6 +14,7 @@ $scripte[] = "js/ext/highcharts-4.0.1.js";
 $scripte[] = "js/ext/highcharts-3d-4.0.1.js";
 $scripte[] = "js/ext/highcharts-modules/exporting-4.0.1.js";
 $scripte[] = "js/ext/highcharts-modules/heatmap-4.0.1.js";
+$scripte[] = "js/ext/highcharts-modules/data-4.0.1.js";
 
 // intern
 // Errorhandler

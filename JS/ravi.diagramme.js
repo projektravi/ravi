@@ -1,6 +1,7 @@
 function rd3DPie(container, titel, hinweis, datenarray) {
 	rd1ShowContainer(container);
 	container = "#" + container;
+	rdSetOptions();
 	$(container).highcharts({
 		chart: {
 			type: 'pie',
@@ -38,6 +39,7 @@ function rd3DPie(container, titel, hinweis, datenarray) {
 function rdStackedBar(container, titel, hinweis, kategorien, daten, maxWert) {
 	rd1ShowContainer(container);
 	container = "#" + container;
+	rdSetOptions();
 	$(container).highcharts({
 		chart: {
 			type: 'bar'
@@ -67,33 +69,53 @@ function rdStackedBar(container, titel, hinweis, kategorien, daten, maxWert) {
 	});
 }
 
-function rdHeatMap(container, titel, kategorien_x_achse, kategorien_y_achse, daten, minWert, maxWert, mitLegende, hoehe) {
+function rdHeatMap(container, titel, kategorien_x_achse, kategorien_y_achse, daten, minWert, maxWert, mitLegende, hoehe, y_reverse, y_max, x_format, zoom_type) {
+	var subtitle_text = null;
+	var chart_margin_top = 60;
+	var chart_margin_bottom = 60;
 	rd1ShowContainer(container);
 	container = "#" + container;
+	rdSetOptions();
+	y_max--;	
+	if (zoom_type != null) {
+		subtitle_text = 'Ziehen Sie einen Rahmen zum reinzoomen';
+		chart_margin_top += 20;
+		chart_margin_bottom += 10;
+	}	
 	$(container).highcharts({
         
         chart: {
-            type: 'heatmap',
+            zoomType: zoom_type,
 			height: hoehe,
-            marginTop: 60,
-            marginBottom: 60
+            marginTop: chart_margin_top,
+            marginBottom: chart_margin_bottom
         },
 
         title: {			
             text: titel
         },
+		
+		subtitle: {
+			text: subtitle_text,
+			style: {                
+				fontSize: '9px'
+            },
+			useHTML: true
+		},
 
         xAxis: {
             categories: kategorien_x_achse,
 			labels: {
-				align: 'center'
-            }
+				align: 'center',
+				format: x_format
+            }			
         },
 
         yAxis: {
-            categories: kategorien_y_achse,
+            max: y_max,
+			categories: kategorien_y_achse,
             title: null,
-			reversed: true
+			reversed: y_reverse
         },
 
         colorAxis: {
@@ -116,13 +138,14 @@ function rdHeatMap(container, titel, kategorien_x_achse, kategorien_y_achse, dat
         tooltip: {
 			enabled: true,
             formatter: function () {
-                return this.point.value == 0 ? "nicht belegt" : "belegt zu " + this.point.value + "%";
+                return this.series.xAxis.categories[this.point.x] + ' - ' + this.series.yAxis.categories[this.point.y] + ':<br>belegt zu <b>' + this.point.value + '</b>%';
             }
         },
 
         series: [{            
             borderWidth: 1,
-            data: daten
+            data: daten,
+			type: 'heatmap'
         }]
 
     });
@@ -131,6 +154,7 @@ function rdHeatMap(container, titel, kategorien_x_achse, kategorien_y_achse, dat
 function rdColumn(container, titel, hinweis, daten, maxWert) {	
 	rd1ShowContainer(container);
 	container = "#" + container;
+	rdSetOptions();
 	$(container).highcharts({
 		chart: {
 			type: 'column'
@@ -171,6 +195,7 @@ function rdColumn(container, titel, hinweis, daten, maxWert) {
 function rdLine(container, titel, hinweis, daten, maxWert, tag, monat, jahr) {
 	rd1ShowContainer(container);
 	container = "#" + container;
+	rdSetOptions();
 	$(container).highcharts({
 		chart: {
 			zoomType: 'x'
@@ -230,4 +255,22 @@ function rdLine(container, titel, hinweis, daten, maxWert, tag, monat, jahr) {
 		}]
 	});
     
+}
+
+function rdSetOptions() {
+	Highcharts.setOptions({
+		lang: {
+			contextButtonTitle: 'Diagramm ...',
+			downloadJPEG: 'Diagramm als <b>JPEG</b> abspeichern',
+			downloadPDF: 'Diagramm als <b>PDF</b> abspeichern',
+			downloadPNG: 'Diagramm als <b>PNG</b> abspeichern',
+			downloadSVG: 'Diagramm als <b>SVG</b> abspeichern',
+			printChart: 'Diagramm drucken',
+			resetZoom: 'Zoom zuruecksetzen',
+			resetZoomTitle: 'Zoomansicht 1:1',
+			months: ['Januar', 'Februar', 'Maerz', 'April', 'Mai', 'Juni',  'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+			shortMonths: ['Jan', 'Feb', 'Maer', 'Apr', 'Mai', 'Jun',  'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+			weekdays: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag']
+		}
+	});
 }

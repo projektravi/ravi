@@ -11,6 +11,8 @@ if ($zeitraum == 1) {
 	$ende_datum_parameter = "+4 week -1 day";
 } else if ($zeitraum == 4) {	
 	$ende_datum_parameter = "+6 month -1 day";
+} else if ($zeitraum == 5) {	
+	$ende_datum_parameter = "+1 year -1 day";
 }
 // An benötigtes Format anpassen
 if (strlen($tag) == 1)
@@ -95,11 +97,11 @@ for ($i = 1; $i <= ($anz_tage + 1); $i++) {
 	}
 	// Prüfung auf Samstag
 	if (date('N', strtotime($aktueller_tag)) == 6 && $mitSamstag == false) {
-		// Für das verwendete Diagramm bei der 6-Monatsauswahl muss Samstag mit dabei sein
-		if ($zeitraum == 4) {
+		// Für das verwendete Diagramm bei der 6-Monat/1-Jahr-auswahl muss Samstag mit dabei sein
+		if (($zeitraum == 4) || ($zeitraum == 5)) {
 			// Daten verpacken für absolute Belegung pro Tag
 			$t_arr = array();
-			$t_arr["Buchung_fuer"] = date('l, d. F Y' ,strtotime($aktueller_tag));	
+			$t_arr["Buchung_fuer"] = myDate(date('l, d. F Y' ,strtotime($aktueller_tag)));	
 			$t_arr["ProzBelegung"] = 0;
 			// Daten für absolute Belegung pro Tag in Gesamtarray verpacken
 			$belegung_absolut_pro_tag[] = $t_arr;	
@@ -108,11 +110,11 @@ for ($i = 1; $i <= ($anz_tage + 1); $i++) {
 	}
 	// Prüfung auf Sonntag
 	if (date('N', strtotime($aktueller_tag)) == 7 && $mitSonntag == false) {
-		// Für das verwendete Diagramm bei der 6-Monatsauswahl muss Sonntag mit dabei sein
-		if ($zeitraum == 4) {
+		// Für das verwendete Diagramm bei der 6-Monat/1-Jahr-auswahl muss Sonntag mit dabei sein
+		if (($zeitraum == 4) || ($zeitraum == 5)) {
 			// Daten verpacken für absolute Belegung pro Tag
 			$t_arr = array();
-			$t_arr["Buchung_fuer"] = date('l, d. F Y' ,strtotime($aktueller_tag));	
+			$t_arr["Buchung_fuer"] = myDate(date('l, d. F Y' ,strtotime($aktueller_tag)));	
 			$t_arr["ProzBelegung"] = 0;
 			// Daten für absolute Belegung pro Tag in Gesamtarray verpacken
 			$belegung_absolut_pro_tag[] = $t_arr;	
@@ -155,7 +157,7 @@ for ($i = 1; $i <= ($anz_tage + 1); $i++) {
 	$belegt_gesamt += $gesamt_belegung_in_h;
 	// Daten verpacken für absolute Belegung pro Tag
 	$t_arr = array();
-	$t_arr["Buchung_fuer"] = date('l, d. F Y' ,strtotime($aktueller_tag));	
+	$t_arr["Buchung_fuer"] = myDate(date('l, d. F Y' ,strtotime($aktueller_tag)));	
 	$t_arr["ProzBelegung"] = $gesamt_belegung_in_h;
 	// Daten für absolute Belegung pro Tag in Gesamtarray verpacken
 	$belegung_absolut_pro_tag[] = $t_arr;	
@@ -203,14 +205,14 @@ for ($i = 1; $i <= ($anz_tage + 1); $i++) {
 		$stunden_zaehler++;
 	}	
 	$t_arr = array();
-	$t_arr["Buchung_fuer"] = date('l, d. F Y' ,strtotime($aktueller_tag));	
+	$t_arr["Buchung_fuer"] = myDate(date('l, d. F Y' ,strtotime($aktueller_tag)));		
 	$t_arr["StundenBelegung"] = $stunden_arr;
 	$belegung_pro_tag_pro_stunde[] = $t_arr;
 	// Belegung pro Tag pro Woche
 	if (count($belegung_pro_tag_pro_woche) < $maximaleAnzahlTage) {
 		// noch kein Eintrag vorhanden
 		$t_arr = array();
-		$t_arr["Buchung_fuer"] = date('l' ,strtotime($aktueller_tag));	
+		$t_arr["Buchung_fuer"] = myDate(date('l' ,strtotime($aktueller_tag)));	
 		$t_arr["StundenBelegung"] = $stunden_arr;
 		$belegung_pro_tag_pro_woche[] = $t_arr;			
 	} else {
@@ -237,13 +239,21 @@ if ($anzahl_wochen > 0) {
 	}
 }
 
-$werte_array["datum_begin"] = date('l, d. F Y' ,strtotime($date_begin));
-$werte_array["datum_ende"] = date('l, d. F Y' ,strtotime($date_ende));
+$werte_array["datum_begin"] = myDate(date('l, d. F Y' ,strtotime($date_begin)));
+$werte_array["datum_ende"] = myDate(date('l, d. F Y' ,strtotime($date_ende)));
 $werte_array["belegt_gesamt"] = $belegt_gesamt / $gewertete_tage;
 $werte_array["belegung_absolut_pro_tag"] = $belegung_absolut_pro_tag;	
 $werte_array["belegung_pro_tag_pro_stunde"] = $belegung_pro_tag_pro_stunde;	
 $werte_array["belegung_absolut_pro_woche"] = $belegung_absolut_pro_woche;
 $werte_array["belegung_pro_tag_pro_woche"] = $belegung_pro_tag_pro_woche;
 $werte_array["belegung_absolut_pro_monat"] = $belegung_absolut_pro_monat;
+
+function myDate($myString) {	
+	$englisch = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December",
+						"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
+	$deutsch = array("Januar", "Februar", "Maerz", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember",
+						"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag");	
+	return str_replace($englisch, $deutsch, $myString);
+}
 
 ?>

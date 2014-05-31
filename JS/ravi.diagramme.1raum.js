@@ -56,7 +56,7 @@ function rd1FrageDatenAb() {
 		url: "PHP/diagrammeRaumZeitraumAuswahl.php",	
 		// Daten, die an Server gesendet werden soll in JSON Notation
 		data: {Zeitraum: zeitraum, RaumID: raumid, Tag: tag, Monat: monat, Jahr: jahr, RaumNr: raumNr, Samstag: mitSamstag, Sonntag: mitSonntag,
-				Diagramm1: true, Diagramm2: true, Diagramm3: true, Diagramm4: true
+				Diagramm1: true, Diagramm2: true, Diagramm3: true, Diagramm4: true, Diagramm5: true
 		},
 		datatype: "json",	
 		// Methode POST oder GET
@@ -76,14 +76,14 @@ function rd1InitialisiereDiagram(data) {
 		return;
 	var zeitraum = response.zeitraum;
 	// Aussehen der Diagramme
-	var daten, titel, hoehe, legende;
+	var daten, titel, hoehe, legende, y_max, x_format;
 	// Daten der Diagramme
 	var belegung_absolut, kategorien_y, belegt, nicht_belegt, belegung_pro_stunde, kategorien_x;
 	// Puffer
 	var i, j, y_wert, a_proz, a_stunden;
 	// Belegung absolut für den Zeitraum im Kuchendiagramm
-	// aktuell für: 1 Tag, 7 Tage, 4 Wochen, 6 Monate
-	if (zeitraum == 1 || zeitraum == 2 || zeitraum == 3 || zeitraum == 4) {
+	// aktuell für: 1 Tag, 7 Tage, 4 Wochen, 6 Monate, 1 Jahr
+	if (zeitraum == 1 || zeitraum == 2 || zeitraum == 3 || zeitraum == 4 || zeitraum == 5) {
 		daten =  new Array();
 		daten.push({name: "nicht belegt", y: 100 - response.belegt_gesamt});
 		daten.push({name: "belegt", y: response.belegt_gesamt});	 
@@ -95,19 +95,20 @@ function rd1InitialisiereDiagram(data) {
 		rd3DPie("diagramm1", titel , "Durchschnitt", daten);
 	}
 	// Belegung nach Tage / Wochen / Monate aufgeschlüsselt in einer StackedBar
-	// aktuell für: 7 Tage, 4 Wochen, 6 Monate
-	if (zeitraum == 2 || zeitraum == 3 || zeitraum == 4) {
+	// aktuell für: 7 Tage, 4 Wochen, 6 Monate, 1 Jahr
+	if (zeitraum == 2 || zeitraum == 3 || zeitraum == 4 || zeitraum == 5) {
 		if (zeitraum == 2) {
 			belegung_absolut = response.belegung_absolut_pro_tag;
 		} else if (zeitraum == 3) {
 			belegung_absolut = response.belegung_absolut_pro_woche;
 		} else if (zeitraum == 4) {
 			belegung_absolut = response.belegung_absolut_pro_monat;
+		} else if (zeitraum == 5) {
+			belegung_absolut = response.belegung_absolut_pro_monat;
 		}
 		kategorien_y =  new Array();
 		belegt = new Array();
 		nicht_belegt = new Array();
-		i = 0;
 		for (i = 0; i < belegung_absolut.length; i++) {
 			// Daten aus Übergabearray holen
 			y_wert = belegung_absolut[i].Buchung_fuer;
@@ -128,7 +129,6 @@ function rd1InitialisiereDiagram(data) {
 	if (zeitraum == 3) {
 		belegung_absolut = response.belegung_absolut_pro_tag;	
 		daten = new Array();
-		i = 0;
 		for (i = 0; i < belegung_absolut.length; i++) {
 			// Daten aus Übergabearray holen
 			y_wert = belegung_absolut[i].Buchung_fuer;
@@ -140,11 +140,10 @@ function rd1InitialisiereDiagram(data) {
 		rdColumn("diagramm3", titel, "Belegung in %", daten, 100);
 	}
 	// Belegung nach Tagen aufgeschlüsselt in einer LineChart
-	// aktuell für: 6 Monate
-	if (zeitraum == 4) {
+	// aktuell für: 6 Monate, 1 Jahr
+	if (zeitraum == 4 || zeitraum == 5) {
 		belegung_absolut = response.belegung_absolut_pro_tag;	
 		daten = new Array();
-		i = 0;
 		for (i = 0; i < belegung_absolut.length; i++) {
 			// Daten aus Übergabearray holen
 			a_proz = belegung_absolut[i].ProzBelegung;
@@ -155,17 +154,17 @@ function rd1InitialisiereDiagram(data) {
 		rdLine("diagramm3", titel, "Belegung in %", daten, 100, response.tag, response.monat-1, response.jahr);
 	}
 	// Belegung nach Tagen und Uhrzeiten aufgeschlüsselt in einer HeatMap
-	// aktuell für: 1 Tag, 7 Tage, 4 Wochen, 6 Monate
-	if (zeitraum == 1 || zeitraum == 2 || zeitraum == 3 || zeitraum == 4) {
+	// aktuell für: 1 Tag, 7 Tage, 4 Wochen, 6 Monate, 1 Jahr
+	if (zeitraum == 1 || zeitraum == 2 || zeitraum == 3 || zeitraum == 4 || zeitraum == 5) {
 		if (zeitraum == 1 || zeitraum == 2) {
 			belegung_pro_stunde = response.belegung_pro_tag_pro_stunde;
-		} else if (zeitraum == 3 || zeitraum == 4) {
+		} else if (zeitraum == 3 || zeitraum == 4 || zeitraum == 5) {
 			belegung_pro_stunde = response.belegung_pro_tag_pro_woche;
 		}
 		kategorien_x = new Array();
 		kategorien_y = new Array();
 		daten = new Array();
-		j = 0;
+		y_max = 0;
 		for (i = 0; i < belegung_pro_stunde.length; i++) {
 			// Daten aus Übergabearray holen
 			y_wert = belegung_pro_stunde[i].Buchung_fuer;
@@ -174,11 +173,12 @@ function rd1InitialisiereDiagram(data) {
 			for (j = 0; j < a_stunden.length; j++) {
 				// im ersten Durchlauf die X-Achse noch belegen
 				if (i == 0) {
-					kategorien_x.push(a_stunden[j].Stunde + " Uhr");				
+					kategorien_x.push(a_stunden[j].Stunde + " Uhr");						
 				}
 				daten.push([j,i,a_stunden[j].Belegt]);	
 			}				
 			kategorien_y.push(y_wert);
+			y_max++;
 		}	
 		if (zeitraum == 1) {
 			hoehe = 165;
@@ -196,9 +196,42 @@ function rd1InitialisiereDiagram(data) {
 			hoehe = null;			
 			legende = true;
 			titel = "Belegung des Raumes " + response.raumnr + " pro Wochentag und Stunde <br/>im Zeitraum " + response.datum_begin + " - " + response.datum_ende + "";
+		} else if (zeitraum == 5) {
+			hoehe = null;			
+			legende = true;
+			titel = "Belegung des Raumes " + response.raumnr + " pro Wochentag und Stunde <br/>im Zeitraum " + response.datum_begin + " - " + response.datum_ende + "";
 		}
-		rdHeatMap("diagramm4", titel, kategorien_x, kategorien_y, daten, 0, 100, legende, hoehe);
+		rdHeatMap("diagramm4", titel, kategorien_x, kategorien_y, daten, 0, 100, legende, hoehe, true, y_max, null, null);
 	}
+	// Belegung aller Tagen und Uhrzeiten aufgeschlüsselt in einer HeatMap
+	// aktuell für: 4 Wochen, 6 Monate, 1 Jahr
+	if ((zeitraum == 3) || (zeitraum == 4) || (zeitraum == 5)) {
+		belegung_pro_stunde = response.belegung_pro_tag_pro_stunde;		
+		kategorien_x = new Array();
+		kategorien_y = new Array();
+		daten = new Array();
+		y_max = 0;
+		for (i = 0; i < belegung_pro_stunde.length; i++) {
+			// Daten aus Übergabearray holen
+			y_wert = belegung_pro_stunde[i].Buchung_fuer;
+			a_stunden = belegung_pro_stunde[i].StundenBelegung;
+			// Arrays für Heatmap füllen
+			for (j = 0; j < a_stunden.length; j++) {	
+				// im ersten Durchlauf die Y-Achse noch belegen
+				if (i == 0) {
+					kategorien_y.push(a_stunden[j].Stunde + " Uhr");	
+					y_max++;
+				}			
+				daten.push([i,j,a_stunden[j].Belegt]);	
+			}	
+			kategorien_x.push(y_wert);
+		}	
+		hoehe = null;			
+		legende = false;
+		titel = "Belegung des Raumes " + response.raumnr + " pro Wochentag und Stunde <br/>im Zeitraum " + response.datum_begin + " - " + response.datum_ende + "";
+		x_format = '<style="font-size:8px">{value}</style>'
+		rdHeatMap("diagramm5", titel, kategorien_x, kategorien_y, daten, 0, 100, legende, hoehe, false, y_max, x_format, 'x');
+	}	
 
 	return;
 }
@@ -223,6 +256,7 @@ function rd1HideAllContainer() {
 	rd1HideContainer("diagramm2");
 	rd1HideContainer("diagramm3");
 	rd1HideContainer("diagramm4");
+	rd1HideContainer("diagramm5");
 		
 	return;
 }

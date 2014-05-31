@@ -27,11 +27,12 @@ if (true) {
 	$diagramm2 = $_POST["Diagramm2"];
 	$diagramm3 = $_POST["Diagramm3"];
 	$diagramm4 = $_POST["Diagramm4"];
+	$diagramm5 = $_POST["Diagramm5"];
 } else {	 
 	//debugg
-	$zeitraum = 4;
+	$zeitraum = 5;
 	$raumid = "325604513970052";
-	$tag = 2;
+	$tag = 1;
 	$monat = 1;
 	$jahr = 2011;
 	$raumnr = "XYZ";
@@ -51,6 +52,7 @@ if (true) {
 	$diagramm2 = "true";
 	$diagramm3 = "true";
 	$diagramm4 = "true";
+	$diagramm5 = "true";
 }
 // Parameter für Darstellung zurück ins Array schreiben
 $werte_array["raumnr"] = $raumnr;
@@ -59,6 +61,7 @@ $werte_array["diagramm1"] = $diagramm1;
 $werte_array["diagramm2"] = $diagramm2;
 $werte_array["diagramm3"] = $diagramm3;
 $werte_array["diagramm4"] = $diagramm4;
+$werte_array["diagramm5"] = $diagramm5;
 $werte_array["mitSamstag"] = $mitSamstag;
 $werte_array["mitSonntag"] = $mitSonntag;
 $werte_array["tag"] = $tag;

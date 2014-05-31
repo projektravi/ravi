@@ -5,30 +5,9 @@
 	<!-- Inkludierte Stylesheet-Dateien -->
 <?php include "css/_includes" ?>	
 	<!-- Inkludierte Javascript-Dateien -->
-<?php include "js/_includes" ?>
-	<style type="text/css">
-		a:link    {color:black;}
-		a:visited {color:black;}
-		a:hover   {color:black;}
-		a:active  {color:black;}
-		#accordion .ui-accordion-header {  
-    background-color: white;  
-    margin: 0px;  
-}  
-		
-		
-	</style>
-  <script>
-  $(function() {
-    $( "#accordion" ).accordion({
-      active: false,
-	  collapsible: true
-    });
-  });
-  </script>
+<?php include "js/_includes" ?>  
 </head>
 <body> <!-- onLoad="rmrFrageStandorteAb()"><!--rmrFrageStandorteAb() -->
-
 	<div id="header">
 			<div id="hread">
 				<a href=""><img id="logo_ravi" src="Bilder/RaViLogok.jpg" /></a>
@@ -150,9 +129,9 @@
 					<p> Zeitraum:<br>
 						<input type="radio" name="zeitraum" value="1"> 1 Tag<br>
 						<input type="radio" name="zeitraum" value="2"> 7 Tage<br>
-						<input type="radio" name="zeitraum" value="3" > 4 Wochen<br>
-						<input type="radio" name="zeitraum" value="4" > 6 Monate<br>
-						<input type="radio" name="zeitraum" value="5" disabled> 12 Monate									
+						<input type="radio" name="zeitraum" value="3"> 4 Wochen<br>
+						<input type="radio" name="zeitraum" value="4"> 6 Monate<br>
+						<input type="radio" name="zeitraum" value="5"> 12 Monate									
 					</p>
 					<!-- Ende: Zeitraum -->
 					<div id="accordion">
@@ -311,11 +290,12 @@
 				<div id="diagramm3_ws2" style="height: 0px"></div>
 				<div id="diagramm4_ws1" style="height: 0px"></div>
 				<div id="diagramm4" style="height: 0px"></div>
-				<div id="diagramm4_ws2" style="height: 0px"></div>				
+				<div id="diagramm4_ws2" style="height: 0px"></div>	
+				<div id="diagramm5_ws1" style="height: 0px"></div>
+				<div id="diagramm5" style="height: 0px"></div>
+				<div id="diagramm5_ws2" style="height: 0px"></div>						
 			</div>
-
 		</div>
 	</div>
-	
 </body>
 </html> 

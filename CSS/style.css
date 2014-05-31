@@ -313,3 +313,13 @@ display: block;
 .ui-accordion .ui-accordion-content{
 	padding: 0em 0em 0em 0em	!important;
 }
+
+a:link    {color:black;}
+a:visited {color:black;}
+a:hover   {color:black;}
+a:active  {color:black;}
+
+#accordion .ui-accordion-header {  
+	background-color: white;  
+	margin: 0px;  
+}

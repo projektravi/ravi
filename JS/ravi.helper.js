@@ -18,6 +18,12 @@ function anzeigen(){
 	//var node = document.getElementById('pfad');
 	//var standortHeader = document.createTextNode(standort);
 	//node.parentNode.insertBefore(standortHeader, node );			
-	alert(standort+" "+haus+raum);
-	
+	alert(standort+" "+haus+raum);	
 }
+
+$(function() {
+	$( "#accordion" ).accordion({
+		active: false,
+		collapsible: true
+	});
+});
