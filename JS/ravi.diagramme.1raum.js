@@ -1,12 +1,40 @@
 //var tagnt = $("#Day :selected").text();
 //$("#Day").val(tagnt);
 function oeffneNeuenTab() {
-	window.open('index.php');
+			var f = document.menu;
+			var zeitraum = $("input[name='zeitraum']:checked").val()
+			var raumid = f.raum.value;
+			var raumNr = $("#raum option:selected").text();
+			var tag = f.Day.value;
+			var monat = f.Month.value;
+			var jahr = f.Year.value;		
+			var mitSamstag = $("#Sa").is(":checked");
+			var mitSonntag = $("#So").is(":checked");
+			var link = 'send.php?zeitraum='
+                 + zeitraum + '&raumid='
+                 + raumid + '&raumNr='
+			     + raumNr + '&tag='
+                 + tag + '&monat='
+				 + monat + '&jahr='
+                 + jahr + '&mitSamstag='
+                 + mitSamstag + '&mitSonntag='
+                 + mitSonntag;			
+			window.open(link);
 }
 
-// Fragt die Daten zu einem ausgewählten Raum und Zeitraum ab
-function rd1FrageDatenAb() {
-	rd1HideAllContainer();
+
+function rd1FrageDatenAb(){
+// Dokumentenparameter abfragen
+var f = document.menu;
+var zeitraum = $("input[name='zeitraum']:checked").val();
+var raumid = document.menu.raum.value;
+var raumNr = $("#raum option:selected").text();
+var tag = document.menu.Day.value;
+var monat = document.menu.Month.value;
+var jahr = document.menu.Year.value;		
+var mitSamstag = $("#Sa").is(":checked");
+var mitSonntag = $("#So").is(":checked");
+
 	// Prüfungen
 	if ($("#Einzelsicht").is(":checked") == false && $("#Gesamtsicht").is(":checked") == false && $("#Heatmap").is(":checked") == false && $("#Liniendiagramm").is(":checked") == false) {
 		$('#grundrisse').show();
@@ -23,16 +51,24 @@ function rd1FrageDatenAb() {
 		alertRavi("Bitte waehlen Sie noch einen Zeitraum!", true);
 		return;
 	}	
-	// Dokumentenparameter abfragen
+
+
+
+
+
+
+init(zeitraum,raumid,raumNr,tag,monat,jahr,mitSamstag,mitSonntag);
+}
+
+
+
+
+// Fragt die Daten zu einem ausgewählten Raum und Zeitraum ab
+function init(zeitraum,raumid,raumNr,tag,monat,jahr,mitSamstag,mitSonntag) {
+
+	rd1HideAllContainer();
+
 	var f = document.menu;
-	var zeitraum = $("input[name='zeitraum']:checked").val()
-	var raumid = f.raum.value;
-	var raumNr = $("#raum option:selected").text();
-	var tag = f.Day.value;
-	var monat = f.Month.value;
-	var jahr = f.Year.value;		
-	var mitSamstag = $("#Sa").is(":checked");
-	var mitSonntag = $("#So").is(":checked");
 	$('#grundrisse').hide();	
 	$('#wartebild').css("height", "275px");
 	$('#wartebild').show();
