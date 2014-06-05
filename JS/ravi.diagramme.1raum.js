@@ -18,8 +18,25 @@ function oeffneNeuenTab() {
 				 + monat + '&jahr='
                  + jahr + '&mitSamstag='
                  + mitSamstag + '&mitSonntag='
-                 + mitSonntag;			
+                 + mitSonntag;
+	if ($("#Einzelsicht").is(":checked") == false && $("#Gesamtsicht").is(":checked") == false && $("#Heatmap").is(":checked") == false && $("#Liniendiagramm").is(":checked") == false) {
+		$('#grundrisse').show();
+		alertRavi("Bitte waehlen Sie den Darstellungstyp!", true);
+		return;
+	}
+	else if (document.menu.raum.selectedIndex == 0) {
+		$('#grundrisse').show();
+		alertRavi("Bitte waehlen Sie zuerst einen Raum!", true);
+		return;
+	}
+	else if ($("input[name='zeitraum']:checked").length == 0) {
+		$('#grundrisse').show();
+		alertRavi("Bitte waehlen Sie noch einen Zeitraum!", true);
+		return;
+	}
+	else{
 			window.open(link);
+	}
 }
 
 
