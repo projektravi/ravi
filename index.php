@@ -7,26 +7,38 @@
 	<!-- Inkludierte Javascript-Dateien -->
 <?php include "js/_includes" ?>  
 </head>
-<body> <!-- onLoad="rmrFrageStandorteAb()"><!--rmrFrageStandorteAb() -->
+<?php
+$showNavigation = "";
+if (isset($_GET["zeitraum"])) {
+	$showNavigation = "display: none";
+?>
+<body onLoad="rd1StarteAuswertung(<?php echo htmlspecialchars($_GET["zeitraum"]) . ',' . htmlspecialchars($_GET["raumid"]) . ',\'' . htmlspecialchars($_GET["raumNr"]) . '\',' . htmlspecialchars($_GET["tag"]) . ',' . htmlspecialchars($_GET["monat"]) . ',' . htmlspecialchars($_GET["jahr"]) . ',' . htmlspecialchars($_GET["mitSamstag"]) . ',' . htmlspecialchars($_GET["mitSonntag"]) ?>)"><!--rmrFrageStandorteAb() -->
+<?php
+} else {
+?>
+<body>
+<?php
+}
+?>
 	<div id="header">
-			<div id="hread">
-				<a href=""><img id="logo_ravi" src="Bilder/RaViLogok.jpg" /></a>
-				<a href="http://www.hwr-berlin.de" target="_blank"><img id="logo_hwr" src="Bilder/hwr-logo.png" /></a>
-			</div>
-			
-			<div   id="grau_div1">
-				<table border="0" cellpadding="7">
-					<tr>
-						<td><a href="index.php">Startseite</td>
-						<td><a href="javascript:changeDivKontakt()">Kontakt</td>
-						<td><a href="javascript:changeDivContent()">Impressum/Team</td>
-					</tr>
-				</table>			
-			</div>
+		<div id="hread">
+			<a href=""><img id="logo_ravi" src="Bilder/RaViLogok.jpg" /></a>
+			<a href="http://www.hwr-berlin.de" target="_blank"><img id="logo_hwr" src="Bilder/hwr-logo.png" /></a>
+		</div>
+		
+		<div id="grau_div1">
+			<table border="0" cellpadding="7">
+				<tr>
+					<td><a href="index.php">Startseite</td>
+					<td><a href="javascript:changeDivKontakt()">Kontakt</td>
+					<td><a href="javascript:changeDivContent()">Impressum/Team</td>
+				</tr>
+			</table>			
+		</div>
 	</div>		
 	
 	<div id="content">
-		<div id="navigation">
+		<div id="navigation" style="<?php echo $showNavigation; ?>">
 			<div id="menue_div1"><a class="upperHead">Navigation<a></div>
 			<div id="menue_div2">
 				<!-- Start: Eingabeformular -->
@@ -244,8 +256,8 @@
 					</table>
 					<br>
 					
-					<input type="button" onClick="rd1FrageDatenAb()" value="anzeigen"/>
-					<input type="button" onClick="oeffneNeuenTab()" value="neuen Tab oeffnen"/>
+					<input type="button" onClick="rd1FrageDatenAb(false)" value="anzeigen"/>
+					<input type="button" onClick="rd1FrageDatenAb(true)" value="neuen Tab oeffnen"/>
 				</form>
 			</div>
 		</div>				

@@ -1,9 +1,12 @@
 function rd3DPie(container, titel, hinweis, datenarray) {
+	var anz = rdAnzahlZeilenImTitel(titel);
+	var chart_margin_top = anz * 30;
 	rd1ShowContainer(container);
 	container = "#" + container;
 	rdSetOptions();
 	$(container).highcharts({
 		chart: {
+			marginTop: chart_margin_top,
 			type: 'pie',
 			options3d: {
 				enabled: true,
@@ -37,11 +40,14 @@ function rd3DPie(container, titel, hinweis, datenarray) {
 }
 
 function rdStackedBar(container, titel, hinweis, kategorien, daten, maxWert) {
+	var anz = rdAnzahlZeilenImTitel(titel);
+	var chart_margin_top = anz * 30;
 	rd1ShowContainer(container);
 	container = "#" + container;
 	rdSetOptions();
 	$(container).highcharts({
 		chart: {
+			marginTop: chart_margin_top,
 			type: 'bar'
 		},
 		title: {
@@ -70,13 +76,18 @@ function rdStackedBar(container, titel, hinweis, kategorien, daten, maxWert) {
 }
 
 function rdHeatMap(container, titel, kategorien_x_achse, kategorien_y_achse, daten, minWert, maxWert, mitLegende, hoehe, y_reverse, y_max, x_format, zoom_type) {
+	var anz = rdAnzahlZeilenImTitel(titel);
 	var subtitle_text = null;
-	var chart_margin_top = 60;
+	var chart_margin_top = anz * 30;;
 	var chart_margin_bottom = 60;
-	rd1ShowContainer(container);
+	var hoehe_container = "";
+	if ((hoehe != "") && (hoehe != null)) {
+		hoehe_container = hoehe + "px";
+	}
+	rd1ShowContainer(container, hoehe_container);
 	container = "#" + container;
 	rdSetOptions();
-	y_max--;	
+	y_max--;		
 	if (zoom_type != null) {
 		subtitle_text = 'Ziehen Sie einen Rahmen zum reinzoomen';
 		chart_margin_top += 20;
@@ -152,11 +163,14 @@ function rdHeatMap(container, titel, kategorien_x_achse, kategorien_y_achse, dat
 }
 
 function rdColumn(container, titel, hinweis, daten, maxWert) {	
+	var anz = rdAnzahlZeilenImTitel(titel);
+	var chart_margin_top = anz * 30;
 	rd1ShowContainer(container);
 	container = "#" + container;
 	rdSetOptions();
 	$(container).highcharts({
 		chart: {
+			marginTop: chart_margin_top,
 			type: 'column'
 		},
 		colors: [Highcharts.getOptions().colors[1]
@@ -193,11 +207,14 @@ function rdColumn(container, titel, hinweis, daten, maxWert) {
 }
 
 function rdLine(container, titel, hinweis, daten, maxWert, tag, monat, jahr) {
+	var anz = rdAnzahlZeilenImTitel(titel);
+	var chart_margin_top = anz * 30;
 	rd1ShowContainer(container);
 	container = "#" + container;
 	rdSetOptions();
 	$(container).highcharts({
 		chart: {
+			marginTop: chart_margin_top,
 			zoomType: 'x'
 		},
 		title: {
@@ -273,4 +290,8 @@ function rdSetOptions() {
 			weekdays: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag']
 		}
 	});
+}
+
+function rdAnzahlZeilenImTitel(titel) {
+	return titel.split("<br/>").length;
 }

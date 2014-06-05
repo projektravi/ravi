@@ -1,108 +1,62 @@
-//var tagnt = $("#Day :selected").text();
-//$("#Day").val(tagnt);
-function oeffneNeuenTab() {
-			var f = document.menu;
-			var zeitraum = $("input[name='zeitraum']:checked").val()
-			var raumid = f.raum.value;
-			var raumNr = $("#raum option:selected").text();
-			var tag = f.Day.value;
-			var monat = f.Month.value;
-			var jahr = f.Year.value;		
-			var mitSamstag = $("#Sa").is(":checked");
-			var mitSonntag = $("#So").is(":checked");
-			var link = 'send.php?zeitraum='
-                 + zeitraum + '&raumid='
-                 + raumid + '&raumNr='
-			     + raumNr + '&tag='
-                 + tag + '&monat='
-				 + monat + '&jahr='
-                 + jahr + '&mitSamstag='
-                 + mitSamstag + '&mitSonntag='
-                 + mitSonntag;
+function rd1PruefeEingabe() {
 	if ($("#Einzelsicht").is(":checked") == false && $("#Gesamtsicht").is(":checked") == false && $("#Heatmap").is(":checked") == false && $("#Liniendiagramm").is(":checked") == false) {
 		$('#grundrisse').show();
 		alertRavi("Bitte waehlen Sie den Darstellungstyp!", true);
-		return;
+		return false;
 	}
 	else if (document.menu.raum.selectedIndex == 0) {
 		$('#grundrisse').show();
 		alertRavi("Bitte waehlen Sie zuerst einen Raum!", true);
-		return;
+		return false;
 	}
 	else if ($("input[name='zeitraum']:checked").length == 0) {
 		$('#grundrisse').show();
 		alertRavi("Bitte waehlen Sie noch einen Zeitraum!", true);
-		return;
+		return false;
 	}
-	else{
-			window.open(link);
-	}
+	
+	return true;
 }
 
-
-function rd1FrageDatenAb(){
-// Dokumentenparameter abfragen
-var f = document.menu;
-var zeitraum = $("input[name='zeitraum']:checked").val();
-var raumid = document.menu.raum.value;
-var raumNr = $("#raum option:selected").text();
-var tag = document.menu.Day.value;
-var monat = document.menu.Month.value;
-var jahr = document.menu.Year.value;		
-var mitSamstag = $("#Sa").is(":checked");
-var mitSonntag = $("#So").is(":checked");
-
-	// Prüfungen
-	if ($("#Einzelsicht").is(":checked") == false && $("#Gesamtsicht").is(":checked") == false && $("#Heatmap").is(":checked") == false && $("#Liniendiagramm").is(":checked") == false) {
-		$('#grundrisse').show();
-		alertRavi("Bitte waehlen Sie den Darstellungstyp!", true);
+function rd1FrageDatenAb(auswertung_in_neuem_tab){
+	// Eingaben prüfen
+	if (!rd1PruefeEingabe()) {
 		return;
 	}
-	if (document.menu.raum.selectedIndex == 0) {
-		$('#grundrisse').show();
-		alertRavi("Bitte waehlen Sie zuerst einen Raum!", true);
-		return;
+	// Dokumentenparameter abfragen
+	var f = document.menu;
+	var zeitraum = $("input[name='zeitraum']:checked").val();
+	var raumid = document.menu.raum.value;
+	var raumNr = $("#raum option:selected").text();
+	var tag = document.menu.Day.value;
+	var monat = document.menu.Month.value;
+	var jahr = document.menu.Year.value;		
+	var mitSamstag = $("#Sa").is(":checked");
+	var mitSonntag = $("#So").is(":checked");	
+	if (auswertung_in_neuem_tab) {
+		var link = 'index.php?zeitraum='
+		 + zeitraum + '&raumid='
+		 + raumid + '&raumNr='
+		 + raumNr + '&tag='
+		 + tag + '&monat='
+		 + monat + '&jahr='
+		 + jahr + '&mitSamstag='
+		 + mitSamstag + '&mitSonntag='
+		 + mitSonntag;	
+		// neuen Tab mit den Übergabeparametern öffnen		 
+		window.open(link);	
+	} else {
+		rd1StarteAuswertung(zeitraum, raumid, raumNr, tag, monat, jahr, mitSamstag, mitSonntag);
 	}
-	if ($("input[name='zeitraum']:checked").length == 0) {
-		$('#grundrisse').show();
-		alertRavi("Bitte waehlen Sie noch einen Zeitraum!", true);
-		return;
-	}	
-
-
-
-
-
-
-init(zeitraum,raumid,raumNr,tag,monat,jahr,mitSamstag,mitSonntag);
+	return;	
 }
-
-
-
 
 // Fragt die Daten zu einem ausgewählten Raum und Zeitraum ab
-function init(zeitraum,raumid,raumNr,tag,monat,jahr,mitSamstag,mitSonntag) {
-
+function rd1StarteAuswertung(zeitraum, raumid, raumNr, tag, monat, jahr, mitSamstag, mitSonntag) {
 	rd1HideAllContainer();
-
-	var f = document.menu;
 	$('#grundrisse').hide();	
 	$('#wartebild').css("height", "275px");
 	$('#wartebild').show();
-	/*
-	if ($("#Einzelsicht").is(":checked")){		
-		$('#diagramm1').show();		
-		$('#whitespace1').show();
-		$('#whitespace1').css("height", "50px");		
-	};
-	if ($("#Gesamtsicht").is(":checked")){
-		if (zeitraum != 1) {
-			$('#diagramm2').show();
-			$('#whitespace2').show();
-			$('#whitespace2').css("height", "50px");
-		}
-		$('#diagramm3').show();
-	};*/		
 	// Daten an Server senden
 	$.ajax({
 		// pfad zur PHP Datei (ab HTML Datei)
@@ -117,20 +71,23 @@ function init(zeitraum,raumid,raumNr,tag,monat,jahr,mitSamstag,mitSonntag) {
 		// Callback-Funktion, die nach der Antwort des Servers ausgefuehrt wird
 		success: function(data) { rd1InitialisiereDiagram(data); }
 	});
-	if($("#diagr").length){
-		$("#pfad #diagr").text("> Auswertung f\u00fcr Raum " + $("#raum :selected").text());
-	}else{
-		$("#pfad").append("<a class='routeMap' id='diagr'>> Auswertung f&uuml;r Raum " + $("#raum :selected").text() + "</a>");
-	}
 	return;
 }
 
 function rd1InitialisiereDiagram(data) {	
+	// Wartebild entfernen
 	$('#wartebild').css("height", "0px");
 	$('#wartebild').hide();
+	// Daten parsen
 	var response = $.parseJSON(data);	
 	if (response.length == 0)
 		return;
+	// Pfad aktualisieren
+	if ($("#diagr").length) {
+		$("#pfad #diagr").text("> Auswertung f\u00fcr Raum " + response.raumnr);
+	} else {
+		$("#pfad").append("<a class='routeMap' id='diagr'>> Auswertung f&uuml;r Raum " + response.raumnr + "</a>");
+	}	
 	var zeitraum = response.zeitraum;
 	// Aussehen der Diagramme
 	var daten, titel, hoehe, legende, y_max, x_format;
@@ -148,7 +105,7 @@ function rd1InitialisiereDiagram(data) {
 			titel = "Absolute Belegung des Raumes " + response.raumnr + "<br/>" + response.datum_begin + "";
 		} else {
 			titel = "Absolute Belegung des Raumes " + response.raumnr + "<br/>im Zeitraum " + response.datum_begin + " - "	+ response.datum_ende + "";
-			titel = expandTitle(titel);
+			titel = rd1ExpandTitle(titel, response.mitSamstag, response.mitSonntag);
 		}
 		rd3DPie("diagramm1", titel , "Durchschnitt", daten);
 	}
@@ -180,7 +137,7 @@ function rd1InitialisiereDiagram(data) {
 		daten.push({name: "nicht belegt", data: nicht_belegt});
 		daten.push({name: "belegt", data: belegt});
 		titel = "Durchschnittliche Belegung des Raumes " + response.raumnr + "<br/>im Zeitraum " + response.datum_begin + " - " + response.datum_ende + "";
-		titel = expandTitle(titel);
+		titel = rd1ExpandTitle(titel, response.mitSamstag, response.mitSonntag);
 		rdStackedBar("diagramm2", titel, "Belegung in %", kategorien_y, daten, 100);	
 	}
 	// Belegung nach Tagen aufgeschlüsselt in einer ColumnChart
@@ -196,7 +153,7 @@ function rd1InitialisiereDiagram(data) {
 			daten.push([y_wert, a_proz]);
 		}	
 		titel = "Durchschnittliche Belegung des Raumes " + response.raumnr + "<br/>im Zeitraum " + response.datum_begin + " - " + response.datum_ende + "";
-		titel = expandTitle(titel);
+		titel = rd1ExpandTitle(titel, response.mitSamstag, response.mitSonntag);
 		rdColumn("diagramm3", titel, "Belegung in %", daten, 100);
 	}
 	// Belegung nach Tagen aufgeschlüsselt in einer LineChart
@@ -211,7 +168,7 @@ function rd1InitialisiereDiagram(data) {
 			daten.push(a_proz);
 		}	
 		titel = "Durchschnittliche Belegung des Raumes " + response.raumnr + "<br/> im Zeitraum " + response.datum_begin + " - " + response.datum_ende + "";
-		titel = expandTitle(titel);
+		titel = rd1ExpandTitle(titel, response.mitSamstag, response.mitSonntag);
 		rdLine("diagramm3", titel, "Belegung in %", daten, 100, response.tag, response.monat-1, response.jahr);
 	}
 	// Belegung nach Tagen und Uhrzeiten aufgeschlüsselt in einer HeatMap
@@ -244,7 +201,7 @@ function rd1InitialisiereDiagram(data) {
 		if (zeitraum == 1) {
 			hoehe = 165;
 			legende = false;
-			titel = "Belegung des Raumes " + response.raumnr + " pro Stunde <br/>am" + response.datum_begin + "";
+			titel = "Belegung des Raumes " + response.raumnr + " pro Stunde <br/>am " + response.datum_begin + "";
 		} else if (zeitraum == 2) {
 			hoehe = null;			
 			legende = false;
@@ -262,7 +219,7 @@ function rd1InitialisiereDiagram(data) {
 			legende = true;
 			titel = "Belegung des Raumes " + response.raumnr + " pro Wochentag und Stunde <br/>im Zeitraum " + response.datum_begin + " - " + response.datum_ende + "";
 		}
-		titel = expandTitle(titel);
+		titel = rd1ExpandTitle(titel, response.mitSamstag, response.mitSonntag);
 		rdHeatMap("diagramm4", titel, kategorien_x, kategorien_y, daten, 0, 100, legende, hoehe, true, y_max, null, null);
 	}
 	// Belegung aller Tagen und Uhrzeiten aufgeschlüsselt in einer HeatMap
@@ -292,19 +249,22 @@ function rd1InitialisiereDiagram(data) {
 		legende = false;
 		titel = "Belegung des Raumes " + response.raumnr + " pro Wochentag und Stunde <br/>im Zeitraum " + response.datum_begin + " - " + response.datum_ende + "";
 		x_format = '<style="font-size:8px">{value}</style>'
-		titel = expandTitle(titel);
+		titel = rd1ExpandTitle(titel, response.mitSamstag, response.mitSonntag);
 		rdHeatMap("diagramm5", titel, kategorien_x, kategorien_y, daten, 0, 100, legende, hoehe, false, y_max, x_format, 'x');
 	}	
 
 	return;
 }
 
-function rd1ShowContainer(container) {
+function rd1ShowContainer(container, height) {
 	var ws1, ws2;
+	if ((height == "") || (height == null)) {
+		height = "400px";
+	}	
 	container = "#" + container;
 	ws1 = container + "_ws1";
 	ws2 = container + "_ws2";	
-	$(container).css("height", "400px");
+	$(container).css("height", height);
 	$(container).show();
 	$(ws1).css("height", "25px");
 	$(ws1).show();
@@ -339,17 +299,16 @@ function rd1HideContainer(container) {
 	return;
 }
 
-function expandTitle(titel){
-			if($("#Sa").is(":checked") && $("#So").is(":checked")){
-			}
-			else if(!$("#Sa").is(":checked") && !$("#So").is(":checked")){
-				titel += "<br/>ohne Berechnung der Sams- und Sonntage!";	
-			}
-			else if($("#Sa").is(":checked") && !$("#So").is(":checked")){
-				titel +="<br/>ohne Berechnung der Sonntage!";	
-			}
-			else if(!$("#Sa").is(":checked") && $("#So").is(":checked")){
-				titel += "<br/>ohne Berechnung der Samstage!";	
-			}
-			return titel;
+function rd1ExpandTitle(titel, mitSamstag, mitSonntag){
+	if (!mitSamstag && !mitSonntag) {
+		titel += "<br/>ohne Berechnung der Sams- und Sonntage!";	
+	}
+	else if (!mitSamstag) {
+		titel +="<br/>ohne Berechnung der Samstage!";	
+	}
+	else if (!mitSonntag) {
+		titel += "<br/>ohne Berechnung der Sonntage!";	
+	}
+	
+	return titel;
 }
