@@ -153,7 +153,7 @@
 		<p>
 			<b>Kreisdiagramm:</b></br>Zeigt die prozentuale Belegung eines Raums zu einem genauen Zeitpunkt in einem Kreisdiagramm an. </br></br>
 			<b>Balkendiagramm:</b></br> Zeigt die durchschnittliche Belegung eines Raums für einen ausgewählten Zeitraum in einem Balkendiagramm an.</br></br>
-			<b>Liniendiagramm:</b></br> Zeigt die durchschnittliche Belegung eines Raums für einen ausgewählten Zeitraum unter Berücksichtigung der Uhrzeiten in einem Liniendiagramm an.	</br></br>
+			<b>Flächendiagramm:</b></br> Zeigt die durchschnittliche Belegung eines Raums für einen ausgewählten Zeitraum unter Berücksichtigung der Uhrzeiten in einem Flächendiagramm an.	</br></br>
 			<b>Heatmap:</b></br> Zeigt die prozentuale Belegung eines Raums in einem ausgewählten Zeitraum zu verschiedenen Uhrzeiten an.</br></br>
 		</p>
 	</span>
@@ -221,13 +221,13 @@
 						</tr>	
 						<tr>
 							<td>
-								<input id="Liniendiagramm" type="checkbox" name="Diagrammtyp" value="line" checked>
+								<input id="Flächendiagramm" type="checkbox" name="Diagrammtyp" value="line" checked>
 							</td>
 							<td>	
 								<span class="hover"><label for ="Linie"><img src="./Bilder/logolinie.jpg"><span class="infobox">&nbsp;Liniendiagramm&nbsp;</span></span>
 							</td>
 							<td>
-							 Liniendiagramm
+							 Flächendiagramm
 							</td>
 						</tr>	
 						<tr>
