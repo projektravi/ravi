@@ -284,10 +284,10 @@ function rd1HideAllContainer() {
 	return;
 }
 
-function showAllDiagrammtypen() {
+function showAllDiagrammtypen() {	
 	$('#trbalkendiagramm').show();
 	$('#trflaechendiagramm').show();
-	$('#trheatmap').show();		
+	$('#trheatmap').show();	
 	return;
 }
 

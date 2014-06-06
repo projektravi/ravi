@@ -7,7 +7,7 @@ $(function() {
 		buttonImageOnly: true,
 		// Ändern, wenn es neue Daten geben sollte!
 		maxDate: new Date(2014, 2 - 1, 28), 
-		minDate: new Date(2011, 1 - 1, 1),
+		minDate: new Date(2011, 1 - 1, 1), 
 		
 		onSelect: function(dateText, inst) {
 			var startDate = new Date(dateText); 

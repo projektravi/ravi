@@ -139,9 +139,9 @@ if (isset($_GET["zeitraum"])) {
 					
 					<!-- Start: Zeitraum -->
 					<p> Zeitraum:<br>
-						<input type="radio" name="zeitraum" value="1" onChange="showAllDiagrammtypen();$('#trbalkendiagramm').hide();$('#trflaechendiagramm').hide();"> 1 Tag<br>
-						<input type="radio" name="zeitraum" value="2" onChange="showAllDiagrammtypen();$('#trflaechendiagramm').hide();"> 7 Tage<br>
-						<input type="radio" name="zeitraum" value="3" onChange="showAllDiagrammtypen();$('#trflaechendiagramm').hide();"> 4 Wochen<br>
+						<input type="radio" name="zeitraum" value="1" onChange="showAllDiagrammtypen();$('#trbalkendiagramm').hide();$( '#Gesamtsicht').prop('checked', false);$('#trflaechendiagramm').hide();$( '#Flaechendiagramm').prop('checked', false)"> 1 Tag<br>
+						<input type="radio" name="zeitraum" value="2" onChange="showAllDiagrammtypen();$('#trflaechendiagramm').hide();$( '#Flaechendiagramm').prop('checked', false)"> 7 Tage<br>
+						<input type="radio" name="zeitraum" value="3" onChange="showAllDiagrammtypen();$('#trflaechendiagramm').hide();$( '#Flaechendiagramm').prop('checked', false)"> 4 Wochen<br>
 						<input type="radio" name="zeitraum" value="4" onChange="showAllDiagrammtypen();"> 6 Monate<br>
 						<input type="radio" name="zeitraum" value="5" onChange="showAllDiagrammtypen();"> 12 Monate									
 					</p>
@@ -233,7 +233,7 @@ if (isset($_GET["zeitraum"])) {
 						</tr>	
 						<tr id="trflaechendiagramm">
 							<td>
-								<input id="Flächendiagramm" type="checkbox" name="Diagrammtyp" value="line" checked>
+								<input id="Flaechendiagramm" type="checkbox" name="Diagrammtyp" value="line" checked>
 							</td>
 							<td>	
 								<span class="hover"><label for ="Linie"><img src="./Bilder/logolinie.jpg"><span class="infobox">&nbsp;Liniendiagramm&nbsp;</span></span>
