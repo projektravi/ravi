@@ -139,11 +139,11 @@ if (isset($_GET["zeitraum"])) {
 					
 					<!-- Start: Zeitraum -->
 					<p> Zeitraum:<br>
-						<input type="radio" name="zeitraum" value="1"> 1 Tag<br>
-						<input type="radio" name="zeitraum" value="2"> 7 Tage<br>
-						<input type="radio" name="zeitraum" value="3"> 4 Wochen<br>
-						<input type="radio" name="zeitraum" value="4"> 6 Monate<br>
-						<input type="radio" name="zeitraum" value="5"> 12 Monate									
+						<input type="radio" name="zeitraum" value="1" onChange="showAllDiagrammtypen();$('#trbalkendiagramm').hide();$('#trflaechendiagramm').hide();"> 1 Tag<br>
+						<input type="radio" name="zeitraum" value="2" onChange="showAllDiagrammtypen();$('#trflaechendiagramm').hide();"> 7 Tage<br>
+						<input type="radio" name="zeitraum" value="3" onChange="showAllDiagrammtypen();$('#trflaechendiagramm').hide();"> 4 Wochen<br>
+						<input type="radio" name="zeitraum" value="4" onChange="showAllDiagrammtypen();"> 6 Monate<br>
+						<input type="radio" name="zeitraum" value="5" onChange="showAllDiagrammtypen();"> 12 Monate									
 					</p>
 					<!-- Ende: Zeitraum -->
 					<div id="accordion">
@@ -220,7 +220,7 @@ if (isset($_GET["zeitraum"])) {
 							 Kreisdiagramm
 							</td>
 						</tr>	
-						<tr>
+						<tr id="trbalkendiagramm">
 							<td>
 								<input id="Gesamtsicht" type="checkbox" name="Diagrammtyp" value="column" checked>
 							</td>
@@ -231,7 +231,7 @@ if (isset($_GET["zeitraum"])) {
 							 Balkendiagramm
 							</td>
 						</tr>	
-						<tr>
+						<tr id="trflaechendiagramm">
 							<td>
 								<input id="Flächendiagramm" type="checkbox" name="Diagrammtyp" value="line" checked>
 							</td>
@@ -242,7 +242,7 @@ if (isset($_GET["zeitraum"])) {
 							 Flächendiagramm
 							</td>
 						</tr>	
-						<tr>
+						<tr id="trheatmap">
 							<td>
 								<input id="Heatmap" type="checkbox" name="Map" value="heat" checked>
 							</td>

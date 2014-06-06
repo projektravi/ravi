@@ -284,6 +284,15 @@ function rd1HideAllContainer() {
 	return;
 }
 
+function showAllDiagrammtypen() {
+	$('#trbalkendiagramm').show();
+	$('#trflaechendiagramm').show();
+	$('#trheatmap').show();		
+	return;
+}
+
+
+
 function rd1HideContainer(container) {
 	var ws1, ws2;
 	container = "#" + container;
