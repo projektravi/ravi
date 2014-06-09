@@ -291,21 +291,21 @@ if (isset($_GET["zeitraum"])) {
 					<br>
 					Die Auswertung wird vorbereitet - Bitte haben Sie Geduld ...					
 				</div>
-				<div id="diagramm1_ws1" style="height: 0px" ></div>
-				<div id="diagramm1" style="height: 0px"></div>
-				<div id="diagramm1_ws2" style="height: 0px"></div>
-				<div id="diagramm2_ws1" style="height: 0px"></div>
-				<div id="diagramm2" style="height: 0px"></div>
-				<div id="diagramm2_ws2" style="height: 0px"></div>
-				<div id="diagramm3_ws1" style="height: 0px"></div>
-				<div id="diagramm3" style="height: 0px"></div>
-				<div id="diagramm3_ws2" style="height: 0px"></div>
-				<div id="diagramm4_ws1" style="height: 0px"></div>
-				<div id="diagramm4" style="height: 0px"></div>
-				<div id="diagramm4_ws2" style="height: 0px"></div>	
-				<div id="diagramm5_ws1" style="height: 0px"></div>
-				<div id="diagramm5" style="height: 0px"></div>
-				<div id="diagramm5_ws2" style="height: 0px"></div>						
+				<div class="diagrdiv" id="diagramm1_ws1" style="height: 0px" ></div>
+				<div class="diagrdiv" id="diagramm1" style="height: 0px"></div>
+				<div class="diagrdiv" id="diagramm1_ws2" style="height: 0px"></div>
+				<div class="diagrdiv" id="diagramm2_ws1" style="height: 0px"></div>
+				<div class="diagrdiv" id="diagramm2" style="height: 0px"></div>
+				<div class="diagrdiv" id="diagramm2_ws2" style="height: 0px"></div>
+				<div class="diagrdiv" id="diagramm3_ws1" style="height: 0px"></div>
+				<div class="diagrdiv" id="diagramm3" style="height: 0px"></div>
+				<div class="diagrdiv" id="diagramm3_ws2" style="height: 0px"></div>
+				<div class="diagrdiv" id="diagramm4_ws1" style="height: 0px"></div>
+				<div class="diagrdiv" id="diagramm4" style="height: 0px"></div>
+				<div class="diagrdiv" id="diagramm4_ws2" style="height: 0px"></div>	
+				<div class="diagrdiv" id="diagramm5_ws1" style="height: 0px"></div>
+				<div class="diagrdiv" id="diagramm5" style="height: 0px"></div>
+				<div class="diagrdiv" id="diagramm5_ws2" style="height: 0px"></div>						
 			</div>
 		</div>
 	</div>
