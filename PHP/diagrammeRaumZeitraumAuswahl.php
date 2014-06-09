@@ -24,10 +24,35 @@ if (true) {
 		$mitSonntag = false;
 	}
 	$diagramm1 = $_POST["Diagramm1"];
+	if ($diagramm1 == "true") {
+		$diagramm1 = true;
+	} else { 
+		$diagramm1 = false;
+	}
 	$diagramm2 = $_POST["Diagramm2"];
+	if ($diagramm2 == "true") {
+		$diagramm2 = true;
+	} else { 
+		$diagramm2 = false;
+	}
 	$diagramm3 = $_POST["Diagramm3"];
+	if ($diagramm3 == "true") {
+		$diagramm3 = true;
+	} else { 
+		$diagramm3 = false;
+	}
 	$diagramm4 = $_POST["Diagramm4"];
+	if ($diagramm4 == "true") {
+		$diagramm4 = true;
+	} else { 
+		$diagramm4 = false;
+	}
 	$diagramm5 = $_POST["Diagramm5"];
+	if ($diagramm5 == "true") {
+		$diagramm5 = true;
+	} else { 
+		$diagramm5 = false;
+	}
 } else {	 
 	//debugg
 	$zeitraum = 5;
