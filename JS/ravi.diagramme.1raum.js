@@ -254,7 +254,7 @@ function rd1InitialisiereDiagram(data) {
 		titel = "Belegung des Raumes " + response.raumnr + " pro Wochentag und Stunde <br/>im Zeitraum " + response.datum_begin + " - " + response.datum_ende + "";
 		x_format = '<style="font-size:8px">{value}</style>'
 		titel = rd1ExpandTitle(titel, response.mitSamstag, response.mitSonntag);
-		rdHeatMap("diagramm5", titel, kategorien_x, kategorien_y, daten, 0, 100, legende, hoehe, false, y_max, x_format, 'x');
+		rdHeatMap("diagramm5", titel, kategorien_x, kategorien_y, daten, 0, 100, legende, hoehe, true, y_max, x_format, 'x');
 	}	
 
 	return;
