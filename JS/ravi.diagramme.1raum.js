@@ -77,6 +77,11 @@ function rd1InitialisiereDiagram(data) {
 	// Wartebild entfernen
 	$('#wartebild').css("height", "0px");
 	$('#wartebild').hide();
+//	if ($("#Einzelsicht").is(":checked")){
+	// bla bla show 
+//	}
+	
+	
 	// Daten parsen
 	var response = $.parseJSON(data);	
 	if (response.length == 0)
@@ -254,7 +259,7 @@ function rd1InitialisiereDiagram(data) {
 
 	return;
 }
-
+// wo wird diese Funktion augerufen?!
 function rd1ShowContainer(container, height) {
 	var ws1, ws2;
 	if ((height == "") || (height == null)) {
