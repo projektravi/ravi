@@ -159,9 +159,10 @@ if (isset($_GET["zeitraum"])) {
 					</div>
 					<br/>
 					<!-- Start: Diagrammtyp-->
-					Darstellungstyp:<input type="checkbox" name="infobox" id="info1"></input>
-	<label class="info" for="info1"><img src="./Bilder/info.png" alt="Grafik 1"></label><br />
+					Darstellungstyp:<input type="checkbox" class="closeIMG" name="infobox" id="info1"></input>
+	<label class="info closeIMG" for="info1"><img class="closeIMG" src="./Bilder/info.png" alt="Grafik 1"></label><br />
 	<span class="info1">
+		<label class="closeIMG" id="closeIMG" for="info1">schließen</label>
 		<p>
 			<b>Kreisdiagramm:</b></br>Zeigt die prozentuale Belegung eines Raums zu einem genauen Zeitpunkt in einem Kreisdiagramm an. </br></br>
 			<b>Balkendiagramm:</b></br> Zeigt die durchschnittliche Belegung eines Raums für einen ausgewählten Zeitraum in einem Balkendiagramm an.</br></br>

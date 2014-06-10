@@ -92,3 +92,16 @@ function BindDays() {
 
 	}	
 }
+
+$(document).ready(function(){
+	$(document).click(function(e){
+		var container = $(".info1");
+		var c2 = $(".closeIMG");
+
+	    if (!container.is(e.target) // if the target of the click isn't the container...
+	        && container.has(e.target).length === 0 && !c2.is(e.target)) // ... nor a descendant of the container
+	    {
+	        $("#info1").prop('checked', false);
+	    }
+    })
+});
