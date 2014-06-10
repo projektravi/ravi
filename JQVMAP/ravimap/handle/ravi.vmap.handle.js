@@ -1044,7 +1044,9 @@ $(document).ready(function(){
 				$("path[id*='" + raum + "']").trigger("click");
 				etage(raum, $("#haus :selected").text(), $(".routeMap.sw").length ? $(".routeMap.sw").html().replace("&gt;", "") : null);
 			}else{
-				alertRavi("Der von Ihnen angeforderte Raum ist nicht auf dem Grundriss verfügbar! Sie können Ihn trotzdem auswerten lassen.");
+				if(raum != "Bitte "){
+					alertRavi("Der von Ihnen angeforderte Raum ist nicht auf dem Grundriss verfügbar! Sie können Ihn trotzdem auswerten lassen.");
+				}
 			}
 			already = false;
 		}

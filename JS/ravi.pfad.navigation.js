@@ -29,13 +29,17 @@ $(document).ready(function(){
 				$('#vmap').css("z-index", "5");
 				$('#diagramm0').show();	
 				$('#diagramm1').hide();
-				$('#diagramm2').hide();				
+				$('#diagramm2').hide();
+				$("#standort").val("");
+				$("#standort").change();
 			break;
 			case "campuslichtenberg":
 				$('#vmap2').css("z-index", "5");
 				$('#diagramm0').show();	
 				$('#diagramm1').hide();
 				$('#diagramm2').hide();	
+				$("#haus").val("");
+				$("#haus").change();
 			break;
 			case "campusschoeneberg":
 				$('#vmap4').css("z-index", "5");
@@ -54,24 +58,32 @@ $(document).ready(function(){
 				$('#diagramm0').show();	
 				$('#diagramm1').hide();
 				$('#diagramm2').hide();	
+				$("#raum").val("");
+				$("#raum").change();
 			break;
 			case "haus5":
 				$('#vmap6').css("z-index", "5");
 				$('#diagramm0').show();	
 				$('#diagramm1').hide();
 				$('#diagramm2').hide();	
+				$("#raum").val("");
+				$("#raum").change();
 			break;
 			case "haus6a":
 				$('#vmap7').css("z-index", "5");
 				$('#diagramm0').show();	
 				$('#diagramm1').hide();
 				$('#diagramm2').hide();	
+				$("#raum").val("");
+				$("#raum").change();
 			break;
 			case "haus6b":
 				$('#vmap8').css("z-index", "5");
 				$('#diagramm0').show();	
 				$('#diagramm1').hide();
 				$('#diagramm2').hide();	
+				$("#raum").val("");
+				$("#raum").change();
 			break;
 			default:
 			break;
