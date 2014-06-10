@@ -257,7 +257,7 @@ if (isset($_GET["zeitraum"])) {
 					<br>
 					
 					<input type="button" onClick="rd1FrageDatenAb(false)" value="anzeigen"/>
-					<input type="button" onClick="rd1FrageDatenAb(true)" value="neuen Tab oeffnen"/>
+					<input type="button" onClick="rd1FrageDatenAb(true)" value="in neuem Tab"/>
 				</form>
 			</div>
 		</div>				
