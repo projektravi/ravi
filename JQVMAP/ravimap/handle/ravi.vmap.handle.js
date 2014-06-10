@@ -78,7 +78,7 @@ jQuery(document).ready(function() {
 				$('#vmap5').css("z-index", "1");
 				$('#vmap9').css("z-index", "5");
 				
-				$("#pfad").append("<a class='routeMap' id='stockwerk12og'>> Stockwerk 2 OG</a>");	
+				$("#pfad").append("<a class='routeMap sw' id='stockwerk12og'>> Stockwerk 2 OG</a>");	
 			}
 			
 			if (code == 'haus5'){
@@ -94,7 +94,7 @@ jQuery(document).ready(function() {
 				$('#vmap6').css("z-index", "1");
 				$('#vmap10').css("z-index", "5");
 				
-				$("#pfad").append("<a class='routeMap' id='stockwerk5eg'>> Stockwerk EG</a>");	
+				$("#pfad").append("<a class='routeMap sw' id='stockwerk5eg'>> Stockwerk EG</a>");	
 			}
 			
 			if (code == 'haus6a'){
@@ -192,7 +192,7 @@ jQuery(document).ready(function() {
 				$('#vmap5').css("z-index", "1");
 				$('#vmap9').css("z-index", "5");
 				
-				$("#pfad").append("<a class='routeMap' id='stockwerk12og'>> Stockwerk 2 OG</a>");	
+				$("#pfad").append("<a class='routeMap sw' id='stockwerk12og'>> Stockwerk 2 OG</a>");	
 		     
 			}
 		
@@ -223,7 +223,7 @@ jQuery(document).ready(function() {
 				$('#vmap6').css("z-index", "1");
 				$('#vmap10').css("z-index", "5");
 				
-				$("#pfad").append("<a class='routeMap' id='stockwerk5eg'>> Stockwerk EG</a>");			     
+				$("#pfad").append("<a class='routeMap sw' id='stockwerk5eg'>> Stockwerk EG</a>");			     
 			}
 		
 			if (region == 'NONE'){
@@ -253,7 +253,7 @@ jQuery(document).ready(function() {
 				$('#vmap7').css("z-index", "1");
 				$('#vmap11').css("z-index", "5");
 				
-				$("#pfad").append("<a class='routeMap' id='stockwerk6a1og'>> Stockwerk 1 OG</a>");			     
+				$("#pfad").append("<a class='routeMap sw' id='stockwerk6a1og'>> Stockwerk 1 OG</a>");			     
 			}
 			
 			if (code == 'stockwerk6a3og'){
@@ -261,7 +261,7 @@ jQuery(document).ready(function() {
 				$('#vmap7').css("z-index", "1");
 				$('#vmap12').css("z-index", "5");
 		     
-				$("#pfad").append("<a class='routeMap' id='stockwerk6a3og'>> Stockwerk 3 OG</a>");	
+				$("#pfad").append("<a class='routeMap sw' id='stockwerk6a3og'>> Stockwerk 3 OG</a>");	
 			}
 		
 			if (region == 'NONE'){
@@ -292,7 +292,7 @@ jQuery(document).ready(function() {
 				$('#vmap8').css("z-index", "1");
 				$('#vmap13').css("z-index", "5");
 		     
-				$("#pfad").append("<a class='routeMap' id='stockwerk6beg'>> Stockwerk EG</a>");	
+				$("#pfad").append("<a class='routeMap sw' id='stockwerk6beg'>> Stockwerk EG</a>");	
 			}
 			
 			if (code == 'stockwerk6b1og'){
@@ -300,7 +300,7 @@ jQuery(document).ready(function() {
 				$('#vmap8').css("z-index", "1");
 				$('#vmap14').css("z-index", "5");
 		     
-				$("#pfad").append("<a class='routeMap' id='stockwerk6b1og'>> Stockwerk 1 OG</a>");	
+				$("#pfad").append("<a class='routeMap sw' id='stockwerk6b1og'>> Stockwerk 1 OG</a>");	
 			}
 		
 			if (code == 'stockwerk6b2og'){
@@ -308,7 +308,7 @@ jQuery(document).ready(function() {
 				$('#vmap8').css("z-index", "1");
 				$('#vmap15').css("z-index", "5");
 		     
-				$("#pfad").append("<a class='routeMap' id='stockwerk6b2og'>> Stockwerk 2 OG</a>");	
+				$("#pfad").append("<a class='routeMap sw' id='stockwerk6b2og'>> Stockwerk 2 OG</a>");	
 			}
 			
 			if (code == 'stockwerk6b3og'){
@@ -316,7 +316,7 @@ jQuery(document).ready(function() {
 				$('#vmap8').css("z-index", "1");
 				$('#vmap16').css("z-index", "5");
 		     
-				$("#pfad").append("<a class='routeMap' id='stockwerk6b3og'>> Stockwerk 3 OG</a>");	
+				$("#pfad").append("<a class='routeMap sw' id='stockwerk6b3og'>> Stockwerk 3 OG</a>");	
 			}
 			
 			if (code == 'stockwerk6b4og'){
@@ -324,7 +324,7 @@ jQuery(document).ready(function() {
 				$('#vmap8').css("z-index", "1");
 				$('#vmap17').css("z-index", "5");
 		     
-				$("#pfad").append("<a class='routeMap' id='stockwerk6b4og'>> Stockwerk 4 OG</a>");	
+				$("#pfad").append("<a class='routeMap sw' id='stockwerk6b4og'>> Stockwerk 4 OG</a>");	
 			}
 		
 			if (region == 'NONE'){
@@ -1042,7 +1042,7 @@ $(document).ready(function(){
 			already = true;
 			if($("path[id*='" + raum + "']").length > 0){
 				$("path[id*='" + raum + "']").trigger("click");
-				$("#pfad a:last-child").remove();
+				etage(raum, $("#haus :selected").text(), $(".routeMap.sw").length ? $(".routeMap.sw").html().replace("&gt;", "") : null);
 			}else{
 				alertRavi("Der von Ihnen angeforderte Raum ist nicht auf dem Grundriss verfügbar! Sie können Ihn trotzdem auswerten lassen.");
 			}
@@ -1065,4 +1065,33 @@ function alertRavi(text, isWarning){
 	$("#alertRavi").css("margin-left", ($(window).width()/2)-150);
 	$("#alertRavi").css("margin-top", 0);
 	setTimeout(function(){$("#alertRavi").css("margin-top", -150);setTimeout(function(){$("#alertRavi").remove();}, 1000)}, 5000);
+}
+
+function etage(room, house, eta){
+	if(eta == null){
+		eta = " Stockwerk 1 OG";
+		$("#pfad").append("<a class='routeMap sw' id='stockwerk'></a>");
+	}
+	switch(house){
+		case "Haus 1":
+		case "Haus 5":
+			room = room.substr(room.indexOf(".")+1, 1);
+		break;
+		case "Haus 6A":
+			room = room.substr(room.indexOf("6A")+3, 1);
+		break;
+		case "Haus 6B":
+			room = room.substr(room.indexOf("6B")+3, 1);
+		break;
+	}
+	if(room != "0"){
+		if(eta.substr(11, 1) != "E"){
+			eta = eta.replace(eta.substr(11, 1), room);
+		}else{
+			eta = eta.replace(eta.substring(11, eta.length), room + " OG");
+		}
+	}else{
+		eta = " Stockwerk EG"
+	}
+	$(".routeMap.sw").html(">" + eta);
 }

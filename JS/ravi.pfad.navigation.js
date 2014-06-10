@@ -1,9 +1,16 @@
 $(document).ready(function(){
 
 	$( document ).on( "click", "a.routeMap", function() {
+		var target = $(this).attr("id");
+		if(target != "diagr"){
+	      $(".diagrdiv").hide();
+	      $("#grundrisse").show();
+
+	      if(!$(this).hasClass("sw")){
+
 		  var parent = $(this).parent();
 		  var parentID = $(this).parent().attr("id");
-		  var target = $(this).attr("id");
+		  
 		  var help = 0;
 		  
 		  parent.children(".routeMap").each(function(){
@@ -69,6 +76,9 @@ $(document).ready(function(){
 			default:
 			break;
 		  }
-		  
+		}else{
+			$(".sw + a").remove();
+		}
+		 }
 	});
 });
