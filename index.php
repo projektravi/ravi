@@ -11,13 +11,22 @@
 $showNavigation = "";
 if (isset($_GET["zeitraum"])) {
 	$showNavigation = "display: none";
-?>
-<body onLoad="rd1StarteAuswertung(<?php echo htmlspecialchars($_GET["zeitraum"]) . ',' . htmlspecialchars($_GET["raumid"]) . ',\'' . htmlspecialchars($_GET["raumNr"]) . '\',' . htmlspecialchars($_GET["tag"]) . ',' . htmlspecialchars($_GET["monat"]) . ',' . htmlspecialchars($_GET["jahr"]) . ',' . htmlspecialchars($_GET["mitSamstag"]) . ',' . htmlspecialchars($_GET["mitSonntag"]) ?>)"><!--rmrFrageStandorteAb() -->
-<?php
+	$parameter = htmlspecialchars($_GET["zeitraum"]);
+	$parameter .= ',' . htmlspecialchars($_GET["raumid"]);
+	$parameter .= ',"' . htmlspecialchars($_GET["raumNr"]) . '"';
+	$parameter .= ',' . htmlspecialchars($_GET["tag"]);
+	$parameter .= ',' . htmlspecialchars($_GET["monat"]);
+	$parameter .= ',' . htmlspecialchars($_GET["jahr"]);
+	$parameter .= ',' . htmlspecialchars($_GET["mitSamstag"]);
+	$parameter .= ',' . htmlspecialchars($_GET["mitSonntag"]);
+	$parameter .= ',' . htmlspecialchars($_GET["diagramm1"]);
+	$parameter .= ',' . htmlspecialchars($_GET["diagramm2"]);
+	$parameter .= ',' . htmlspecialchars($_GET["diagramm3"]);
+	$parameter .= ',' . htmlspecialchars($_GET["diagramm4"]);
+	$parameter .= ',' . htmlspecialchars($_GET["diagramm5"]);
+	echo "<body onLoad='rd1StarteAuswertung(" . $parameter . ")'>\n";
 } else {
-?>
-<body>
-<?php
+	echo "<body>\n";
 }
 ?>
 	<div id="header">
