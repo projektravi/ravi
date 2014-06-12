@@ -139,11 +139,11 @@ if (isset($_GET["zeitraum"])) {
 					
 					<!-- Start: Zeitraum -->
 					<p> Zeitraum:<br>
-						<input type="radio" name="zeitraum" value="1" onChange="showAllDiagrammtypen();$('#trbalkendiagramm').hide();$( '#Gesamtsicht').prop('checked', false);$('#trflaechendiagramm').hide();$( '#Flaechendiagramm').prop('checked', false)"> 1 Tag<br>
-						<input type="radio" name="zeitraum" value="2" onChange="showAllDiagrammtypen();$('#trflaechendiagramm').hide();$( '#Flaechendiagramm').prop('checked', false);$( '#Gesamtsicht').prop('checked', true);"> 7 Tage<br>
-						<input type="radio" name="zeitraum" value="3" onChange="showAllDiagrammtypen();$('#trflaechendiagramm').hide();$( '#Flaechendiagramm').prop('checked', false);$( '#Gesamtsicht').prop('checked', true);"> 4 Wochen<br>
-						<input type="radio" name="zeitraum" value="4" onChange="showAllDiagrammtypen();$( '#Flaechendiagramm').prop('checked', true);$( '#Gesamtsicht').prop('checked', true);"> 6 Monate<br>
-						<input type="radio" name="zeitraum" value="5" onChange="showAllDiagrammtypen();$( '#Flaechendiagramm').prop('checked', true);$( '#Gesamtsicht').prop('checked', true);"> 12 Monate									
+						<input type="radio" name="zeitraum" value="1" onChange="showAllDiagrammtypen();$('#trbalkendiagramm').hide();$('#trflaechendiagramm').hide();"> 1 Tag<br>
+						<input type="radio" name="zeitraum" value="2" onChange="showAllDiagrammtypen();$('#trflaechendiagramm').hide();"> 7 Tage<br>
+						<input type="radio" name="zeitraum" value="3" onChange="showAllDiagrammtypen();$('#trflaechendiagramm').hide();"> 4 Wochen<br>
+						<input type="radio" name="zeitraum" value="4" onChange="showAllDiagrammtypen();"> 6 Monate<br>
+						<input type="radio" name="zeitraum" value="5" onChange="showAllDiagrammtypen();"> 12 Monate									
 					</p>
 					<!-- Ende: Zeitraum -->
 					<div id="accordion">
@@ -259,6 +259,8 @@ if (isset($_GET["zeitraum"])) {
 					
 					<input type="button" onClick="rd1FrageDatenAb(false)" value="anzeigen"/>
 					<input type="button" onClick="rd1FrageDatenAb(true)" value="in neuem Tab"/>
+
+
 				</form>
 			</div>
 		</div>				
