@@ -1025,6 +1025,7 @@ $(document).ready(function(){
 
 	$("#raum").change(function(){
 		var raum = $("#raum :selected").text();
+		var xpw;
 		if($("#haus :selected").text() == "Haus 6A"){
 			raum = raum.substring(0, 6);
 		}else if($("#haus :selected").text() == "Haus 6B"){
@@ -1035,8 +1036,10 @@ $(document).ready(function(){
 			}
 		}else if($("#haus :selected").text() == "Haus 5"){
 			raum = raum.replace("0.", ".0");
+			xpw = raum;
 		}else if($("#haus :selected").text() == "Haus 1"){
 			raum = raum.replace("2.", ".2");
+			xpw = raum;
 		}
 		if(!already){
 			already = true;
@@ -1044,7 +1047,7 @@ $(document).ready(function(){
 				$("path[id*='" + raum + "']").trigger("click");
 				etage(raum, $("#haus :selected").text(), $(".routeMap.sw").length ? $(".routeMap.sw").html().replace("&gt;", "") : null);
 			}else{
-				if(raum != "Bitte "){
+				if(raum != "Bitte " && raum != xpw){
 					alertRavi("Der von Ihnen angeforderte Raum ist nicht auf dem Grundriss verfügbar! Sie können Ihn trotzdem auswerten lassen.");
 				}
 			}

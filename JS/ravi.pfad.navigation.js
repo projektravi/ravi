@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
 	$( document ).on( "click", "a.routeMap", function() {
+		$("path[fill='#d92425']").attr("fill", "#dddddd");
 		var target = $(this).attr("id");
 		if(target != "diagr"){
 	      $(".diagrdiv").hide();
@@ -54,20 +55,22 @@ $(document).ready(function(){
 				$('#diagramm2').hide();	
 			break;
 			case "haus1":
-				$('#vmap5').css("z-index", "5");
+				$('#vmap9').css("z-index", "5");
 				$('#diagramm0').show();	
 				$('#diagramm1').hide();
 				$('#diagramm2').hide();	
 				$("#raum").val("");
 				$("#raum").change();
+				$("#pfad").append("<a class='routeMap sw' id='stockwerk12og'>> Stockwerk 2 OG</a>");
 			break;
 			case "haus5":
-				$('#vmap6').css("z-index", "5");
+				$('#vmap10').css("z-index", "5");
 				$('#diagramm0').show();	
 				$('#diagramm1').hide();
 				$('#diagramm2').hide();	
 				$("#raum").val("");
 				$("#raum").change();
+				$("#pfad").append("<a class='routeMap sw' id='stockwerk5eg'>> Stockwerk EG</a>");
 			break;
 			case "haus6a":
 				$('#vmap7').css("z-index", "5");
