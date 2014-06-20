@@ -257,7 +257,7 @@ if (isset($_GET["zeitraum"])) {
 								<input id="Heatmap" type="checkbox" name="Map" value="heat" checked>
 							</td>
 							<td>	
-								<span class="hover"><label for ="Heatmap"><img src="./Bilder/heatmap.jpg"><span class="infobox">&nbsp;Heatmap&nbsp;</span></span>
+								<span class="hover"><label for ="Heisskarte"><img src="./Bilder/heatmap.jpg"><span class="infobox">&nbsp;Heatmap&nbsp;</span></span>
 							</td>
 							<td>
 							 Heatmap

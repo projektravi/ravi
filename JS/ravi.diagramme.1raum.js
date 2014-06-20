@@ -1,5 +1,8 @@
 function rd1PruefeEingabe() {
-	if ((($("#Einzelsicht").is(":visible") && ($("#Einzelsicht").is(":checked") == false)) || ($("#Gesamtsicht").is(":visible") && ($("#Gesamtsicht").is(":checked") == false))) || ($("#Heatmap").is(":visible") && ($("#Heatmap").is(":checked") == false)) || ($("#Flaechendiagramm").is(":visible") && ($("#Flaechendiagramm").is(":checked") == false))) {
+	if ((($("#Einzelsicht").is(":visible") && $("#Einzelsicht").is(":checked") == false) || $("#Einzelsicht").is(":visible") == false) 
+	&& 	(($("#Gesamtsicht").is(":visible") && $("#Gesamtsicht").is(":checked") == false) || $("#Gesamtsicht").is(":visible") == false)
+	&& 	(($("#Heatmap").is(":visible") && $("#Heatmap").is(":checked") == false) || $("#Heatmap").is(":visible") == false) 
+	&& 	(($("#Flaechendiagramm").is(":visible") && $("#Flaechendiagramm").is(":checked") == false) || $("#Flaechendiagramm").is(":visible") == false)) {
 		$('#grundrisse').show();
 		alertRavi("Bitte waehlen Sie den Darstellungstyp!", true);
 		return false;
