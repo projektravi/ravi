@@ -283,10 +283,10 @@ function rdSetOptions() {
 			downloadPNG: 'Diagramm als <b>PNG</b> abspeichern',
 			downloadSVG: 'Diagramm als <b>SVG</b> abspeichern',
 			printChart: 'Diagramm drucken',
-			resetZoom: 'Zoom zuruecksetzen',
+			resetZoom: 'Zoom zur\u00fccksetzen',
 			resetZoomTitle: 'Zoomansicht 1:1',
-			months: ['Januar', 'Februar', 'Maerz', 'April', 'Mai', 'Juni',  'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
-			shortMonths: ['Jan', 'Feb', 'Maer', 'Apr', 'Mai', 'Jun',  'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+			months: ['Januar', 'Februar', 'M\u00e4rz', 'April', 'Mai', 'Juni',  'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+			shortMonths: ['Jan', 'Feb', 'M\u00e4r', 'Apr', 'Mai', 'Jun',  'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
 			weekdays: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag']
 		}
 	});
