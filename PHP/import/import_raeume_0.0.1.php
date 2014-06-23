@@ -1,6 +1,7 @@
 <?php
 
 // Datei öffnen
+echo "Lege Standorte, Gebäude und Räume an ..";
 $datei = file("raeume.csv");
 // Auslesen
 foreach ($datei AS $ausgabe) {
@@ -36,6 +37,7 @@ foreach ($datei AS $ausgabe) {
 	if (setEigenschaft($raum_id, $zerlegen[3]) == false)
 		break;
 }
+echo ". erfolgreich!<br>";
 
 // globale Funktionen
 function manipuliereStandort($standort_name) {
@@ -141,11 +143,11 @@ function manipuliereRaum($gebaeude_name, $raum_name) {
 function manipuliereRaumHaus6B($raum_name) {
 	myLog("Manipuliere Raum: $raum_name");
 	if (strlen($raum_name) < 6) {
-		myError("Raumname zu kurz");
+		myLog("Raumname zu kurz");
 		return "";
 	}
 	if (($raum_name == "6B 251/252") || ($raum_name == "6B 277/278  +V") || ($raum_name == "6B 251/252") || ($raum_name == "6B kein Raum") || ($raum_name == "6B kein Raum mit Beamer")) {
-		myError("Raum nicht zuordbar");
+		myLog("Raum nicht zuordbar");
 		return "";
 	}
 	if ($raum_name == "Z 6B 350 a") {
@@ -163,7 +165,7 @@ function manipuliereRaumHaus6B($raum_name) {
 function manipuliereRaumHaus6A($raum_name) {
 	myLog("Manipuliere Raum: $raum_name");
 	if (strlen($raum_name) < 6) {
-		myError("Raumname zu kurz");
+		myLog("Raumname zu kurz");
 		return "";
 	}
 	$raum_name = substr($raum_name,0,6);
@@ -179,7 +181,7 @@ function manipuliereRaumHaus1($raum_name) {
 	$raum_name = substr($raum_name,0,1).'.'.substr($raum_name,1);
 	myLog("Manipulierter Raum: $raum_name");
 	if (($raum_name != "1.2065") && ($raum_name != "1.2066") && ($raum_name != "1.2067") && ($raum_name != "1.2068")) {
-		myError("Raum nicht verwendbar");
+		myLog("Raum nicht verwendbar");
 		return "";
 	}
 	return $raum_name;

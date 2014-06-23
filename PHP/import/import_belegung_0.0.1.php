@@ -1,9 +1,10 @@
 <?php
 
+echo "Importiere Belegung ..";
 // Datei öffnen
 $datei = file("belegung.csv");
 // Auslesen
-foreach ($datei AS $ausgabe) {
+foreach ($datei AS $ausgabe) {	
 	$zerlegen = explode(";", $ausgabe);
 	// 1. Zeile (Header) überspringen
 	if ($zerlegen[0] == "time_update")
@@ -35,6 +36,7 @@ foreach ($datei AS $ausgabe) {
 	if (addBuchung($belegung_id, $zerlegen[9], $buchung_am, $buchung_fuer, $start, $ende) == false)
 		break;
 }
+echo ". erfolgreich!<br>";
 
 // globale Funktionen
 function existiertRaumID($raum_id) {
@@ -70,7 +72,7 @@ function getBelegungID() {
 function getBuchungAm($datum_unformatiert) {
 	myLog("Ermittle Buchungsdatum aus Vorgabe: $datum_unformatiert");
 	if (strlen($datum_unformatiert) < 10) {
-		myError("Ungültiges Buchgungsdatum: $datum_unformatiert - Länge: " . strlen($datum_unformatiert));
+		myLog("Ungültiges Buchgungsdatum: $datum_unformatiert - Länge: " . strlen($datum_unformatiert));
 		return -1;
 	}	
 	$datum_formatiert = substr($datum_unformatiert, 6, 4) . "-" . substr($datum_unformatiert, 3, 2) . "-" . substr($datum_unformatiert, 0, 2);
@@ -111,7 +113,7 @@ function getEndeZeit($unformatierte_zeit) {
 function formatiereZeit($unformatierte_zeit) {
 	myLog("Ermittle Zeit aus Vorgabe: $unformatierte_zeit");
 	if (strlen($unformatierte_zeit) < 5) {
-		myError("Ungültiges Zeitformat: $unformatierte_zeit");
+		myLog("Ungültiges Zeitformat: $unformatierte_zeit");
 		return -1;
 	}	
 	$zeit_formatiert = $unformatierte_zeit . ":00";

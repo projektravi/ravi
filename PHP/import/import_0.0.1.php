@@ -1,7 +1,11 @@
 <?php
 
+echo "Starte Import.<br><br>";
 // DB-Verbindung aufbauen
-include("..\dbconnect.php");
+mysql_connect("localhost", "root","") or die ("Keine Verbindung moeglich");
+
+// Datenbank anlegen
+include("generiere_datenbank_0.0.1.php");
 
 // Räume importieren
 include("import_raeume_0.0.1.php");
@@ -12,9 +16,11 @@ include("import_belegung_0.0.1.php");
 // DB-Verbindung beenden
 include("..\dbdisconnect.php");  
 
+echo "<br>Import erfolgreich beendet!";
+
 // globale Funktionen
 function myLog($log) {
-	$isLog = true;
+	$isLog = false;
 	if ($isLog)
 		echo "$log<br>";
 }
