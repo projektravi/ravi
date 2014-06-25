@@ -4,17 +4,17 @@ function rd1PruefeEingabe() {
 	&& 	(($("#Heatmap").is(":visible") && $("#Heatmap").is(":checked") == false) || $("#Heatmap").is(":visible") == false) 
 	&& 	(($("#Flaechendiagramm").is(":visible") && $("#Flaechendiagramm").is(":checked") == false) || $("#Flaechendiagramm").is(":visible") == false)) {
 		$('#grundrisse').show();
-		alertRavi("Bitte waehlen Sie den Darstellungstyp!", true);
+		alertRavi("Bitte w\u00e4hlen Sie den Darstellungstyp!", true);
 		return false;
 	}
 	else if (document.menu.raum.selectedIndex == 0) {
 		$('#grundrisse').show();
-		alertRavi("Bitte waehlen Sie zuerst einen Raum!", true);
+		alertRavi("Bitte w\u00e4hlen Sie zuerst einen Raum!", true);
 		return false;
 	}
 	else if ($("input[name='zeitraum']:checked").length == 0) {
 		$('#grundrisse').show();
-		alertRavi("Bitte waehlen Sie noch einen Zeitraum!", true);
+		alertRavi("Bitte w\u00e4hlen Sie noch einen Zeitraum!", true);
 		return false;
 	}
 	
